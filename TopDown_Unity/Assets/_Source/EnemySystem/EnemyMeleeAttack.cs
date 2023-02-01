@@ -1,44 +1,62 @@
-using System;
-using System.Linq;
+using System.Collections;
+using EnemySystem.Data;
 using UnityEngine;
+using Until;
 
 namespace EnemySystem
 {
     public class EnemyMeleeAttack : MonoBehaviour
     {
-        [SerializeField] private int damage;
-        [SerializeField] private float attackPause; // Неизменаеммое время паузы между аттаками
-        [SerializeField] private LayerMask layer;
+        [SerializeField] private EnemyCharacteristicsSO enemyCharacteristicsSO;
 
-        private float _attackPause; // Изменаеммое время паузы между аттаками
+        private GameObject _target;
 
-        private void Update()
+        private void OnTriggerEnter2D(Collider2D col)
         {
-            if (_attackPause > 0)
+            if (enemyCharacteristicsSO.Layer.Contains(col.gameObject.layer))
             {
-                _attackPause -= Time.deltaTime;
+                _target = col.gameObject;
+                
+                StartCoroutine(CheckRange());
             }
         }
-
-        private void OnCollisionStay2D(Collision2D collision)
+        
+        private void OnTriggerExit2D(Collider2D col)
         {
-            if ((layer.value & (1 << collision.gameObject.layer)) != 0
-                && _attackPause <= 0)
+            if (enemyCharacteristicsSO.Layer.Contains(col.gameObject.layer))
             {
-                Attack();
+                _target = null;
+                StopAllCoroutines();
             }
         }
 
         private void Attack()
         {
-            Debug.Log($"Урон = {damage}");
-            
-            _attackPause = attackPause;
+            if (_target != null)
+            {
+                Debug.Log($"Урон = {enemyCharacteristicsSO.Damage}");
+                
+                StartCoroutine(DelayAttack());
+            }
         }
 
-        // private bool CheckAttackPause() // Проверка может враг атакавать или нет
-        // {
-        //     return _attackPause <= 0;
-        // }
+        private IEnumerator CheckRange() // Проверяет растоянние между врагом и игроком
+        {
+            if (Vector2.Distance(transform.position, _target.transform.position) < enemyCharacteristicsSO.RadiusAttack)
+            {
+                Attack();
+                
+                yield break;
+            }
+
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+            StartCoroutine(CheckRange());
+        }
+        
+        private IEnumerator DelayAttack() // Ведёс отсчёт до следующей атаки
+        {
+            yield return new WaitForSeconds(enemyCharacteristicsSO.DelayAttack);
+            StartCoroutine(CheckRange());
+        }
     }
 }

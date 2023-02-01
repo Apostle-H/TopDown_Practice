@@ -1,46 +1,70 @@
-﻿using UnityEngine;
+﻿using System;
+using System.Collections;
+using EnemySystem.Data;
+using UnityEngine;
+using Until;
 
 namespace EnemySystem
 {
     public class EnemyRangeAttack : MonoBehaviour
     {
-        [SerializeField] private int damage;
-        [SerializeField] private int distanceAttack;
-        [SerializeField] private float attackPause; // Неизменаеммое время паузы между аттаками
-        [SerializeField] private Transform lineStartPoint; // начальная точка откуда идёт луч для Raycast
-        [SerializeField] private LayerMask layer;
+        [SerializeField] private EnemyCharacteristicsSO enemyCharacteristicsSO;
 
-        private float _attackPause; // Изменаеммое время паузы между аттаками
+        private GameObject _target;
+        private CircleCollider2D _collider2D;
+
+        private void Start()
+        {
+            _collider2D = GetComponent<CircleCollider2D>();
+            _collider2D.radius = enemyCharacteristicsSO.RadiusAttack;
+        }
 
         private void Update()
         {
-            if (_attackPause > 0)
+            if (_target != null 
+                && Vector2.Distance(transform.position, _target.transform.position) < enemyCharacteristicsSO.RadiusAttack)
             {
-                _attackPause -= Time.deltaTime;
+                TurningTowardsTheTarget();
             }
-            else if (BeamTouchCheck())
+        }
+        private void OnTriggerEnter2D(Collider2D col)
+        {
+            if (enemyCharacteristicsSO.Layer.Contains(col.gameObject.layer))
             {
-                Attack();
+                _target = col.gameObject;
+                
+                StartCoroutine(Timer());
             }
         }
 
-        private bool BeamTouchCheck() // Проверяет, что задел луч, если игрок, то вернёт True, иначе False
+        private void OnTriggerExit2D(Collider2D col)
         {
-            RaycastHit2D hit = Physics2D.Raycast(lineStartPoint.position, lineStartPoint.TransformDirection(Vector3.right), distanceAttack);
-            
-            if ((layer.value & (1 << hit.collider.gameObject.layer)) != 0)
+            if (enemyCharacteristicsSO.Layer.Contains(col.gameObject.layer))
             {
-                return true;
+                _target = null;
             }
-            
-            return false;
+        }
+        
+        private void TurningTowardsTheTarget() // Поворот к цели
+        {
+            var direction = _target.transform.position - transform.position;
+            transform.right = Vector2.Lerp(transform.right, direction, enemyCharacteristicsSO.RotateSpeed * Time.deltaTime);
         }
 
         private void Attack()
         {
-            Debug.Log($"Вижу цель и атакую с уроно {damage}");
-            
-            _attackPause = attackPause;
+            if (_target != null)
+            {
+                Debug.Log($"Урон = {enemyCharacteristicsSO.Damage} по {_target.name}");
+
+                StartCoroutine(Timer());
+            }
+        }
+        
+        private IEnumerator Timer()
+        {
+            yield return new WaitForSeconds(enemyCharacteristicsSO.DelayAttack);
+            Attack();
         }
     }
 }

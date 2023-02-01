@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PlayerSystem.Data.Shooting
 {
-    [CreateAssetMenu(menuName = "SO/PlayerSystem/Shooting/ProjectileSettings")]
+    [CreateAssetMenu(menuName = "SO/PlayerSystem/Shooting/ProjectileSettings", fileName = "NewProjectileSettings")]
     public class ProjectileSettingsSO : ScriptableObject
     {
         [field: SerializeField] public float Damage { get; private set; }

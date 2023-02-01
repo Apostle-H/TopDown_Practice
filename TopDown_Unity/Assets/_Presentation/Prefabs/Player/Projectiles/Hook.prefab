@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4150781123935687502}
   - component: {fileID: 4150781123935687497}
   - component: {fileID: 6970968914741634559}
+  - component: {fileID: 6982070152461150569}
   m_Layer: 7
   m_Name: Hook
   m_TagString: Untagged
@@ -49,9 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingsSO: {fileID: 11400000, guid: 817bfdda6618e684bab00cfcf31aed3d, type: 2}
   rb: {fileID: 4150781123935687497}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  enemyCarryJoint: {fileID: 6982070152461150569}
 --- !u!212 &4150781123935687502
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -124,7 +123,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &6970968914741634559
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,9 +134,27 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
+--- !u!255 &6982070152461150569
+FixedJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4150781123935687499}
+  m_Enabled: 0
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 1
+  m_Anchor: {x: 0, y: 1}
+  m_ConnectedAnchor: {x: 0, y: 0.3}
+  m_DampingRatio: 0
+  m_Frequency: 0

@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: TestHook
   m_EditorClassIdentifier: 
   <Speed>k__BackingField: 5
+  <PlayerMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
+  <EnemyMask>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 8

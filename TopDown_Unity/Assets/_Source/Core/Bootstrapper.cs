@@ -17,8 +17,8 @@ namespace Core
         [SerializeField] private Transform playerProjectilesHolder;
         [SerializeField] private Transform playerFirePoint;
         [SerializeField] private Transform playerGunPivotPoint;
-        [SerializeField] private GameObject projectilePrefab;
         [SerializeField] private ShooterSettingsSO playerShooterSettingsSO;
+        [SerializeField] private HookShooterSettingsSO playerHookShooterSettingsSO;
         
         private InputHandler _input;
 
@@ -27,6 +27,7 @@ namespace Core
         private ShooterRotator _playerShooterRotator;
         private ProjectilePool _playerProjectilePool;
         private Shooter _playerShooter;
+        private HookShooter _playerHookShooter;
 
         private Game _game;
 
@@ -42,12 +43,15 @@ namespace Core
 
         private void InitPlayer()
         {
-            _playerProjectilePool = new ProjectilePool(playerShooterSettingsSO.ShootDelay, projectilePrefab, playerProjectilesHolder);
+            _playerProjectilePool = new ProjectilePool(playerShooterSettingsSO.ShootDelay, playerShooterSettingsSO.ProjectilePrefab, playerProjectilesHolder);
+            Hook hook = Instantiate(playerHookShooterSettingsSO.HookPrefab, playerProjectilesHolder).GetComponent<Hook>();
+            hook.gameObject.SetActive(false);
             
             _playerMover = new Mover(playerRb, playerMoverSettingSO);
             _playerShooterRotator = new ShooterRotator(playerGunPivotPoint);
             _playerShooter = new Shooter(playerFirePoint, _playerProjectilePool, playerShooterSettingsSO);
-            _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, _playerShooterRotator, _playerShooter);
+            _playerHookShooter = new HookShooter(playerFirePoint, hook, playerHookShooterSettingsSO);
+            _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, _playerShooterRotator, _playerShooter, _playerHookShooter);
         }
     }
 }

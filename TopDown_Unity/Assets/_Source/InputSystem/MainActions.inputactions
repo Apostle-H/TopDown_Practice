@@ -87,6 +87,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Hook",
+                    "type": "Button",
+                    "id": "b5be453c-0720-4bbe-a59a-c0344f6b1b1c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "MousePos",
                     "type": "Value",
                     "id": "52cf077b-74c7-45ca-ad1e-22f10c416579",
@@ -116,6 +125,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "MousePos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ed71573-7b6d-490f-aebb-e5bde9282504",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hook",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

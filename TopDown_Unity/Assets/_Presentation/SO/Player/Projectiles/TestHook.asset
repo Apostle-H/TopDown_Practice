@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a012f9a69dda44e79a920655403e36b6, type: 3}
-  m_Name: PlayerShooterSettings
+  m_Script: {fileID: 11500000, guid: 1e841071c0784782bc70b8242db7a377, type: 3}
+  m_Name: TestHook
   m_EditorClassIdentifier: 
-  <ShootDelay>k__BackingField: 0.5
-  <ProjectilePrefab>k__BackingField: {fileID: 5225570647966773025, guid: b9b872a92d93e454f81c97be41cdfe4a, type: 3}
+  <Speed>k__BackingField: 5

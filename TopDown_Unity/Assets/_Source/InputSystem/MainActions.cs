@@ -111,6 +111,15 @@ namespace InputSystem
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Hook"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5be453c-0720-4bbe-a59a-c0344f6b1b1c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""MousePos"",
                     ""type"": ""Value"",
                     ""id"": ""52cf077b-74c7-45ca-ad1e-22f10c416579"",
@@ -142,6 +151,17 @@ namespace InputSystem
                     ""action"": ""MousePos"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9ed71573-7b6d-490f-aebb-e5bde9282504"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Hook"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -154,6 +174,7 @@ namespace InputSystem
             // Attack
             m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
             m_Attack_Shoot = m_Attack.FindAction("Shoot", throwIfNotFound: true);
+            m_Attack_Hook = m_Attack.FindAction("Hook", throwIfNotFound: true);
             m_Attack_MousePos = m_Attack.FindAction("MousePos", throwIfNotFound: true);
         }
 
@@ -248,12 +269,14 @@ namespace InputSystem
         private readonly InputActionMap m_Attack;
         private IAttackActions m_AttackActionsCallbackInterface;
         private readonly InputAction m_Attack_Shoot;
+        private readonly InputAction m_Attack_Hook;
         private readonly InputAction m_Attack_MousePos;
         public struct AttackActions
         {
             private @MainActions m_Wrapper;
             public AttackActions(@MainActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @Shoot => m_Wrapper.m_Attack_Shoot;
+            public InputAction @Hook => m_Wrapper.m_Attack_Hook;
             public InputAction @MousePos => m_Wrapper.m_Attack_MousePos;
             public InputActionMap Get() { return m_Wrapper.m_Attack; }
             public void Enable() { Get().Enable(); }
@@ -267,6 +290,9 @@ namespace InputSystem
                     @Shoot.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnShoot;
                     @Shoot.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnShoot;
                     @Shoot.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnShoot;
+                    @Hook.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnHook;
+                    @Hook.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnHook;
+                    @Hook.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnHook;
                     @MousePos.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnMousePos;
                     @MousePos.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnMousePos;
                     @MousePos.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnMousePos;
@@ -277,6 +303,9 @@ namespace InputSystem
                     @Shoot.started += instance.OnShoot;
                     @Shoot.performed += instance.OnShoot;
                     @Shoot.canceled += instance.OnShoot;
+                    @Hook.started += instance.OnHook;
+                    @Hook.performed += instance.OnHook;
+                    @Hook.canceled += instance.OnHook;
                     @MousePos.started += instance.OnMousePos;
                     @MousePos.performed += instance.OnMousePos;
                     @MousePos.canceled += instance.OnMousePos;
@@ -291,6 +320,7 @@ namespace InputSystem
         public interface IAttackActions
         {
             void OnShoot(InputAction.CallbackContext context);
+            void OnHook(InputAction.CallbackContext context);
             void OnMousePos(InputAction.CallbackContext context);
         }
     }

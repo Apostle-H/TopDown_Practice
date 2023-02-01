@@ -12,13 +12,15 @@ namespace PlayerSystem.Movement
 
         private Transform _transform;
         private Mover _mover;
+        private ShooterRotator _shooterRotator;
         private Shooter _shooter;
-        
-        public PlayerInvoker(InputHandler input, Transform transform, Mover mover, Shooter shooter)
+
+        public PlayerInvoker(InputHandler input, Transform transform, Mover mover, ShooterRotator shooterRotator, Shooter shooter)
         {
             _input = input;
             _transform = transform;
             _mover = mover;
+            _shooterRotator = shooterRotator;
             _shooter = shooter;
         }
 
@@ -48,7 +50,7 @@ namespace PlayerSystem.Movement
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
             float rotationAngle = Mathf.Atan2(mousePos.y - _transform.position.y, mousePos.x - _transform.position.x) * (180/Mathf.PI) - 90;
-            _shooter.Rotate(rotationAngle);
+            _shooterRotator.Rotate(rotationAngle);
         }
     }
 }

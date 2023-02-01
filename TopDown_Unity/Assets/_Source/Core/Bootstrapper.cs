@@ -24,6 +24,7 @@ namespace Core
 
         private PlayerInvoker _playerInvoker;
         private Mover _playerMover;
+        private ShooterRotator _playerShooterRotator;
         private ProjectilePool _playerProjectilePool;
         private Shooter _playerShooter;
 
@@ -44,8 +45,9 @@ namespace Core
             _playerProjectilePool = new ProjectilePool(playerShooterSettingsSO.ShootDelay, projectilePrefab, playerProjectilesHolder);
             
             _playerMover = new Mover(playerRb, playerMoverSettingSO);
-            _playerShooter = new Shooter(playerFirePoint, playerGunPivotPoint, _playerProjectilePool, playerShooterSettingsSO);
-            _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, _playerShooter);
+            _playerShooterRotator = new ShooterRotator(playerGunPivotPoint);
+            _playerShooter = new Shooter(playerFirePoint, _playerProjectilePool, playerShooterSettingsSO);
+            _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, _playerShooterRotator, _playerShooter);
         }
     }
 }

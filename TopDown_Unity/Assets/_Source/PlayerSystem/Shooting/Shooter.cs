@@ -1,4 +1,3 @@
-using System.Collections;
 using DG.Tweening;
 using PlayerSystem.Data.Shooting;
 using PlayerSystem.Shooting.Projectiles;

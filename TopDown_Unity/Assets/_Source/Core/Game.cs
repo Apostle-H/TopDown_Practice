@@ -1,7 +1,5 @@
 using InputSystem;
 using PlayerSystem.Movement;
-using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace Core
 {

@@ -35,6 +35,7 @@ namespace PlayerSystem.Movement
             _input.MovementActions.Direction.performed -= UpdateDirection;
             _input.MovementActions.Direction.canceled -= UpdateDirection;
             _input.AttackActions.Shoot.performed -= Shoot;
+            _input.AttackActions.MousePos.performed -= RotateGun;
         }
 
         private void UpdateDirection(InputAction.CallbackContext ctx) =>

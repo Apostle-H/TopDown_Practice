@@ -15,6 +15,7 @@ MonoBehaviour:
   <Hp>k__BackingField: 21
   <Damage>k__BackingField: 15
   <RadiusAttack>k__BackingField: 1
+  <MoveSpeed>k__BackingField: 2
   <RotateSpeed>k__BackingField: 2
   <DelayAttack>k__BackingField: 3
   <Layer>k__BackingField:

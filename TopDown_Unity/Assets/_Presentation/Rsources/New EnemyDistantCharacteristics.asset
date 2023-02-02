@@ -9,14 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366111f369b341ba97e1c1669257b27e, type: 3}
-  m_Name: RangeEnemy
+  m_Script: {fileID: 11500000, guid: 75144fde8ca64b0ebdc690a5b384dc7e, type: 3}
+  m_Name: New EnemyDistantCharacteristics
   m_EditorClassIdentifier: 
   <Hp>k__BackingField: 5
-  <Damage>k__BackingField: 5
-  <RadiusAttack>k__BackingField: 5
-  <RotateSpeed>k__BackingField: 2
-  <DelayAttack>k__BackingField: 2
+  <Damage>k__BackingField: 2
+  <RadiusAttack>k__BackingField: 10
+  <RotateSpeed>k__BackingField: 3
+  <DelayAttack>k__BackingField: 3
   <Layer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
+  <Projectile>k__BackingField: {fileID: 8257907135691272682, guid: 7dbe5424e4232d146872e3744ee02689, type: 3}

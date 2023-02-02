@@ -1,7 +1,9 @@
 using System;
 using DG.Tweening;
-using EntitySystem.Data.Shooting;
+using EntitySystem.Data.Combat.Projectiles;
+using EntitySystem.Health;
 using UnityEngine;
+using Utils;
 
 namespace EntitySystem.Shooting.Projectiles
 {
@@ -21,8 +23,15 @@ namespace EntitySystem.Shooting.Projectiles
             InitSequence();
         }
 
-        private void OnCollisionEnter2D(Collision2D col)
+        private void OnTriggerEnter2D(Collider2D other)
         {
+            Debug.Log(other.gameObject.name);
+            Damage(other);
+
+            if (settingsSO.StayTillLifeTime || settingsSO.IgnoreMask.Contains(other.gameObject.layer))
+            {
+                return;
+            }
             Kill();
         }
 
@@ -32,6 +41,18 @@ namespace EntitySystem.Shooting.Projectiles
             _killSequence.Restart();
         }
 
+        private void Damage(Collider2D other)
+        {
+            Damageable target;
+            if (!settingsSO.TargetMask.Contains(other.gameObject.layer) || 
+                (target = other.gameObject.GetComponent<Damageable>()) == null)
+            {
+                return;
+            }
+
+            target.TakeDamage(settingsSO.Damage);
+        }
+        
         private void Kill()
         {
             if (!gameObject.activeSelf)
@@ -49,7 +70,7 @@ namespace EntitySystem.Shooting.Projectiles
             _killSequence = DOTween.Sequence();
             _killSequence.Pause();
             _killSequence.SetAutoKill(false);
-
+            
             _killSequence.AppendInterval(settingsSO.LifeTime);
             _killSequence.AppendCallback(Kill);
         }

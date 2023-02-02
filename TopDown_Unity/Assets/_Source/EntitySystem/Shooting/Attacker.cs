@@ -1,13 +1,13 @@
 using DG.Tweening;
-using EntitySystem.Data.Shooting;
+using EntitySystem.Data.Combat;
 using EntitySystem.Shooting.Projectiles;
 using UnityEngine;
 
 namespace EntitySystem.Shooting
 {
-    public class Shooter
+    public class Attacker
     {
-        private ShooterSettingsSO _settingsSO;
+        private AttackerSettingsSO _settingsSO;
         protected Transform _firePoint;
 
         private ProjectilePool _pool;
@@ -17,7 +17,7 @@ namespace EntitySystem.Shooting
         private Sequence _shootDelayer;
         private bool _canShoot;
 
-        public Shooter(Transform firePoint, ProjectilePool pool, ShooterSettingsSO settingsSO)
+        public Attacker(Transform firePoint, ProjectilePool pool, AttackerSettingsSO settingsSO)
         {
             _firePoint = firePoint;
             _pool = pool;

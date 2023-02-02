@@ -1,6 +1,6 @@
 using System;
+using EntitySystem.Data.Combat;
 using EntitySystem.Shooting.Projectiles;
-using EntitySystem.Data.Shooting;
 using UnityEngine;
 
 namespace EntitySystem.Shooting

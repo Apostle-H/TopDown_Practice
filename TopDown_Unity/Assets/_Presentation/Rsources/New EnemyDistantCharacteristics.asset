@@ -13,11 +13,7 @@ MonoBehaviour:
   m_Name: New EnemyDistantCharacteristics
   m_EditorClassIdentifier: 
   <Hp>k__BackingField: 5
-  <Damage>k__BackingField: 2
-  <RadiusAttack>k__BackingField: 10
   <RotateSpeed>k__BackingField: 3
-  <DelayAttack>k__BackingField: 3
-  <Layer>k__BackingField:
+  <TargetLayer>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
-  <Projectile>k__BackingField: {fileID: 8257907135691272682, guid: 7dbe5424e4232d146872e3744ee02689, type: 3}

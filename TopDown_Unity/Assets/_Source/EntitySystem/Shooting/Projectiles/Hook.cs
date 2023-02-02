@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 using DG.Tweening;
-using EntitySystem.Data.Shooting;
+using EntitySystem.Data.Combat.Projectiles;
 using UnityEngine;
 using Utils;
 

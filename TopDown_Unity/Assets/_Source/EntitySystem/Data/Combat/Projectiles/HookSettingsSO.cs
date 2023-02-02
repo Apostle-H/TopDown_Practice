@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EntitySystem.Data.Shooting
+namespace EntitySystem.Data.Combat.Projectiles
 {
     [CreateAssetMenu(menuName = "SO/EntitySystem/Shooting/HookSettings", fileName = "NewHookSettings")]
     public class HookSettingsSO : ScriptableObject

@@ -1,5 +1,5 @@
+using EntitySystem.Data.Combat;
 using EntitySystem.Data.Movement;
-using EntitySystem.Data.Shooting;
 using EntitySystem.Movement;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
@@ -20,7 +20,7 @@ namespace Core
         [SerializeField] private Transform playerProjectilesHolder;
         [SerializeField] private Transform playerFirePoint;
         [SerializeField] private Transform playerGunPivotPoint;
-        [SerializeField] private ShooterSettingsSO playerShooterSettingsSO;
+        [SerializeField] private AttackerSettingsSO playerAttackerSettingsSO;
         [SerializeField] private HookShooterSettingsSO playerHookShooterSettingsSO;
         [SerializeField] private DraggerSettingsSO playerDraggerSettingsSO;
         [SerializeField] private SpringJoint2D playerDraggerJoint;
@@ -31,7 +31,7 @@ namespace Core
         private Mover _playerMover;
         private ShooterRotator _playerShooterRotator;
         private ProjectilePool _playerProjectilePool;
-        private Shooter _playerShooter;
+        private Attacker _playerAttacker;
         private HookShooter _playerHookShooter;
         private Dragger _playerDragger;
 
@@ -49,17 +49,17 @@ namespace Core
 
         private void InitPlayer()
         {
-            _playerProjectilePool = new ProjectilePool(playerShooterSettingsSO.ShootDelay, playerShooterSettingsSO.ProjectilePrefab, playerProjectilesHolder);
+            _playerProjectilePool = new ProjectilePool(playerAttackerSettingsSO.ShootDelay, playerAttackerSettingsSO.ProjectilePrefab, playerProjectilesHolder);
             Hook hook = Instantiate(playerHookShooterSettingsSO.HookPrefab, playerProjectilesHolder).GetComponent<Hook>();
             hook.gameObject.SetActive(false);
             
             _playerMover = new Mover(playerRb, playerMoverSettingSO);
             _playerShooterRotator = new ShooterRotator(playerGunPivotPoint);
-            _playerShooter = new Shooter(playerFirePoint, _playerProjectilePool, playerShooterSettingsSO);
+            _playerAttacker = new Attacker(playerFirePoint, _playerProjectilePool, playerAttackerSettingsSO);
             _playerHookShooter = new HookShooter(playerFirePoint, hook, playerHookShooterSettingsSO);
             _playerDragger = new Dragger(playerTransform, playerDraggerJoint, playerDraggerSettingsSO);
             _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, 
-                _playerShooterRotator, _playerShooter, _playerHookShooter,
+                _playerShooterRotator, _playerAttacker, _playerHookShooter,
                 _playerDragger);
         }
     }

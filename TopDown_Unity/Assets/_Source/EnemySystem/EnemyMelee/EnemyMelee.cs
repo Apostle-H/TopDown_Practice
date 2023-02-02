@@ -1,5 +1,10 @@
 using System.Collections;
 using EnemySystem.Data;
+using EnemySystem.Data.Combat;
+using EnemySystem.Movement;
+using EntitySystem.Data.Combat;
+using EntitySystem.Shooting;
+using EntitySystem.Shooting.Projectiles;
 using UnityEngine;
 using UnityEngine.AI;
 using Utils;
@@ -9,33 +14,37 @@ namespace EnemySystem.EnemyMelee
     public class EnemyMelee : MonoBehaviour
     {
         [SerializeField] private EnemyMeleeCharacteristicsSO enemyMeleeCharacteristicsSO;
+        [SerializeField] private CircleCollider2D rangeCollider;
+        [SerializeField] private Transform projectilesHolder;
+        [SerializeField] private Transform firePoint;
+        [SerializeField] private MeleeAttackerSettings attackerSettingsSO;
 
-        private CircleCollider2D _collider2D;
-        private Attack _attack;
         private NavMeshAgent _navMesh;
-        private Movement _movement;
+        private NavMeshMover _navMeshMover;
+        private Attacker _attacker;
+        
         private GameObject _target;
 
-        private void Start()
+        private void Awake()
         {
-            _collider2D = GetComponent<CircleCollider2D>();
-            _collider2D.radius = enemyMeleeCharacteristicsSO.RadiusAttack;
-            
-            _attack = new Attack();
-
             _navMesh = GetComponent<NavMeshAgent>();
             _navMesh.updateRotation = false;
             _navMesh.updateUpAxis = false;
             
-            _movement = new Movement(_navMesh, enemyMeleeCharacteristicsSO.MoveSpeed);
+            _navMeshMover = new NavMeshMover(_navMesh, enemyMeleeCharacteristicsSO.MoveSpeed);
+
+            rangeCollider.radius = attackerSettingsSO.TriggerRange;
+            
+            ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder); 
+            _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (enemyMeleeCharacteristicsSO.Layer.Contains(col.gameObject.layer))
+            if (enemyMeleeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
             {
                 _target = col.gameObject;
-                _movement.TargetFound(_target);
+                _navMeshMover.TargetFound(_target);
                 
                 StartCoroutine(CheckRange());
             }
@@ -43,35 +52,35 @@ namespace EnemySystem.EnemyMelee
         
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (enemyMeleeCharacteristicsSO.Layer.Contains(col.gameObject.layer))
+            if (enemyMeleeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
             {
                 _target = null;
-                _movement.TargetLost();
+                _navMeshMover.TargetLost();
                 
                 StopAllCoroutines();
             }
         }
         
-        private IEnumerator CheckRange() // Проверяет растоянние между врагом и игроком
+        private IEnumerator CheckRange()
         {
-            transform.up = Vector2.Lerp(transform.up, _target.transform.position - transform.position, enemyMeleeCharacteristicsSO.RotateSpeed * Time.deltaTime);
+            //transform.up = Vector2.Lerp(transform.up, _target.transform.position - transform.position, enemyMeleeCharacteristicsSO.RotateSpeed * Time.deltaTime);
             
-            if (Vector2.Distance(transform.position, _target.transform.position) < enemyMeleeCharacteristicsSO.RadiusAttack)
+            if (Vector2.Distance(transform.position, _target.transform.position) < attackerSettingsSO.AttackRange)
             {
-                _attack.MakeAttack(_target, enemyMeleeCharacteristicsSO.Damage);
+                _attacker.Shoot();
                 StartCoroutine(DelayAttack());
                 
                 yield break;
             }
         
             yield return new WaitForSeconds(Time.fixedDeltaTime);
-            _movement.Move();
+            _navMeshMover.Move();
             StartCoroutine(CheckRange());
         }
         
-        private IEnumerator DelayAttack() // Ведёс отсчёт до следующей атаки
+        private IEnumerator DelayAttack()
         {
-            yield return new WaitForSeconds(enemyMeleeCharacteristicsSO.DelayAttack);
+            yield return new WaitForSeconds(attackerSettingsSO.ShootDelay);
             StartCoroutine(CheckRange());
         }
     }

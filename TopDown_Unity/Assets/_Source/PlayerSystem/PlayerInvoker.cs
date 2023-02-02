@@ -14,19 +14,19 @@ namespace PlayerSystem
         private Transform _transform;
         private Mover _mover;
         private ShooterRotator _shooterRotator;
-        private Shooter _shooter;
+        private Attacker _attacker;
         private HookShooter _hookShooter;
         private Dragger _dragger;
 
         public PlayerInvoker(InputHandler input, Transform transform, Mover mover, 
-            ShooterRotator shooterRotator, Shooter shooter, HookShooter hookShooter,
+            ShooterRotator shooterRotator, Attacker attacker, HookShooter hookShooter,
             Dragger dragger)
         {
             _input = input;
             _transform = transform;
             _mover = mover;
             _shooterRotator = shooterRotator;
-            _shooter = shooter;
+            _attacker = attacker;
             _hookShooter = hookShooter;
             _dragger = dragger;
             
@@ -89,7 +89,7 @@ namespace PlayerSystem
         }
         
         private void Shoot(InputAction.CallbackContext ctx) =>
-            _shooter.Shoot();
+            _attacker.Shoot();
 
         private void Hook(InputAction.CallbackContext ctx) =>
             _hookShooter.ShootOut();

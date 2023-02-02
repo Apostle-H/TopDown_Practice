@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace EnemySystem.EnemyMelee
+namespace EnemySystem.Movement
 {
-    public class Movement
+    public class NavMeshMover
     {
         private GameObject _target;
         private NavMeshAgent _navMesh;
         private int _speed;
         
-        public Movement(NavMeshAgent navMesh, int speed)
+        public NavMeshMover(NavMeshAgent navMesh, int speed)
         {
             _navMesh = navMesh;
 

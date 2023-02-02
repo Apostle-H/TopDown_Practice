@@ -595,9 +595,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRangeCharacteristicsSO: {fileID: 11400000, guid: 7bb646d9b4e9bbc4a8a46ef569b79c06, type: 2}
+  rangeCollider: {fileID: 795037534}
   projectilesHolder: {fileID: 731512709}
   firePoint: {fileID: 503820444}
-  shooterSettingsSO: {fileID: 11400000, guid: e7f19c8ec96488a429ec48c3d78c5efe, type: 2}
+  attackerSettingsSO: {fileID: 11400000, guid: e54211bf746e5ac47b66c75801dc4a99, type: 2}
 --- !u!1 &1145789647
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,9 +671,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMeleeCharacteristicsSO: {fileID: 11400000, guid: 51496fbd391dba04dbfd5aabe3a12477, type: 2}
+  rangeCollider: {fileID: 1145789650}
   projectilesHolder: {fileID: 1565374968}
   firePoint: {fileID: 1907080149}
-  shooterSettingsSO: {fileID: 11400000, guid: f8b05a29b5e744b439a34b938a77b1cf, type: 2}
+  attackerSettingsSO: {fileID: 11400000, guid: c46fe3ccc3e66ba4cac8edbb11892240, type: 2}
 --- !u!212 &1145789654
 SpriteRenderer:
   m_ObjectHideFlags: 0

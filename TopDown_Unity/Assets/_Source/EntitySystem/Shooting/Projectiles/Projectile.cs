@@ -25,7 +25,6 @@ namespace EntitySystem.Shooting.Projectiles
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            Debug.Log(other.gameObject.name);
             Damage(other);
 
             if (settingsSO.StayTillLifeTime || settingsSO.IgnoreMask.Contains(other.gameObject.layer))

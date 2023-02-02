@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using DG.Tweening;
 using PlayerSystem.Data.Shooting;
 using UnityEngine;
 using Utils;
@@ -12,22 +13,27 @@ namespace PlayerSystem.Shooting.Projectiles
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private FixedJoint2D enemyCarryJoint;
 
+        private float _targetDrag;
         private bool _isReturning;
 
         public event Action OnReturn;
-        
+
         private void OnTriggerExit2D(Collider2D other)
         {
-            CheckOutOfRange(other);
+            if (CheckOutOfRange(other))
+            {
+                GoBack();
+            }
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (CheckForEnemyCollision(other))
+            if (CheckForEnemyCollision(other) || CheckForWalls(other))
             {
+                GoBack();
                 return;
             }
-            
+
             CheckForPlayerCollision(other);
         }
 
@@ -41,6 +47,13 @@ namespace PlayerSystem.Shooting.Projectiles
         {
             rb.velocity = transform.up * (settingsSO.Speed * -1);
             _isReturning = true;
+        }
+
+        private void Disconnect()
+        {
+            enemyCarryJoint.connectedBody.drag = _targetDrag;
+            enemyCarryJoint.connectedBody = default;
+            enemyCarryJoint.enabled = false;
         }
 
         private bool CheckForEnemyCollision(Collider2D other)
@@ -58,36 +71,32 @@ namespace PlayerSystem.Shooting.Projectiles
             targetRb.velocity = default;
             targetRb.angularVelocity = default;
             enemyCarryJoint.connectedBody = other.attachedRigidbody;
+            _targetDrag = enemyCarryJoint.connectedBody.drag;
+            enemyCarryJoint.connectedBody.drag = default;
             enemyCarryJoint.enabled = true;
-            
+
             #endregion
             
-            GoBack();
             return true;
         }
 
-        private bool CheckOutOfRange(Collider2D other)
+        private bool CheckOutOfRange(Collider2D other) =>
+            gameObject.activeSelf && other.gameObject.layer == gameObject.layer;
+
+        private bool CheckForPlayerCollision(Collider2D other)
         {
-            if (gameObject.activeSelf && other.gameObject.layer != gameObject.layer)
+            if (!_isReturning || !settingsSO.PlayerMask.Contains(other.gameObject.layer))
             {
                 return false;
             }
-            
-            GoBack();
+
+            Disconnect();
+
+            OnReturn?.Invoke();
             return true;
         }
 
-        private void CheckForPlayerCollision(Collider2D other)
-        {
-            if (!settingsSO.PlayerMask.Contains(other.gameObject.layer))
-            {
-                return;
-            }
-
-            enemyCarryJoint.connectedBody = default;
-            enemyCarryJoint.enabled = false;
-            
-            OnReturn?.Invoke();
-        }
+        private bool CheckForWalls(Collider2D other) =>
+            !_isReturning && !settingsSO.PlayerMask.Contains(other.gameObject.layer) && other.gameObject.layer != gameObject.layer;
     }
 }

@@ -1,6 +1,9 @@
 using InputSystem;
 using PlayerSystem.Data.Movement;
 using PlayerSystem.Data.Shooting;
+using PlayerSystem;
+using PlayerSystem.Data.Interactions;
+using PlayerSystem.Interactions;
 using PlayerSystem.Movement;
 using PlayerSystem.Shooting;
 using PlayerSystem.Shooting.Projectiles;
@@ -19,6 +22,8 @@ namespace Core
         [SerializeField] private Transform playerGunPivotPoint;
         [SerializeField] private ShooterSettingsSO playerShooterSettingsSO;
         [SerializeField] private HookShooterSettingsSO playerHookShooterSettingsSO;
+        [SerializeField] private DraggerSettingsSO playerDraggerSettingsSO;
+        [SerializeField] private SpringJoint2D playerDraggerJoint;
         
         private InputHandler _input;
 
@@ -28,6 +33,7 @@ namespace Core
         private ProjectilePool _playerProjectilePool;
         private Shooter _playerShooter;
         private HookShooter _playerHookShooter;
+        private Dragger _playerDragger;
 
         private Game _game;
 
@@ -51,7 +57,10 @@ namespace Core
             _playerShooterRotator = new ShooterRotator(playerGunPivotPoint);
             _playerShooter = new Shooter(playerFirePoint, _playerProjectilePool, playerShooterSettingsSO);
             _playerHookShooter = new HookShooter(playerFirePoint, hook, playerHookShooterSettingsSO);
-            _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, _playerShooterRotator, _playerShooter, _playerHookShooter);
+            _playerDragger = new Dragger(playerTransform, playerDraggerJoint, playerDraggerSettingsSO);
+            _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, 
+                _playerShooterRotator, _playerShooter, _playerHookShooter,
+                _playerDragger);
         }
     }
 }

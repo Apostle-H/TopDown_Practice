@@ -140,6 +140,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Drag",
+            "id": "fcc950c0-a529-401c-9b72-665cee220d68",
+            "actions": [
+                {
+                    "name": "ConnectRelease",
+                    "type": "Button",
+                    "id": "430b0d5b-3c02-4d8d-bd3c-d112929d1985",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1f9b900b-9b7d-4fc8-aec9-9719d432a3a2",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ConnectRelease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

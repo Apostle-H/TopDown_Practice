@@ -1,5 +1,5 @@
 using InputSystem;
-using PlayerSystem.Movement;
+using PlayerSystem;
 
 namespace Core
 {

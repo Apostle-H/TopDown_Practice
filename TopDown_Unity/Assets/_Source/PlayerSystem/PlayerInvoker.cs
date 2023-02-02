@@ -1,10 +1,11 @@
 using InputSystem;
+using PlayerSystem.Interactions;
 using PlayerSystem.Shooting;
-using UnityEditor;
+using PlayerSystem.Movement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlayerSystem.Movement
+namespace PlayerSystem
 {
     public class PlayerInvoker
     {
@@ -15,8 +16,11 @@ namespace PlayerSystem.Movement
         private ShooterRotator _shooterRotator;
         private Shooter _shooter;
         private HookShooter _hookShooter;
+        private Dragger _dragger;
 
-        public PlayerInvoker(InputHandler input, Transform transform, Mover mover, ShooterRotator shooterRotator, Shooter shooter, HookShooter hookShooter)
+        public PlayerInvoker(InputHandler input, Transform transform, Mover mover, 
+            ShooterRotator shooterRotator, Shooter shooter, HookShooter hookShooter,
+            Dragger dragger)
         {
             _input = input;
             _transform = transform;
@@ -24,6 +28,7 @@ namespace PlayerSystem.Movement
             _shooterRotator = shooterRotator;
             _shooter = shooter;
             _hookShooter = hookShooter;
+            _dragger = dragger;
             
             _hookShooter.OnHookOut += BlockControls;
             _hookShooter.OnHookIn += Bind;
@@ -36,21 +41,41 @@ namespace PlayerSystem.Movement
             _input.AttackActions.MousePos.performed += RotateGun;
             _input.AttackActions.Shoot.performed += Shoot;
             _input.AttackActions.Hook.performed += Hook;
+            _input.DragActions.ConnectRelease.performed += Drag;
         }
 
         public void Expose()
         {
-            _input.MovementActions.Direction.performed -= UpdateDirection;
-            _input.MovementActions.Direction.canceled -= UpdateDirection;
-            _input.AttackActions.MousePos.performed -= RotateGun;
-            _input.AttackActions.Shoot.performed -= Shoot;
-            _input.AttackActions.Hook.performed -= Hook;
+            ExposeMovement();
+            ExposeAttack();
+            ExposeDrag();
         }
 
         private void BlockControls()
         {
             _mover.UpdateDirection(Vector2.zero);
-            Expose();
+            
+            ExposeMovement();
+            ExposeAttack();
+            ExposeDrag();
+        }
+
+        private void ExposeMovement()
+        {
+            _input.MovementActions.Direction.performed -= UpdateDirection;
+            _input.MovementActions.Direction.canceled -= UpdateDirection;
+        }
+
+        private void ExposeAttack()
+        {
+            _input.AttackActions.MousePos.performed -= RotateGun;
+            _input.AttackActions.Shoot.performed -= Shoot;
+            _input.AttackActions.Hook.performed -= Hook;
+        }
+
+        private void ExposeDrag()
+        {
+            _input.DragActions.ConnectRelease.performed -= Drag;
         }
 
         private void UpdateDirection(InputAction.CallbackContext ctx) =>
@@ -68,5 +93,17 @@ namespace PlayerSystem.Movement
 
         private void Hook(InputAction.CallbackContext ctx) =>
             _hookShooter.ShootOut();
+        
+        private void Drag(InputAction.CallbackContext ctx)
+        {
+            if (_dragger.IsDragging)
+            {
+                _dragger.Release();
+            }
+            else
+            {
+                _dragger.Connect();
+            }
+        }
     }
 }

@@ -164,6 +164,34 @@ namespace InputSystem
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Drag"",
+            ""id"": ""fcc950c0-a529-401c-9b72-665cee220d68"",
+            ""actions"": [
+                {
+                    ""name"": ""ConnectRelease"",
+                    ""type"": ""Button"",
+                    ""id"": ""430b0d5b-3c02-4d8d-bd3c-d112929d1985"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""1f9b900b-9b7d-4fc8-aec9-9719d432a3a2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ConnectRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -176,6 +204,9 @@ namespace InputSystem
             m_Attack_Shoot = m_Attack.FindAction("Shoot", throwIfNotFound: true);
             m_Attack_Hook = m_Attack.FindAction("Hook", throwIfNotFound: true);
             m_Attack_MousePos = m_Attack.FindAction("MousePos", throwIfNotFound: true);
+            // Drag
+            m_Drag = asset.FindActionMap("Drag", throwIfNotFound: true);
+            m_Drag_ConnectRelease = m_Drag.FindAction("ConnectRelease", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -313,6 +344,39 @@ namespace InputSystem
             }
         }
         public AttackActions @Attack => new AttackActions(this);
+
+        // Drag
+        private readonly InputActionMap m_Drag;
+        private IDragActions m_DragActionsCallbackInterface;
+        private readonly InputAction m_Drag_ConnectRelease;
+        public struct DragActions
+        {
+            private @MainActions m_Wrapper;
+            public DragActions(@MainActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @ConnectRelease => m_Wrapper.m_Drag_ConnectRelease;
+            public InputActionMap Get() { return m_Wrapper.m_Drag; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(DragActions set) { return set.Get(); }
+            public void SetCallbacks(IDragActions instance)
+            {
+                if (m_Wrapper.m_DragActionsCallbackInterface != null)
+                {
+                    @ConnectRelease.started -= m_Wrapper.m_DragActionsCallbackInterface.OnConnectRelease;
+                    @ConnectRelease.performed -= m_Wrapper.m_DragActionsCallbackInterface.OnConnectRelease;
+                    @ConnectRelease.canceled -= m_Wrapper.m_DragActionsCallbackInterface.OnConnectRelease;
+                }
+                m_Wrapper.m_DragActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @ConnectRelease.started += instance.OnConnectRelease;
+                    @ConnectRelease.performed += instance.OnConnectRelease;
+                    @ConnectRelease.canceled += instance.OnConnectRelease;
+                }
+            }
+        }
+        public DragActions @Drag => new DragActions(this);
         public interface IMovementActions
         {
             void OnDirection(InputAction.CallbackContext context);
@@ -322,6 +386,10 @@ namespace InputSystem
             void OnShoot(InputAction.CallbackContext context);
             void OnHook(InputAction.CallbackContext context);
             void OnMousePos(InputAction.CallbackContext context);
+        }
+        public interface IDragActions
+        {
+            void OnConnectRelease(InputAction.CallbackContext context);
         }
     }
 }

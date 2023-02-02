@@ -2,7 +2,7 @@
 
 namespace EnemySystem.Data
 {
-    [CreateAssetMenu(menuName = "SO/EnemySystem/EnemyMeleeCharacteristics", fileName = "New EnemyMeleeCharacteristics")]
+    [CreateAssetMenu(menuName = "SO/EnemySystem/EnemyMeleeCharacteristics", fileName = "NewEnemyMeleeCharacteristics")]
     public class EnemyMeleeCharacteristicsSO : ScriptableObject
     {
         [field: SerializeField] public int Hp { get; private set; }

@@ -1,12 +1,12 @@
+using EntitySystem.Data.Movement;
+using EntitySystem.Data.Shooting;
+using EntitySystem.Movement;
+using EntitySystem.Shooting;
+using EntitySystem.Shooting.Projectiles;
 using InputSystem;
-using PlayerSystem.Data.Movement;
-using PlayerSystem.Data.Shooting;
 using PlayerSystem;
 using PlayerSystem.Data.Interactions;
 using PlayerSystem.Interactions;
-using PlayerSystem.Movement;
-using PlayerSystem.Shooting;
-using PlayerSystem.Shooting.Projectiles;
 using UnityEngine;
 
 namespace Core

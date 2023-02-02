@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PlayerSystem.Data.Shooting
+namespace EntitySystem.Data.Shooting
 {
     [CreateAssetMenu(menuName = "SO/PlayerSystem/Shooting/HookSettings", fileName = "NewHookSettings")]
     public class HookSettingsSO : ScriptableObject

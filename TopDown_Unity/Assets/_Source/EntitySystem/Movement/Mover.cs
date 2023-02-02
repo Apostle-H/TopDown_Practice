@@ -1,8 +1,8 @@
 using DG.Tweening;
-using PlayerSystem.Data.Movement;
+using EntitySystem.Data.Movement;
 using UnityEngine;
 
-namespace PlayerSystem.Movement
+namespace EntitySystem.Movement
 {
     public class Mover
     {

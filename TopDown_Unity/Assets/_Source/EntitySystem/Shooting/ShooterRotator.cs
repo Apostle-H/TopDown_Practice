@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PlayerSystem.Shooting
+namespace EntitySystem.Shooting
 {
     public class ShooterRotator
     {

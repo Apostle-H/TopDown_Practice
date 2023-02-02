@@ -1,9 +1,9 @@
 using System;
-using PlayerSystem.Data.Shooting;
-using PlayerSystem.Shooting.Projectiles;
+using EntitySystem.Shooting.Projectiles;
+using EntitySystem.Data.Shooting;
 using UnityEngine;
 
-namespace PlayerSystem.Shooting
+namespace EntitySystem.Shooting
 {
     public class HookShooter
     {

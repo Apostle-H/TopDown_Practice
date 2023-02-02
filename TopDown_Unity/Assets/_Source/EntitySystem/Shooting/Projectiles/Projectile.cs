@@ -1,9 +1,9 @@
 using System;
 using DG.Tweening;
-using PlayerSystem.Data.Shooting;
+using EntitySystem.Data.Shooting;
 using UnityEngine;
 
-namespace PlayerSystem.Shooting.Projectiles
+namespace EntitySystem.Shooting.Projectiles
 {
     public class Projectile : MonoBehaviour
     {

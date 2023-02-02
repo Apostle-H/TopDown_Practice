@@ -1,7 +1,7 @@
 using InputSystem;
 using PlayerSystem.Interactions;
-using PlayerSystem.Shooting;
-using PlayerSystem.Movement;
+using EntitySystem.Shooting;
+using EntitySystem.Movement;
 using UnityEngine;
 using UnityEngine.InputSystem;
 

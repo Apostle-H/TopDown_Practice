@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace PlayerSystem.Shooting.Projectiles
+namespace EntitySystem.Shooting.Projectiles
 {
     public class ProjectilePool
     {

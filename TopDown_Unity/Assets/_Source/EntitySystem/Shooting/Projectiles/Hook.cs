@@ -1,11 +1,11 @@
 using System;
 using System.IO;
 using DG.Tweening;
-using PlayerSystem.Data.Shooting;
+using EntitySystem.Data.Shooting;
 using UnityEngine;
 using Utils;
 
-namespace PlayerSystem.Shooting.Projectiles
+namespace EntitySystem.Shooting.Projectiles
 {
     public class Hook : MonoBehaviour
     {

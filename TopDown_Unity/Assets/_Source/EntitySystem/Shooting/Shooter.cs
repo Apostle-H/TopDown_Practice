@@ -1,9 +1,9 @@
 using DG.Tweening;
-using PlayerSystem.Data.Shooting;
-using PlayerSystem.Shooting.Projectiles;
+using EntitySystem.Data.Shooting;
+using EntitySystem.Shooting.Projectiles;
 using UnityEngine;
 
-namespace PlayerSystem.Shooting
+namespace EntitySystem.Shooting
 {
     public class Shooter
     {

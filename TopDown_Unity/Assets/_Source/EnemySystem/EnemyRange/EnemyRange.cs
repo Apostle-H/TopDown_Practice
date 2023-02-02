@@ -3,12 +3,12 @@ using EnemySystem.Data;
 using UnityEngine;
 using Until;
 
-namespace EnemySystem.EnemyDistant
+namespace EnemySystem.EnemyRange
 {
-    public class EnemyDistant : MonoBehaviour
+    public class EnemyRange : MonoBehaviour
     {
         [SerializeField] private Transform spawnProjectilePoint;
-        [SerializeField] private EnemyDistantCharacteristicsSO enemyDistantCharacteristicsSO;
+        [SerializeField] private EnemyRangeCharacteristicsSO enemyRangeCharacteristicsSO;
 
         private GameObject _target;
         private CircleCollider2D _collider2D;
@@ -19,7 +19,7 @@ namespace EnemySystem.EnemyDistant
         {
             _collider2D = GetComponent<CircleCollider2D>();
             _attack = new Attack();
-            _collider2D.radius = enemyDistantCharacteristicsSO.RadiusAttack;
+            _collider2D.radius = enemyRangeCharacteristicsSO.RadiusAttack;
         }
 
         private void Update()
@@ -31,7 +31,7 @@ namespace EnemySystem.EnemyDistant
         }
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (enemyDistantCharacteristicsSO.Layer.Contains(col.gameObject.layer))
+            if (enemyRangeCharacteristicsSO.Layer.Contains(col.gameObject.layer))
             {
                 _target = col.gameObject;
 
@@ -43,7 +43,7 @@ namespace EnemySystem.EnemyDistant
 
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (enemyDistantCharacteristicsSO.Layer.Contains(col.gameObject.layer))
+            if (enemyRangeCharacteristicsSO.Layer.Contains(col.gameObject.layer))
             {
                 _target = null;
 
@@ -56,13 +56,13 @@ namespace EnemySystem.EnemyDistant
         private void TurningTowardsTheTarget() // Поворот к цели
         {
             var direction = _target.transform.position - transform.position;
-            transform.up = Vector2.Lerp(transform.up, direction, enemyDistantCharacteristicsSO.RotateSpeed * Time.deltaTime);
+            transform.up = Vector2.Lerp(transform.up, direction, enemyRangeCharacteristicsSO.RotateSpeed * Time.deltaTime);
         }
 
         private IEnumerator Timer()
         {
-            yield return new WaitForSeconds(enemyDistantCharacteristicsSO.DelayAttack);
-            _attack.MakeAttack(enemyDistantCharacteristicsSO.Projectile, spawnProjectilePoint, enemyDistantCharacteristicsSO.Damage);
+            yield return new WaitForSeconds(enemyRangeCharacteristicsSO.DelayAttack);
+            _attack.MakeAttack(enemyRangeCharacteristicsSO.Projectile, spawnProjectilePoint, enemyRangeCharacteristicsSO.Damage);
             
             StartCoroutine(Timer());
         }

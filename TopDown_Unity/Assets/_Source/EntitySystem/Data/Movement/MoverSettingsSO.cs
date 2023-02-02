@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PlayerSystem.Data.Movement
+namespace EntitySystem.Data.Movement
 {
     [CreateAssetMenu(menuName = "SO/PlayerSystem/Movement/MoverSettings", fileName = "NewMoverSettings")]
     public class MoverSettingsSO : ScriptableObject

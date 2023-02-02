@@ -206,7 +206,7 @@ MonoBehaviour:
   playerProjectilesHolder: {fileID: 1137385316}
   playerFirePoint: {fileID: 1957067768}
   playerGunPivotPoint: {fileID: 591749435}
-  playerShooterSettingsSO: {fileID: 11400000, guid: 0052367d7a1d2e844b5e436fbefcfbb2, type: 2}
+  playerAttackerSettingsSO: {fileID: 11400000, guid: 0052367d7a1d2e844b5e436fbefcfbb2, type: 2}
   playerHookShooterSettingsSO: {fileID: 11400000, guid: 2f086b40b89ca044c8455a17bc0486eb, type: 2}
   playerDraggerSettingsSO: {fileID: 11400000, guid: 6f1c82325bb70414aaff58897568046b, type: 2}
   playerDraggerJoint: {fileID: 614189902}

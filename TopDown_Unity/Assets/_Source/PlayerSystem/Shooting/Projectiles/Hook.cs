@@ -46,7 +46,8 @@ namespace PlayerSystem.Shooting.Projectiles
         private bool CheckForEnemyCollision(Collider2D other)
         {
             if (!settingsSO.EnemyMask.Contains(other.gameObject.layer) ||
-                enemyCarryJoint.connectedBody != null)
+                enemyCarryJoint.connectedBody != null ||
+                _isReturning)
             {
                 return false;
             }

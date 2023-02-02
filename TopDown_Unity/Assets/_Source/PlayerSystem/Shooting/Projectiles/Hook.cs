@@ -51,8 +51,11 @@ namespace PlayerSystem.Shooting.Projectiles
 
         private void Disconnect()
         {
-            enemyCarryJoint.connectedBody.drag = _targetDrag;
-            enemyCarryJoint.connectedBody = default;
+            if (enemyCarryJoint.connectedBody != null)
+            {
+                enemyCarryJoint.connectedBody.drag = _targetDrag;
+                enemyCarryJoint.connectedBody = default;
+            }
             enemyCarryJoint.enabled = false;
         }
 

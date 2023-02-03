@@ -49,7 +49,7 @@ namespace EntitySystem.Shooting.Projectiles
             _isReturning = true;
         }
 
-        private void Disconnect()
+        private void Return()
         {
             if (enemyCarryJoint.connectedBody != null)
             {
@@ -93,8 +93,7 @@ namespace EntitySystem.Shooting.Projectiles
                 return false;
             }
 
-            Disconnect();
-
+            Return();
             OnReturn?.Invoke();
             return true;
         }

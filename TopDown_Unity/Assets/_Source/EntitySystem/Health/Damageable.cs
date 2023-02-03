@@ -1,7 +1,5 @@
 ﻿using System;
 using EntitySystem.Data.Health;
-using TMPro;
-using UnityEditor;
 using UnityEngine;
 
 namespace EntitySystem.Health
@@ -25,11 +23,9 @@ namespace EntitySystem.Health
         {
             _currentHealth = _currentHealth - damage >= 0 ? _currentHealth - damage : 0;
             OnDamaged?.Invoke();
-            Debug.Log(_currentHealth);
             
             if (_currentHealth <= 0 && !_isDead)
             {
-                Debug.Log("dead");
                 _isDead = true;
                 OnDeath?.Invoke();
             }

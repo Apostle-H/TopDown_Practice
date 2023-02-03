@@ -1,4 +1,5 @@
 using System;
+using EntitySystem.Health;
 using InputSystem;
 using PlayerSystem.Interactions;
 using EntitySystem.Shooting;
@@ -13,6 +14,7 @@ namespace PlayerSystem
         private InputHandler _input;
 
         private Transform _transform;
+        private Damageable _damageable;
         private Mover _mover;
         private ShooterRotator _shooterRotator;
         private Attacker _attacker;
@@ -20,12 +22,13 @@ namespace PlayerSystem
         private Dragger _dragger;
         private HookShooter _hookShooter;
 
-        public PlayerInvoker(InputHandler input, Transform transform, Mover mover, 
-            ShooterRotator shooterRotator, Attacker attacker, AreaChecker dragAreaChecker,
+        public PlayerInvoker(InputHandler input, Transform transform, Damageable damageable,
+            Mover mover, ShooterRotator shooterRotator, Attacker attacker, AreaChecker dragAreaChecker,
             Dragger dragger, HookShooter hookShooter)
         {
             _input = input;
             _transform = transform;
+            _damageable = damageable;
             _mover = mover;
             _shooterRotator = shooterRotator;
             _attacker = attacker;
@@ -36,6 +39,8 @@ namespace PlayerSystem
 
         public void Bind()
         {
+            _damageable.OnDeath += Expose;
+            
             _input.MovementActions.Direction.performed += UpdateDirection;
             _input.MovementActions.Direction.canceled += UpdateDirection;
             _input.AttackActions.MousePos.performed += RotateGun;

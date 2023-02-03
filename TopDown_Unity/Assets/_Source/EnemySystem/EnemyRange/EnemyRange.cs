@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using EnemySystem.Data;
 using EnemySystem.Data.Combat;
+using EntitySystem.Health;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
 using UnityEngine;
@@ -10,6 +11,7 @@ namespace EnemySystem.EnemyRange
 {
     public class EnemyRange : MonoBehaviour
     {
+        [SerializeField] private Damageable damageable;
         [SerializeField] private EnemyRangeCharacteristicsSO enemyRangeCharacteristicsSO;
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
@@ -23,12 +25,14 @@ namespace EnemySystem.EnemyRange
         private bool _isTargetInRadius;
         private GameObject _target;
 
-        private void Start()
+        private void Awake()
         {
             rangeCollider.radius = attackerSettingsSO.AttackRange;
             
             ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder);
             _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
+
+            damageable.OnDeath += Die;
         }
 
         private void Update()
@@ -60,6 +64,12 @@ namespace EnemySystem.EnemyRange
                 
                 StopAllCoroutines();
             }
+        }
+        
+        private void Die()
+        {
+            rangeCollider.enabled = false;
+            StopAllCoroutines();
         }
 
         private void TurningTowardsTheTarget()

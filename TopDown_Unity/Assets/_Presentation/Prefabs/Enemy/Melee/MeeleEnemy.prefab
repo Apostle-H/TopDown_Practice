@@ -131,6 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276fe82652600e4c99f5d80c59514ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageable: {fileID: 8705901569076792454}
   enemyMeleeCharacteristicsSO: {fileID: 11400000, guid: 51496fbd391dba04dbfd5aabe3a12477, type: 2}
   rangeCollider: {fileID: 8705901568472365803}
   projectilesHolder: {fileID: 8705901569227385252}
@@ -247,7 +248,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8705901569076792467}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

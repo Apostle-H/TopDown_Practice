@@ -17,15 +17,15 @@ namespace EntitySystem.Shooting.Projectiles
         private float _targetDrag;
         private bool _haveHooked;
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnCollisionEnter2D(Collision2D col)
         {
-            if (!CheckForTarget(other))
+            if (!CheckForTarget(col))
             {
                 return;
             }
             
             _haveHooked = true;
-            hookJoint.connectedBody = other.attachedRigidbody;
+            hookJoint.connectedBody = col.rigidbody;
             hookJoint.enabled = true;
         }
 
@@ -37,7 +37,7 @@ namespace EntitySystem.Shooting.Projectiles
             rb.AddForce(transform.up * settingsSO.ShootOutForce, ForceMode2D.Impulse);
         }
 
-        private bool CheckForTarget(Collider2D other) =>
+        private bool CheckForTarget(Collision2D other) =>
             settingsSO.TargetMask.Contains(other.gameObject.layer) && !_haveHooked;
         
     }

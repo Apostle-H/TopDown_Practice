@@ -14,9 +14,8 @@ namespace TutorSystem
         {
             if (layerMask.Contains(col.gameObject.layer))
             {
-                OnPressed?.Invoke();
-                
                 gameObject.SetActive(false);
+                OnPressed?.Invoke();
             }
         }
     }

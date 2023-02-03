@@ -52,10 +52,12 @@ namespace EnemySystem.EnemyMelee
             }
         }
         
-        private IEnumerator CheckRange() // Проверяет растоянние между врагом и игроком
+        private IEnumerator CheckRange()
         {
-            transform.up = Vector2.Lerp(transform.up, _target.transform.position - transform.position, enemyMeleeCharacteristicsSO.RotateSpeed * Time.deltaTime);
-            
+            // _target.transform.position = (x=n, y=n, z=-0,6) n = any number
+            // or make transform.position.z = 0: transform.position - new Vector3(0, 0, -0.6f)
+            transform.up = _target.transform.position - (transform.position - new Vector3(0, 0, -0.6f));
+
             if (Vector2.Distance(transform.position, _target.transform.position) < enemyMeleeCharacteristicsSO.RadiusAttack)
             {
                 _attack.MakeAttack(_target, enemyMeleeCharacteristicsSO.Damage);
@@ -69,7 +71,7 @@ namespace EnemySystem.EnemyMelee
             StartCoroutine(CheckRange());
         }
         
-        private IEnumerator DelayAttack() // Ведёс отсчёт до следующей атаки
+        private IEnumerator DelayAttack()
         {
             yield return new WaitForSeconds(enemyMeleeCharacteristicsSO.DelayAttack);
             StartCoroutine(CheckRange());

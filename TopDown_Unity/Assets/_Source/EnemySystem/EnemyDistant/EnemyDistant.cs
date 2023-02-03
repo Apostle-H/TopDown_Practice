@@ -53,11 +53,7 @@ namespace EnemySystem.EnemyDistant
             }
         }
         
-        private void TurningTowardsTheTarget() // Поворот к цели
-        {
-            var direction = _target.transform.position - transform.position;
-            transform.up = Vector2.Lerp(transform.up, direction, enemyDistantCharacteristicsSO.RotateSpeed * Time.deltaTime);
-        }
+        private void TurningTowardsTheTarget() => transform.up = _target.transform.position - transform.position;
 
         private IEnumerator Timer()
         {

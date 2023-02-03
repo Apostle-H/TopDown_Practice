@@ -1,21 +1,20 @@
 using System;
 using UnityEngine;
-using Until;
+using Utils;
 
-namespace TutorSystem.ButtonSystem
+namespace TutorSystem
 {
-    public class Button : MonoBehaviour
+    public class Trigger : MonoBehaviour
     {
         [SerializeField] private LayerMask layerMask;
 
-        // public static event Action<GameObject> OnGotOnButton;
-        public static event Action OnGotOnButton;
+        public event Action OnPressed;
 
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (layerMask.Contains(col.gameObject.layer))
             {
-                OnGotOnButton?.Invoke();
+                OnPressed?.Invoke();
                 
                 gameObject.SetActive(false);
             }

@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using EnemySystem.Data;
 using EnemySystem.Data.Combat;
-using EntitySystem.Data.Combat;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
 using UnityEngine;
@@ -62,11 +61,10 @@ namespace EnemySystem.EnemyRange
                 StopAllCoroutines();
             }
         }
-        
+
         private void TurningTowardsTheTarget()
         {
-            var direction = _target.transform.position - transform.position;
-            //transform.up = Vector2.Lerp(transform.up, direction, enemyRangeCharacteristicsSO.RotateSpeed * Time.deltaTime);
+            transform.rotation = transform.LookAt2D(_target.transform.position);
         }
 
         private IEnumerator Timer()

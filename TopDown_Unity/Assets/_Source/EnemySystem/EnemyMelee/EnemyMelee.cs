@@ -63,9 +63,9 @@ namespace EnemySystem.EnemyMelee
         
         private IEnumerator CheckRange()
         {
-            //transform.up = Vector2.Lerp(transform.up, _target.transform.position - transform.position, enemyMeleeCharacteristicsSO.RotateSpeed * Time.deltaTime);
-            
-            if (Vector2.Distance(transform.position, _target.transform.position) < attackerSettingsSO.AttackRange)
+            transform.rotation = transform.LookAt2D(_target.transform.position);
+
+            if (Vector2.Distance(transform.position, _target.transform.position) < enemyMeleeCharacteristicsSO.RadiusAttack)
             {
                 _attacker.Shoot();
                 StartCoroutine(DelayAttack());

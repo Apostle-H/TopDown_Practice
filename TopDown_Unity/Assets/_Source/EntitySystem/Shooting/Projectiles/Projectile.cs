@@ -48,7 +48,7 @@ namespace EntitySystem.Shooting.Projectiles
             {
                 return;
             }
-
+            
             target.TakeDamage(settingsSO.Damage);
         }
         

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f45b0705e5f4c26829eee9c51510d28, type: 3}
-  m_Name: RangeEnemyAttakerSettings
+  m_Name: RangeAttakerSettings
   m_EditorClassIdentifier: 
   <ShootDelay>k__BackingField: 0.4
   <ProjectilePrefab>k__BackingField: {fileID: 8651070909195823942, guid: b963a65f285d1b54496ac6fb4a254d56, type: 3}

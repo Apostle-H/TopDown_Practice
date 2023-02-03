@@ -597,8 +597,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 795037527}
-  - component: {fileID: 795037526}
   - component: {fileID: 795037535}
+  - component: {fileID: 795037536}
+  - component: {fileID: 795037526}
   - component: {fileID: 795037529}
   - component: {fileID: 795037530}
   m_Layer: 7
@@ -741,6 +742,19 @@ MonoBehaviour:
   projectilesHolder: {fileID: 731512709}
   firePoint: {fileID: 503820444}
   attackerSettingsSO: {fileID: 11400000, guid: e54211bf746e5ac47b66c75801dc4a99, type: 2}
+--- !u!114 &795037536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795037525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f46681bfa414364b215fd3c7d0ac77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsSO: {fileID: 11400000, guid: c36db321ddab02847a8ce31e04609182, type: 2}
 --- !u!1 &1145789647
 GameObject:
   m_ObjectHideFlags: 0
@@ -751,6 +765,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1145789655}
   - component: {fileID: 1145789652}
+  - component: {fileID: 1145789658}
   - component: {fileID: 1145789654}
   - component: {fileID: 1145789657}
   - component: {fileID: 1145789649}
@@ -908,6 +923,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1145789658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145789647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f46681bfa414364b215fd3c7d0ac77d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingsSO: {fileID: 11400000, guid: 90edf72d996ed8648a4c238d7e134d9e, type: 2}
 --- !u!1 &1153031614
 GameObject:
   m_ObjectHideFlags: 0

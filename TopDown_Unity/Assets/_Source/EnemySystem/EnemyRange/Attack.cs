@@ -1,7 +1,6 @@
-﻿using Unity.Mathematics;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace EnemySystem.EnemyDistant
+namespace EnemySystem.EnemyRange
 {
     public class Attack
     {

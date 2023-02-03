@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using EnemySystem.Data;
 using UnityEngine;
-using Until;
+using Utils;
 
 namespace EnemySystem.EnemyDistant
 {
@@ -52,8 +52,11 @@ namespace EnemySystem.EnemyDistant
                 StopAllCoroutines();
             }
         }
-        
-        private void TurningTowardsTheTarget() => transform.up = _target.transform.position - transform.position;
+
+        private void TurningTowardsTheTarget()
+        {
+            transform.rotation = transform.LookAt2D(_target.transform.position);
+        }
 
         private IEnumerator Timer()
         {

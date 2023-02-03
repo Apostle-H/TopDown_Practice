@@ -3,6 +3,7 @@ using EnemySystem.Data;
 using UnityEngine;
 using UnityEngine.AI;
 using Until;
+using Utils;
 
 namespace EnemySystem.EnemyMelee
 {
@@ -32,7 +33,7 @@ namespace EnemySystem.EnemyMelee
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (enemyMeleeCharacteristicsSO.Layer.Contains(col.gameObject.layer))
+            if (Check.Contains(enemyMeleeCharacteristicsSO.Layer, col.gameObject.layer))
             {
                 _target = col.gameObject;
                 _movement.TargetFound(_target);
@@ -43,7 +44,7 @@ namespace EnemySystem.EnemyMelee
         
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (enemyMeleeCharacteristicsSO.Layer.Contains(col.gameObject.layer))
+            if (Check.Contains(enemyMeleeCharacteristicsSO.Layer, col.gameObject.layer))
             {
                 _target = null;
                 _movement.TargetLost();
@@ -54,9 +55,7 @@ namespace EnemySystem.EnemyMelee
         
         private IEnumerator CheckRange()
         {
-            // _target.transform.position = (x=n, y=n, z=-0,6) n = any number
-            // or make transform.position.z = 0: transform.position - new Vector3(0, 0, -0.6f)
-            transform.up = _target.transform.position - (transform.position - new Vector3(0, 0, -0.6f));
+            transform.rotation = transform.LookAt2D(_target.transform.position);
 
             if (Vector2.Distance(transform.position, _target.transform.position) < enemyMeleeCharacteristicsSO.RadiusAttack)
             {

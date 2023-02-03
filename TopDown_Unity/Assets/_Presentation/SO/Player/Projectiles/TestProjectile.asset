@@ -18,7 +18,7 @@ MonoBehaviour:
   <Speed>k__BackingField: 10
   <TargetMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 128
   <IgnoreMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 448
+    m_Bits: 0

@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 2
   <LifeTime>k__BackingField: 2
+  <StayTillLifeTime>k__BackingField: 0
   <Speed>k__BackingField: 6
   <TargetMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 64
   <IgnoreMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 0

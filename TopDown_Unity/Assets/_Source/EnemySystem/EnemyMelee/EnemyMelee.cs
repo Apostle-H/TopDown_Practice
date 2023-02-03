@@ -65,7 +65,7 @@ namespace EnemySystem.EnemyMelee
         {
             transform.rotation = transform.LookAt2D(_target.transform.position);
 
-            if (Vector2.Distance(transform.position, _target.transform.position) < enemyMeleeCharacteristicsSO.RadiusAttack)
+            if (Vector2.Distance(transform.position, _target.transform.position) < attackerSettingsSO.AttackRange)
             {
                 _attacker.Shoot();
                 StartCoroutine(DelayAttack());

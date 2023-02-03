@@ -1,6 +1,7 @@
 using System;
 using EntitySystem.Data.Combat;
 using EntitySystem.Shooting.Projectiles;
+using PlayerSystem.Interactions;
 using UnityEngine;
 
 namespace EntitySystem.Shooting
@@ -10,44 +11,38 @@ namespace EntitySystem.Shooting
         private HookShooterSettingsSO _settingsSO;
         private Transform _firePoint;
         private Hook _hook;
+        private Dragger _dragger;
 
-        private bool _isOut;
+        private Rigidbody2D _hookRb;
 
-        public event Action OnHookOut;
-        public event Action OnHookIn;
-        
-        public HookShooter(Transform firePoint, Hook hook, HookShooterSettingsSO settingsSO)
+        public bool IsOut { get; private set; }
+
+        public HookShooter(Transform firePoint, Hook hook, Dragger dragger, HookShooterSettingsSO settingsSO)
         {
             _settingsSO = settingsSO;
             _firePoint = firePoint;
             _hook = hook;
+            _dragger = dragger;
 
-            _hook.OnReturn += StoreIn;
+            _hookRb = hook.GetComponent<Rigidbody2D>();
         }
         
         public void ShootOut()
         {
-            if (_isOut)
-            {
-                return;
-            }
-            
+            IsOut = true;
             _hook.gameObject.SetActive(true);
             _hook.transform.position = _firePoint.position;
             _hook.transform.rotation = _firePoint.rotation;
-
-            _hook.ShootSelf();
             
-            _isOut = true;
-            OnHookOut?.Invoke();
+            _dragger.Connect(_hookRb);
+            _hook.ShootSelf();
         }
 
-        private void StoreIn()
+        public void StoreIn()
         {
+            _dragger.Release();
             _hook.gameObject.SetActive(false);
-
-            _isOut = false;
-            OnHookIn?.Invoke();
+            IsOut = false;
         }
     }
 }

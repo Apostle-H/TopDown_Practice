@@ -12,10 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e841071c0784782bc70b8242db7a377, type: 3}
   m_Name: TestHook
   m_EditorClassIdentifier: 
-  <Speed>k__BackingField: 5
-  <PlayerMask>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 64
-  <EnemyMask>k__BackingField:
+  <ShootOutForce>k__BackingField: 30
+  <TargetMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 128

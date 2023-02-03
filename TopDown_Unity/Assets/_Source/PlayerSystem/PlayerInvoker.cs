@@ -1,3 +1,4 @@
+using System;
 using InputSystem;
 using PlayerSystem.Interactions;
 using EntitySystem.Shooting;
@@ -15,23 +16,22 @@ namespace PlayerSystem
         private Mover _mover;
         private ShooterRotator _shooterRotator;
         private Attacker _attacker;
-        private HookShooter _hookShooter;
+        private AreaChecker _dragAreaChecker;
         private Dragger _dragger;
+        private HookShooter _hookShooter;
 
         public PlayerInvoker(InputHandler input, Transform transform, Mover mover, 
-            ShooterRotator shooterRotator, Attacker attacker, HookShooter hookShooter,
-            Dragger dragger)
+            ShooterRotator shooterRotator, Attacker attacker, AreaChecker dragAreaChecker,
+            Dragger dragger, HookShooter hookShooter)
         {
             _input = input;
             _transform = transform;
             _mover = mover;
             _shooterRotator = shooterRotator;
             _attacker = attacker;
-            _hookShooter = hookShooter;
+            _dragAreaChecker = dragAreaChecker;
             _dragger = dragger;
-            
-            _hookShooter.OnHookOut += BlockControls;
-            _hookShooter.OnHookIn += Bind;
+            _hookShooter = hookShooter;
         }
 
         public void Bind()
@@ -46,35 +46,23 @@ namespace PlayerSystem
 
         public void Expose()
         {
-            ExposeMovement();
-            ExposeAttack();
-            ExposeDrag();
-        }
-
-        private void BlockControls()
-        {
-            _mover.UpdateDirection(Vector2.zero);
-            
-            ExposeMovement();
-            ExposeAttack();
-            ExposeDrag();
-        }
-
-        private void ExposeMovement()
-        {
             _input.MovementActions.Direction.performed -= UpdateDirection;
             _input.MovementActions.Direction.canceled -= UpdateDirection;
-        }
-
-        private void ExposeAttack()
-        {
             _input.AttackActions.MousePos.performed -= RotateGun;
             _input.AttackActions.Shoot.performed -= Shoot;
             _input.AttackActions.Hook.performed -= Hook;
+            _input.DragActions.ConnectRelease.performed -= Drag;
         }
 
-        private void ExposeDrag()
+        private void BindOnHookIn()
         {
+            _input.AttackActions.Shoot.performed += Shoot;
+            _input.DragActions.ConnectRelease.performed += Drag;
+        }
+        
+        private void ExposeOnHookOut()
+        {
+            _input.AttackActions.Shoot.performed -= Shoot;
             _input.DragActions.ConnectRelease.performed -= Drag;
         }
 
@@ -91,18 +79,31 @@ namespace PlayerSystem
         private void Shoot(InputAction.CallbackContext ctx) =>
             _attacker.Shoot();
 
-        private void Hook(InputAction.CallbackContext ctx) =>
-            _hookShooter.ShootOut();
-        
-        private void Drag(InputAction.CallbackContext ctx)
+        private void Hook(InputAction.CallbackContext ctx)
         {
-            if (_dragger.IsDragging)
+            if (!_hookShooter.IsOut)
             {
-                _dragger.Release();
+                _hookShooter.ShootOut();
+                ExposeOnHookOut();
             }
             else
             {
-                _dragger.Connect();
+                _hookShooter.StoreIn();
+                BindOnHookIn();
+            }
+        }
+        
+        private void Drag(InputAction.CallbackContext ctx)
+        {
+            Rigidbody2D dragTarget;
+            
+            if (!_dragger.IsDragging && (dragTarget = _dragAreaChecker.CheckArea()))
+            {
+                _dragger.Connect(dragTarget);
+            }
+            else if (_dragger.IsDragging)
+            {
+                _dragger.Release();
             }
         }
     }

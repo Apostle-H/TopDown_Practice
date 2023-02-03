@@ -21,9 +21,10 @@ namespace Core
         [SerializeField] private Transform playerFirePoint;
         [SerializeField] private Transform playerGunPivotPoint;
         [SerializeField] private AttackerSettingsSO playerAttackerSettingsSO;
-        [SerializeField] private HookShooterSettingsSO playerHookShooterSettingsSO;
-        [SerializeField] private DraggerSettingsSO playerDraggerSettingsSO;
+        [SerializeField] private AreaCheckerSettingsSO playerDragAreaCheckerSettingsSO;
         [SerializeField] private SpringJoint2D playerDraggerJoint;
+        [SerializeField] private HookShooterSettingsSO playerHookShooterSettingsSO;
+
         
         private InputHandler _input;
 
@@ -32,8 +33,9 @@ namespace Core
         private ShooterRotator _playerShooterRotator;
         private ProjectilePool _playerProjectilePool;
         private Attacker _playerAttacker;
-        private HookShooter _playerHookShooter;
+        private AreaChecker _playerDragAreaChecker;
         private Dragger _playerDragger;
+        private HookShooter _playerHookShooter;
 
         private Game _game;
 
@@ -56,11 +58,11 @@ namespace Core
             _playerMover = new Mover(playerRb, playerMoverSettingSO);
             _playerShooterRotator = new ShooterRotator(playerGunPivotPoint);
             _playerAttacker = new Attacker(playerFirePoint, _playerProjectilePool, playerAttackerSettingsSO);
-            _playerHookShooter = new HookShooter(playerFirePoint, hook, playerHookShooterSettingsSO);
-            _playerDragger = new Dragger(playerTransform, playerDraggerJoint, playerDraggerSettingsSO);
+            _playerDragAreaChecker = new AreaChecker(playerTransform, playerDragAreaCheckerSettingsSO);
+            _playerDragger = new Dragger(playerDraggerJoint);
+            _playerHookShooter = new HookShooter(playerFirePoint, hook, _playerDragger, playerHookShooterSettingsSO);
             _playerInvoker = new PlayerInvoker(_input, playerTransform, _playerMover, 
-                _playerShooterRotator, _playerAttacker, _playerHookShooter,
-                _playerDragger);
+                _playerShooterRotator, _playerAttacker, _playerDragAreaChecker, _playerDragger, _playerHookShooter);
         }
     }
 }

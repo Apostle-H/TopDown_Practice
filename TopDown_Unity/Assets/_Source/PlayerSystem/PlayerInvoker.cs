@@ -6,6 +6,7 @@ using EntitySystem.Shooting;
 using EntitySystem.Movement;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Utils;
 
 namespace PlayerSystem
 {
@@ -59,14 +60,18 @@ namespace PlayerSystem
             _input.DragActions.ConnectRelease.performed -= Drag;
         }
 
-        private void BindOnHookIn()
+        private void HookIn()
         {
+            _mover.UpdateIsCarrying(false);
+            
             _input.AttackActions.Shoot.performed += Shoot;
             _input.DragActions.ConnectRelease.performed += Drag;
         }
         
-        private void ExposeOnHookOut()
+        private void HookOut()
         {
+            _mover.UpdateIsCarrying(true);
+            
             _input.AttackActions.Shoot.performed -= Shoot;
             _input.DragActions.ConnectRelease.performed -= Drag;
         }
@@ -77,7 +82,7 @@ namespace PlayerSystem
         private void RotateGun(InputAction.CallbackContext ctx)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
-            float rotationAngle = Mathf.Atan2(mousePos.y - _transform.position.y, mousePos.x - _transform.position.x) * (180/Mathf.PI) - 90;
+            float rotationAngle = _transform.LookAt2D(mousePos).eulerAngles.z;
             _shooterRotator.Rotate(rotationAngle);
         }
         
@@ -89,12 +94,12 @@ namespace PlayerSystem
             if (!_hookShooter.IsOut)
             {
                 _hookShooter.ShootOut();
-                ExposeOnHookOut();
+                HookOut();
             }
             else
             {
                 _hookShooter.StoreIn();
-                BindOnHookIn();
+                HookIn();
             }
         }
         
@@ -102,13 +107,19 @@ namespace PlayerSystem
         {
             Rigidbody2D dragTarget;
             
+            // if (!_dragger.IsDragging && (dragTarget = _dragAreaChecker.CheckArea()))
+            // {
+            //     _dragger.Connect(dragTarget);
+            // }
+            // else if (_dragger.IsDragging)
+            // {
+            //     _dragger.Release();
+            // }
             if (!_dragger.IsDragging && (dragTarget = _dragAreaChecker.CheckArea()))
             {
-                _dragger.Connect(dragTarget);
-            }
-            else if (_dragger.IsDragging)
-            {
-                _dragger.Release();
+                float rotationAngle = _transform.LookAt2D(dragTarget.position).eulerAngles.z;
+                _shooterRotator.Rotate(rotationAngle);
+                Hook(default);
             }
         }
     }

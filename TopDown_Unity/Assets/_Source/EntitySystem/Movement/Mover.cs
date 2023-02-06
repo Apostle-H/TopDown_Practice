@@ -10,6 +10,7 @@ namespace EntitySystem.Movement
         private MoverSettingsSO _settingsSO;
 
         private Vector2 _direction;
+        private bool _isCarrying;
 
         private Sequence _movePerformer;
 
@@ -28,10 +29,16 @@ namespace EntitySystem.Movement
             _movePerformer.Play();
         }
 
+        public void UpdateIsCarrying(bool isCarrying)
+        {
+            _isCarrying = isCarrying;
+        }
+
         private void PerformMove()
         {
             _direction = _direction.normalized;
-            Vector2 newPos = _rb.position + _direction * (_settingsSO.Speed * Time.fixedDeltaTime);
+            float speed = _isCarrying ? _settingsSO.CarrySpeed : _settingsSO.Speed;
+            Vector2 newPos = _rb.position + _direction * (speed * Time.fixedDeltaTime);
             _rb.MovePosition(newPos);
 
             if (_direction.magnitude == 0f)

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: PlayerMovementSettings
   m_EditorClassIdentifier: 
   Speed: 5
+  CarrySpeed: 3

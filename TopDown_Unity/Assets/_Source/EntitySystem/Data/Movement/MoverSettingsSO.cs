@@ -6,5 +6,6 @@ namespace EntitySystem.Data.Movement
     public class MoverSettingsSO : ScriptableObject
     {
         [field: SerializeField] public float Speed;
+        [field: SerializeField] public float CarrySpeed;
     }
 }

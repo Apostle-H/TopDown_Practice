@@ -17,6 +17,8 @@ namespace EntitySystem.Shooting.Projectiles
         private float _targetDrag;
         private bool _haveHooked;
 
+        public event Action OnHooked;
+
         private void OnCollisionEnter2D(Collision2D col)
         {
             if (!CheckForTarget(col))
@@ -27,6 +29,7 @@ namespace EntitySystem.Shooting.Projectiles
             _haveHooked = true;
             hookJoint.connectedBody = col.rigidbody;
             hookJoint.enabled = true;
+            OnHooked?.Invoke();
         }
 
         public void ShootSelf()

@@ -15,6 +15,9 @@ namespace EntitySystem.Shooting
 
         private Rigidbody2D _hookRb;
 
+        public event Action OnHooked;
+        public event Action OnReleased;
+
         public bool IsOut { get; private set; }
 
         public HookShooter(Transform firePoint, Hook hook, Dragger dragger, HookShooterSettingsSO settingsSO)
@@ -25,6 +28,8 @@ namespace EntitySystem.Shooting
             _dragger = dragger;
 
             _hookRb = hook.GetComponent<Rigidbody2D>();
+
+            _hook.OnHooked += Hooked;
         }
         
         public void ShootOut()
@@ -38,11 +43,20 @@ namespace EntitySystem.Shooting
             _hook.ShootSelf();
         }
 
+        private void Hooked()
+        {
+            OnHooked?.Invoke();
+        }
+
         public void StoreIn()
         {
             _dragger.Release();
             _hook.gameObject.SetActive(false);
             IsOut = false;
+            
+            OnReleased?.Invoke();
         }
+        
+        
     }
 }

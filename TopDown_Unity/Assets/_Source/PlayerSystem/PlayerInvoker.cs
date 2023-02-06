@@ -48,6 +48,9 @@ namespace PlayerSystem
             _input.AttackActions.Shoot.performed += Shoot;
             _input.AttackActions.Hook.performed += Hook;
             _input.DragActions.ConnectRelease.performed += Drag;
+
+            _hookShooter.OnHooked += Hooked;
+            _hookShooter.OnReleased += HookReleased;
         }
 
         public void Expose()
@@ -58,22 +61,32 @@ namespace PlayerSystem
             _input.AttackActions.Shoot.performed -= Shoot;
             _input.AttackActions.Hook.performed -= Hook;
             _input.DragActions.ConnectRelease.performed -= Drag;
+
+            _hookShooter.OnHooked -= Hooked;
+            _hookShooter.OnReleased -= HookReleased;
         }
 
         private void HookIn()
         {
-            _mover.UpdateIsCarrying(false);
-            
             _input.AttackActions.Shoot.performed += Shoot;
             _input.DragActions.ConnectRelease.performed += Drag;
         }
         
         private void HookOut()
         {
-            _mover.UpdateIsCarrying(true);
-            
             _input.AttackActions.Shoot.performed -= Shoot;
             _input.DragActions.ConnectRelease.performed -= Drag;
+        }
+
+        private void Hooked()
+        {
+            Debug.Log(2);
+            _mover.UpdateIsCarrying(true);
+        }
+        
+        private void HookReleased()
+        {
+            _mover.UpdateIsCarrying(false);
         }
 
         private void UpdateDirection(InputAction.CallbackContext ctx) =>

@@ -78,7 +78,7 @@ namespace EnemySystem.EnemyMelee
 
             if (Vector2.Distance(transform.position, _target.transform.position) < attackerSettingsSO.AttackRange)
             {
-                _attacker.Shoot();
+                _attacker.StartShoot();
                 StartCoroutine(DelayAttack());
                 
                 yield break;

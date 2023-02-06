@@ -14,8 +14,8 @@ namespace EntitySystem.Shooting
 
         private float _rotation;
         
+        private bool _shoot;
         private Sequence _shootDelayer;
-        private bool _canShoot;
 
         public Attacker(Transform firePoint, ProjectilePool pool, AttackerSettingsSO settingsSO)
         {
@@ -23,14 +23,23 @@ namespace EntitySystem.Shooting
             _pool = pool;
             _settingsSO = settingsSO;
 
-            _canShoot = true;
-
             InitSequence();
         }
 
-        public void Shoot()
+        public void StartShoot()
         {
-            if (!_canShoot)
+            _shoot = true;
+            if (_shootDelayer.IsPlaying())
+            {
+                return;
+            }
+            
+            _shootDelayer.Restart();
+        }
+
+        private void Shoot()
+        {
+            if (!_shoot)
             {
                 return;
             }
@@ -41,7 +50,11 @@ namespace EntitySystem.Shooting
             projectile.transform.rotation = _firePoint.rotation;
             
             projectile.ShootSelf();
-            _shootDelayer.Restart();
+        }
+
+        public void StopShoot()
+        {
+            _shoot = false;
         }
 
         private void InitSequence()
@@ -50,9 +63,9 @@ namespace EntitySystem.Shooting
             _shootDelayer.Pause();
             _shootDelayer.SetAutoKill(false);
             
-            _shootDelayer.AppendCallback(() => _canShoot = false);
+            _shootDelayer.AppendCallback(Shoot);
             _shootDelayer.AppendInterval(_settingsSO.ShootDelay);
-            _shootDelayer.AppendCallback(() => _canShoot = true);
+            _shootDelayer.AppendCallback(() => { if (_shoot) _shootDelayer.Restart(); });
         }
     }
 }

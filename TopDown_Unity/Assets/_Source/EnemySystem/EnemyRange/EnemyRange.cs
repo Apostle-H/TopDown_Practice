@@ -81,7 +81,7 @@ namespace EnemySystem.EnemyRange
         private IEnumerator Timer()
         {
             yield return new WaitForSeconds(attackerSettingsSO.ShootDelay);
-            _attacker.Shoot();
+            _attacker.StartShoot();
 
             StartCoroutine(Timer());
         }

@@ -45,7 +45,8 @@ namespace PlayerSystem
             _input.MovementActions.Direction.performed += UpdateDirection;
             _input.MovementActions.Direction.canceled += UpdateDirection;
             _input.AttackActions.MousePos.performed += RotateGun;
-            _input.AttackActions.Shoot.performed += Shoot;
+            _input.AttackActions.Shoot.started += StartShoot;
+            _input.AttackActions.Shoot.canceled += StartShoot;
             _input.AttackActions.Hook.performed += Hook;
             _input.DragActions.ConnectRelease.performed += Drag;
 
@@ -58,7 +59,8 @@ namespace PlayerSystem
             _input.MovementActions.Direction.performed -= UpdateDirection;
             _input.MovementActions.Direction.canceled -= UpdateDirection;
             _input.AttackActions.MousePos.performed -= RotateGun;
-            _input.AttackActions.Shoot.performed -= Shoot;
+            _input.AttackActions.Shoot.performed -= StartShoot;
+            _input.AttackActions.Shoot.canceled -= StartShoot;
             _input.AttackActions.Hook.performed -= Hook;
             _input.DragActions.ConnectRelease.performed -= Drag;
 
@@ -66,16 +68,18 @@ namespace PlayerSystem
             _hookShooter.OnReleased -= HookReleased;
         }
 
-        private void HookIn()
-        {
-            _input.AttackActions.Shoot.performed += Shoot;
-            _input.DragActions.ConnectRelease.performed += Drag;
-        }
-        
         private void HookOut()
         {
-            _input.AttackActions.Shoot.performed -= Shoot;
+            _input.AttackActions.Shoot.performed -= StartShoot;
             _input.DragActions.ConnectRelease.performed -= Drag;
+            
+            _attacker.StopShoot();
+        }
+        
+        private void HookIn()
+        {
+            _input.AttackActions.Shoot.performed += StartShoot;
+            _input.DragActions.ConnectRelease.performed += Drag;
         }
 
         private void Hooked()
@@ -98,9 +102,18 @@ namespace PlayerSystem
             float rotationAngle = _transform.LookAt2D(mousePos).eulerAngles.z;
             _shooterRotator.Rotate(rotationAngle);
         }
-        
-        private void Shoot(InputAction.CallbackContext ctx) =>
-            _attacker.Shoot();
+
+        private void StartShoot(InputAction.CallbackContext ctx)
+        {
+            if (ctx.phase == InputActionPhase.Started)
+            {
+                _attacker.StartShoot();
+            }
+            else if (ctx.phase == InputActionPhase.Canceled)
+            {
+                _attacker.StopShoot();
+            }
+        }
 
         private void Hook(InputAction.CallbackContext ctx)
         {

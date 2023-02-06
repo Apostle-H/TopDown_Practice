@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf8d6f8d6e3d448292a81d6490ed2f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageable: {fileID: 7879470085298731794}
+  health: {fileID: 7879470085298731794}
   enemyRangeCharacteristicsSO: {fileID: 11400000, guid: 7bb646d9b4e9bbc4a8a46ef569b79c06, type: 2}
   rangeCollider: {fileID: 7879470086588031281}
   projectilesHolder: {fileID: 7879470085230201847}
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7879470085298731815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f46681bfa414364b215fd3c7d0ac77d, type: 3}
+  m_Script: {fileID: 11500000, guid: eaeac82c87ac4fd788632fc81816e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   settingsSO: {fileID: 11400000, guid: c36db321ddab02847a8ce31e04609182, type: 2}

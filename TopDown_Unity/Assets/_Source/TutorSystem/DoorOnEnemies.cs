@@ -1,11 +1,12 @@
-﻿using EntitySystem.Health;
+﻿using EnemySystem.Health;
+using EntitySystem.Health;
 using UnityEngine;
 
 namespace TutorSystem
 {
     public class DoorOnEnemies : MonoBehaviour
     {
-        [SerializeField] private Damageable[] damageableToOpen;
+        [SerializeField] private EnemyHealth[] damageableToOpen;
 
         private int _counter;
 

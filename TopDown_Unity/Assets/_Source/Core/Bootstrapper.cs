@@ -16,7 +16,7 @@ namespace Core
     {
         [Header("Player System")] 
         [SerializeField] private Transform playerTransform;
-        [SerializeField] private Damageable playerDamageable;
+        [SerializeField] private PlayerHealth playerHealth;
         [SerializeField] private Rigidbody2D playerRb;
         [SerializeField] private MoverSettingsSO playerMoverSettingSO;
         [SerializeField] private Transform playerProjectilesHolder;
@@ -63,7 +63,7 @@ namespace Core
             _playerDragAreaChecker = new AreaChecker(playerTransform, playerDragAreaCheckerSettingsSO);
             _playerDragger = new Dragger(playerDraggerJoint);
             _playerHookShooter = new HookShooter(playerFirePoint, hook, _playerDragger, playerHookShooterSettingsSO);
-            _playerInvoker = new PlayerInvoker(_input, playerTransform, playerDamageable, _playerMover, _playerShooterRotator, 
+            _playerInvoker = new PlayerInvoker(_input, playerTransform, playerHealth, _playerMover, _playerShooterRotator, 
                 _playerAttacker, _playerDragAreaChecker, _playerDragger, _playerHookShooter);
         }
     }

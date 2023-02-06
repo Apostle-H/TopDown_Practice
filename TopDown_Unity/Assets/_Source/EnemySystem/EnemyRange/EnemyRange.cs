@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using EnemySystem.Data;
 using EnemySystem.Data.Combat;
+using EnemySystem.Health;
 using EntitySystem.Health;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
@@ -11,7 +12,7 @@ namespace EnemySystem.EnemyRange
 {
     public class EnemyRange : MonoBehaviour
     {
-        [SerializeField] private Damageable damageable;
+        [SerializeField] private EnemyHealth health;
         [SerializeField] private EnemyRangeCharacteristicsSO enemyRangeCharacteristicsSO;
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
@@ -32,7 +33,7 @@ namespace EnemySystem.EnemyRange
             ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder);
             _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
 
-            damageable.OnDeath += Die;
+            health.OnDeath += Die;
         }
 
         private void Update()

@@ -1,6 +1,7 @@
 using System.Collections;
 using EnemySystem.Data;
 using EnemySystem.Data.Combat;
+using EnemySystem.Health;
 using EnemySystem.Movement;
 using EntitySystem.Data.Combat;
 using EntitySystem.Health;
@@ -14,7 +15,7 @@ namespace EnemySystem.EnemyMelee
 {
     public class EnemyMelee : MonoBehaviour
     {
-        [SerializeField] private Damageable damageable;
+        [SerializeField] private EnemyHealth health;
         [SerializeField] private EnemyMeleeCharacteristicsSO enemyMeleeCharacteristicsSO;
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
@@ -40,7 +41,7 @@ namespace EnemySystem.EnemyMelee
             ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder); 
             _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
 
-            damageable.OnDeath += Die;
+            health.OnDeath += Die;
         }
 
         private void OnTriggerEnter2D(Collider2D col)

@@ -15,7 +15,7 @@ namespace PlayerSystem
         private InputHandler _input;
 
         private Transform _transform;
-        private Damageable _damageable;
+        private PlayerHealth _health;
         private Mover _mover;
         private ShooterRotator _shooterRotator;
         private Attacker _attacker;
@@ -23,13 +23,13 @@ namespace PlayerSystem
         private Dragger _dragger;
         private HookShooter _hookShooter;
 
-        public PlayerInvoker(InputHandler input, Transform transform, Damageable damageable,
+        public PlayerInvoker(InputHandler input, Transform transform, PlayerHealth health,
             Mover mover, ShooterRotator shooterRotator, Attacker attacker, AreaChecker dragAreaChecker,
             Dragger dragger, HookShooter hookShooter)
         {
             _input = input;
             _transform = transform;
-            _damageable = damageable;
+            _health = health;
             _mover = mover;
             _shooterRotator = shooterRotator;
             _attacker = attacker;
@@ -40,7 +40,7 @@ namespace PlayerSystem
 
         public void Bind()
         {
-            _damageable.OnDeath += Expose;
+            _health.OnDeath += Expose;
             
             _input.MovementActions.Direction.performed += UpdateDirection;
             _input.MovementActions.Direction.canceled += UpdateDirection;

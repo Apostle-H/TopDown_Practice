@@ -4577,6 +4577,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1459956685}
     - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
+      propertyPath: playerUIView
+      value: 
+      objectReference: {fileID: 2051986841}
+    - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
       propertyPath: playerFirePoint
       value: 
       objectReference: {fileID: 756137661}
@@ -4596,6 +4600,10 @@ PrefabInstance:
       propertyPath: playerGunPivotPoint
       value: 
       objectReference: {fileID: 1395952574}
+    - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
+      propertyPath: playerHealthSettingsSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 9c069d84887a03e48a9f9a77f99a3388, type: 2}
     - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
       propertyPath: playerProjectilesHolder
       value: 
@@ -22410,6 +22418,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6793356406169604965, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
   m_PrefabInstance: {fileID: 2051986839}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2051986841 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4025895371608471237, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
+  m_PrefabInstance: {fileID: 2051986839}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6ee1f6946f4fd0bc3f00c9aa6a6b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2055505803
 GameObject:
   m_ObjectHideFlags: 0

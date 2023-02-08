@@ -83,6 +83,8 @@ namespace EnemySystem.EnemyMelee
                 
                 yield break;
             }
+                
+            _attacker.StopShoot();
         
             yield return new WaitForSeconds(Time.fixedDeltaTime);
             _navMeshMover.Move();

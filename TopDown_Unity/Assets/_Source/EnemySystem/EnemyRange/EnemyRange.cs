@@ -40,7 +40,7 @@ namespace EnemySystem.EnemyRange
         {
             if (_isTargetInRadius)
             {
-                TurningTowardsTheTarget();
+                LookAtTarget();
             }
         }
         private void OnTriggerEnter2D(Collider2D col)
@@ -48,10 +48,10 @@ namespace EnemySystem.EnemyRange
             if (enemyRangeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
             {
                 _target = col.gameObject;
-
                 _isTargetInRadius = true;
                 
-                StartCoroutine(Timer());
+                LookAtTarget();
+                _attacker.StartShoot();
             }
         }
 
@@ -60,10 +60,9 @@ namespace EnemySystem.EnemyRange
             if (enemyRangeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
             {
                 _target = null;
-
                 _isTargetInRadius = false;
                 
-                StopAllCoroutines();
+                _attacker.StopShoot();
             }
         }
         
@@ -73,17 +72,9 @@ namespace EnemySystem.EnemyRange
             StopAllCoroutines();
         }
 
-        private void TurningTowardsTheTarget()
+        private void LookAtTarget()
         {
             transform.rotation = transform.LookAt2D(_target.transform.position);
-        }
-
-        private IEnumerator Timer()
-        {
-            yield return new WaitForSeconds(attackerSettingsSO.ShootDelay);
-            _attacker.StartShoot();
-
-            StartCoroutine(Timer());
         }
     }
 }

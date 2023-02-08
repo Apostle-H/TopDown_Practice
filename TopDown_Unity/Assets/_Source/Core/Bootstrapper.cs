@@ -1,4 +1,5 @@
 using EntitySystem.Data.Combat;
+using EntitySystem.Data.Health;
 using EntitySystem.Data.Movement;
 using EntitySystem.Health;
 using EntitySystem.Movement;
@@ -8,7 +9,9 @@ using InputSystem;
 using PlayerSystem;
 using PlayerSystem.Data.Interactions;
 using PlayerSystem.Interactions;
+using UI.Player;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Core
 {
@@ -27,7 +30,11 @@ namespace Core
         [SerializeField] private SpringJoint2D playerDraggerJoint;
         [SerializeField] private HookShooterSettingsSO playerHookShooterSettingsSO;
 
-        
+        [Header("UI"), Space(5f)] 
+        [Header("Player")]
+        [SerializeField] private playerUIView playerUIView;
+        [SerializeField] private HealthSettingsSO playerHealthSettingsSO;
+
         private InputHandler _input;
 
         private PlayerInvoker _playerInvoker;
@@ -39,6 +46,9 @@ namespace Core
         private Dragger _playerDragger;
         private HookShooter _playerHookShooter;
 
+        private playerUIModel _playerUIModel;
+        private playerUIController _playerUIController;
+
         private Game _game;
 
         private void Awake()
@@ -46,6 +56,7 @@ namespace Core
             _input = new InputHandler();
 
             InitPlayer();
+            InitUI();
 
             _game = new Game(_input, _playerInvoker);
             _game.Start();
@@ -65,6 +76,12 @@ namespace Core
             _playerHookShooter = new HookShooter(playerFirePoint, hook, _playerDragger, playerHookShooterSettingsSO);
             _playerInvoker = new PlayerInvoker(_input, playerTransform, playerHealth, _playerMover, _playerShooterRotator, 
                 _playerAttacker, _playerDragAreaChecker, _playerDragger, _playerHookShooter);
+        }
+
+        private void InitUI()
+        {
+            _playerUIModel = new playerUIModel(playerHealthSettingsSO);
+            _playerUIController = new playerUIController(_playerUIModel, playerUIView, playerHealth);
         }
     }
 }

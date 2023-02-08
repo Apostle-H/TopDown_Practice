@@ -7,7 +7,7 @@ namespace EnemySystem.Health
 {
     public class EnemyHealth : MonoBehaviour, IEnemyDamageable
     {
-        [SerializeField] private DamageableSettingsSO settingsSO;
+        [SerializeField] private HealthSettingsSO settingsSO;
 
         private int _currentHealth;
         private bool _isKnocked;

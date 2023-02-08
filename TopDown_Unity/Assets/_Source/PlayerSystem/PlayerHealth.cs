@@ -7,13 +7,15 @@ namespace PlayerSystem
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
-        [SerializeField] private DamageableSettingsSO settingsSO;
+        [SerializeField] private HealthSettingsSO settingsSO;
 
         private int _currentHealth;
         private bool _isDead;
         
         public event Action OnDamaged;
         public event Action OnDeath;
+
+        public int CurrentHealth => _currentHealth;
 
         private void Awake()
         {

@@ -33,6 +33,7 @@ namespace EnemySystem.EnemyRange
             ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder);
             _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
 
+            health.OnKnock += Knock;
             health.OnDeath += Die;
         }
 
@@ -43,6 +44,7 @@ namespace EnemySystem.EnemyRange
                 LookAtTarget();
             }
         }
+        
         private void OnTriggerEnter2D(Collider2D col)
         {
             if (enemyRangeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
@@ -65,11 +67,20 @@ namespace EnemySystem.EnemyRange
                 _attacker.StopShoot();
             }
         }
-        
-        private void Die()
+
+        private void Knock()
         {
             rangeCollider.enabled = false;
             StopAllCoroutines();
+            
+            health.OnKnock -= Knock;
+        }
+        
+        private void Die()
+        {
+            gameObject.SetActive(false);
+            
+            health.OnKnock -= Die;
         }
 
         private void LookAtTarget()

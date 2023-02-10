@@ -41,6 +41,7 @@ namespace EnemySystem.EnemyMelee
             ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder); 
             _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
 
+            health.OnKnock += Knock;
             health.OnDeath += Die;
         }
 
@@ -66,10 +67,19 @@ namespace EnemySystem.EnemyMelee
             }
         }
 
-        private void Die()
+        private void Knock()
         {
             rangeCollider.enabled = false;
             StopAllCoroutines();
+            
+            health.OnKnock -= Knock;
+        }
+
+        private void Die()
+        {
+            gameObject.SetActive(false);
+            
+            health.OnDeath -= Die;
         }
         
         private IEnumerator CheckRange()

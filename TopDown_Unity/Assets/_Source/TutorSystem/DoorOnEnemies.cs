@@ -16,7 +16,7 @@ namespace TutorSystem
 
             for (int i = 0; i < damageableToOpen.Length; i++)
             {
-                damageableToOpen[i].OnDeath += CountDown;
+                damageableToOpen[i].OnKnock += CountDown;
             } 
         }
 

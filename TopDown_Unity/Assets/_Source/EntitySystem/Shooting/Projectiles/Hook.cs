@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using DG.Tweening;
 using EntitySystem.Data.Combat.Projectiles;
+using EntitySystem.Interactions;
 using UnityEngine;
 using Utils;
 
@@ -40,8 +41,13 @@ namespace EntitySystem.Shooting.Projectiles
             rb.AddForce(transform.up * settingsSO.ShootOutForce, ForceMode2D.Impulse);
         }
 
-        private bool CheckForTarget(Collision2D other) =>
-            settingsSO.TargetMask.Contains(other.gameObject.layer) && !_haveHooked;
+        private bool CheckForTarget(Collision2D other)
+        {
+            return !_haveHooked && 
+                   settingsSO.TargetMask.Contains(other.gameObject.layer) &&
+                   other.gameObject.TryGetComponent(out IDraggable target) &&
+                   target.IsDraggable;
+        }
         
     }
 }

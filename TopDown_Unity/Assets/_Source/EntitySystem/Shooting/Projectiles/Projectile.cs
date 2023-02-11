@@ -42,9 +42,8 @@ namespace EntitySystem.Shooting.Projectiles
 
         private void Damage(Collider2D other)
         {
-            IDamageable target;
             if (!settingsSO.TargetMask.Contains(other.gameObject.layer) || 
-                (target = other.gameObject.GetComponent<IDamageable>()) == null)
+                other.gameObject.TryGetComponent(out IDamageable target))
             {
                 return;
             }

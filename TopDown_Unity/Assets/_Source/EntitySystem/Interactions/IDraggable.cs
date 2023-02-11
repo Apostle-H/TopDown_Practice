@@ -2,6 +2,6 @@
 {
     public interface IDraggable
     {
-        public bool IsDraggable { get; protected set; }
+        public bool IsDraggable { get; }
     }
 }

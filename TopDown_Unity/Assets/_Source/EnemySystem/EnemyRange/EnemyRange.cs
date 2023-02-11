@@ -12,12 +12,13 @@ namespace EnemySystem.EnemyRange
 {
     public class EnemyRange : MonoBehaviour
     {
-        [SerializeField] private EnemyHealth health;
+        [SerializeField] private EnemyInteractions interactions;
         [SerializeField] private EnemyRangeCharacteristicsSO enemyRangeCharacteristicsSO;
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
         [SerializeField] private Transform firePoint;
         [SerializeField] private RangeAttackerSettings attackerSettingsSO;
+        [SerializeField] private Rigidbody2D rb;
 
         private CircleCollider2D _collider2D;
 
@@ -33,8 +34,8 @@ namespace EnemySystem.EnemyRange
             ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder);
             _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
 
-            health.OnKnock += Knock;
-            health.OnDeath += Die;
+            interactions.OnKnock += Knock;
+            interactions.OnDeath += Die;
         }
 
         private void Update()
@@ -72,15 +73,16 @@ namespace EnemySystem.EnemyRange
         {
             rangeCollider.enabled = false;
             StopAllCoroutines();
+            rb.bodyType = RigidbodyType2D.Dynamic;
             
-            health.OnKnock -= Knock;
+            interactions.OnKnock -= Knock;
         }
         
         private void Die()
         {
             gameObject.SetActive(false);
             
-            health.OnKnock -= Die;
+            interactions.OnKnock -= Die;
         }
 
         private void LookAtTarget()

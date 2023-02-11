@@ -131,12 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1276fe82652600e4c99f5d80c59514ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 8705901569076792454}
+  interactions: {fileID: 8705901569076792454}
   enemyMeleeCharacteristicsSO: {fileID: 11400000, guid: 51496fbd391dba04dbfd5aabe3a12477, type: 2}
   rangeCollider: {fileID: 8705901568472365803}
   projectilesHolder: {fileID: 8705901569227385252}
   firePoint: {fileID: 8705901568898526089}
   attackerSettingsSO: {fileID: 11400000, guid: c46fe3ccc3e66ba4cac8edbb11892240, type: 2}
+  rb: {fileID: 8705901569076792461}
 --- !u!114 &8705901569076792454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +227,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8705901569076792467}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

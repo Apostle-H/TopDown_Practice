@@ -6,8 +6,8 @@ namespace EnemySystem.EnemyAcne
 {
     public class AcneEnemy : MonoBehaviour
     {
-        [SerializeField] private EnemyHealth health;
-        [SerializeField] private EnemyHealth[] enemyCount;
+        [SerializeField] private EnemyInteractions interactions;
+        [SerializeField] private EnemyInteractions[] enemyCount;
         [SerializeField] private CircleCollider2D invincibleCollider;
 
         private int _enemyCount;
@@ -16,7 +16,7 @@ namespace EnemySystem.EnemyAcne
         {
             _enemyCount = enemyCount.Length;
             
-            health.OnKnock += Die;
+            interactions.OnKnock += Die;
             
             for (int i = 0; i < enemyCount.Length; i++)
             {
@@ -38,7 +38,7 @@ namespace EnemySystem.EnemyAcne
         {
             gameObject.SetActive(false);
             
-            health.OnKnock -= Die;
+            interactions.OnKnock -= Die;
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

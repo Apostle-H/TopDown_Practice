@@ -6,7 +6,7 @@ namespace TutorSystem
 {
     public class DoorOnEnemies : MonoBehaviour
     {
-        [SerializeField] private EnemyHealth[] damageableToOpen;
+        [SerializeField] private EnemyInteractions[] damageableToOpen;
 
         private int _counter;
 

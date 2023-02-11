@@ -40,7 +40,7 @@ namespace PlayerSystem
 
         public void Bind()
         {
-            _health.OnDeath += Expose;
+            _health.OnDeath += Die;
             
             _input.MovementActions.Direction.performed += UpdateDirection;
             _input.MovementActions.Direction.canceled += UpdateDirection;
@@ -137,6 +137,14 @@ namespace PlayerSystem
                 _shooterRotator.Rotate(rotationAngle);
                 Hook(default);
             }
+        }
+
+        private void Die()
+        {
+            Expose();
+            
+            _mover.UpdateDirection(Vector2.zero);
+            _attacker.StopShoot();
         }
     }
 }

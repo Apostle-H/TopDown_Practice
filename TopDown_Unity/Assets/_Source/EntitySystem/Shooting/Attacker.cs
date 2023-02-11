@@ -28,6 +28,7 @@ namespace EntitySystem.Shooting
 
         public void StartShoot()
         {
+            Debug.Log(2);
             _shoot = true;
             if (_shootDelayer.IsPlaying())
             {

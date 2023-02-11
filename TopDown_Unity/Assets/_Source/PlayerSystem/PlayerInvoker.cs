@@ -45,8 +45,8 @@ namespace PlayerSystem
             _input.MovementActions.Direction.performed += UpdateDirection;
             _input.MovementActions.Direction.canceled += UpdateDirection;
             _input.AttackActions.MousePos.performed += RotateGun;
-            _input.AttackActions.Shoot.started += StartShoot;
-            _input.AttackActions.Shoot.canceled += StartShoot;
+            _input.AttackActions.Shoot.started += SetShoot;
+            _input.AttackActions.Shoot.canceled += SetShoot;
             _input.AttackActions.Hook.performed += Hook;
             _input.DragActions.ConnectRelease.performed += Drag;
 
@@ -59,8 +59,8 @@ namespace PlayerSystem
             _input.MovementActions.Direction.performed -= UpdateDirection;
             _input.MovementActions.Direction.canceled -= UpdateDirection;
             _input.AttackActions.MousePos.performed -= RotateGun;
-            _input.AttackActions.Shoot.performed -= StartShoot;
-            _input.AttackActions.Shoot.canceled -= StartShoot;
+            _input.AttackActions.Shoot.started -= SetShoot;
+            _input.AttackActions.Shoot.canceled -= SetShoot;
             _input.AttackActions.Hook.performed -= Hook;
             _input.DragActions.ConnectRelease.performed -= Drag;
 
@@ -70,7 +70,7 @@ namespace PlayerSystem
 
         private void HookOut()
         {
-            _input.AttackActions.Shoot.performed -= StartShoot;
+            _input.AttackActions.Shoot.started -= SetShoot;
             _input.DragActions.ConnectRelease.performed -= Drag;
             
             _attacker.StopShoot();
@@ -78,13 +78,12 @@ namespace PlayerSystem
         
         private void HookIn()
         {
-            _input.AttackActions.Shoot.performed += StartShoot;
+            _input.AttackActions.Shoot.performed += SetShoot;
             _input.DragActions.ConnectRelease.performed += Drag;
         }
 
         private void Hooked()
         {
-            Debug.Log(2);
             _mover.UpdateIsCarrying(true);
         }
         
@@ -103,7 +102,7 @@ namespace PlayerSystem
             _shooterRotator.Rotate(rotationAngle);
         }
 
-        private void StartShoot(InputAction.CallbackContext ctx)
+        private void SetShoot(InputAction.CallbackContext ctx)
         {
             if (ctx.phase == InputActionPhase.Started)
             {
@@ -132,15 +131,6 @@ namespace PlayerSystem
         private void Drag(InputAction.CallbackContext ctx)
         {
             Rigidbody2D dragTarget;
-            
-            // if (!_dragger.IsDragging && (dragTarget = _dragAreaChecker.CheckArea()))
-            // {
-            //     _dragger.Connect(dragTarget);
-            // }
-            // else if (_dragger.IsDragging)
-            // {
-            //     _dragger.Release();
-            // }
             if (!_dragger.IsDragging && (dragTarget = _dragAreaChecker.CheckArea()))
             {
                 float rotationAngle = _transform.LookAt2D(dragTarget.position).eulerAngles.z;

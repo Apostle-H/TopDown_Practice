@@ -78,7 +78,7 @@ namespace PlayerSystem
         
         private void HookIn()
         {
-            _input.AttackActions.Shoot.performed += SetShoot;
+            _input.AttackActions.Shoot.started += SetShoot;
             _input.DragActions.ConnectRelease.performed += Drag;
         }
 

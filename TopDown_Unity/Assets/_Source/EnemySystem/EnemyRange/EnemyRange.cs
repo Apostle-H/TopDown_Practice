@@ -17,7 +17,7 @@ namespace EnemySystem.EnemyRange
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private RangeAttackerSettings attackerSettingsSO;
+        [SerializeField] private RangeAttackerSO attackerSOSO;
         [SerializeField] private Rigidbody2D rb;
 
         private CircleCollider2D _collider2D;
@@ -29,10 +29,10 @@ namespace EnemySystem.EnemyRange
 
         private void Awake()
         {
-            rangeCollider.radius = attackerSettingsSO.AttackRange;
+            rangeCollider.radius = attackerSOSO.AttackRange;
             
-            ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder);
-            _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
+            ProjectilePool pool = new ProjectilePool(attackerSOSO.ShootDelay, attackerSOSO.ProjectilePrefab, projectilesHolder);
+            _attacker = new Attacker(firePoint, pool, attackerSOSO);
 
             interactions.OnKnock += Knock;
             interactions.OnDeath += Die;

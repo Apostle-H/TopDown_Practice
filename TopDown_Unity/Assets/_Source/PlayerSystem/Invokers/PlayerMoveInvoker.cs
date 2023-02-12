@@ -1,0 +1,61 @@
+﻿using EntitySystem.Movement;
+using EntitySystem.Shooting;
+using InputSystem;
+using PlayerSystem.Data.Interactions;
+using PlayerSystem.Interactions;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using Utils;
+using Utils.Services;
+
+namespace PlayerSystem.Invokers
+{
+    public class PlayerMoveInvoker
+    {
+        private InputHandler _input;
+
+        private Transform _transform;
+        private Mover _mover;
+        private ShooterRotator _shooterRotator;
+
+        public PlayerMoveInvoker(InputHandler input, Transform transform, Mover mover, ShooterRotator shooterRotator)
+        {
+            _input = input;
+            _transform = transform;
+            _mover = mover;
+            _shooterRotator = shooterRotator;
+        }
+
+        public void Bind()
+        {
+            _input.MovementActions.Direction.performed += UpdateDirection;
+            _input.MovementActions.Direction.canceled += UpdateDirection;
+            _input.AttackActions.MousePos.performed += RotateGun;
+        }
+
+        public void Expose()
+        {
+            _input.MovementActions.Direction.performed -= UpdateDirection;
+            _input.MovementActions.Direction.canceled -= UpdateDirection;
+            _input.AttackActions.MousePos.performed -= RotateGun;
+
+            _mover.UpdateDirection(Vector2.zero);
+        }
+
+        public void SlowDownCarrying() =>
+            _mover.UpdateIsCarrying(true);
+        
+        public void SpeedUpReleasing() =>
+            _mover.UpdateIsCarrying(false);
+
+        private void UpdateDirection(InputAction.CallbackContext ctx) =>
+            _mover.UpdateDirection(ctx.ReadValue<Vector2>());
+        
+        private void RotateGun(InputAction.CallbackContext ctx)
+        {
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
+            float rotationAngle = _transform.LookAt2D(mousePos).eulerAngles.z;
+            _shooterRotator.Rotate(rotationAngle);
+        }
+    }
+}

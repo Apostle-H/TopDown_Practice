@@ -20,7 +20,7 @@ namespace EnemySystem.EnemyMelee
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private MeleeAttackerSettings attackerSettingsSO;
+        [SerializeField] private MeleeAttackerSO attackerSO;
         [SerializeField] private Rigidbody2D rb;
 
         private NavMeshAgent _navMesh;
@@ -37,10 +37,10 @@ namespace EnemySystem.EnemyMelee
             
             _navMeshMover = new NavMeshMover(_navMesh, enemyMeleeCharacteristicsSO.MoveSpeed);
 
-            rangeCollider.radius = attackerSettingsSO.TriggerRange;
+            rangeCollider.radius = attackerSO.TriggerRange;
             
-            ProjectilePool pool = new ProjectilePool(attackerSettingsSO.ShootDelay, attackerSettingsSO.ProjectilePrefab, projectilesHolder); 
-            _attacker = new Attacker(firePoint, pool, attackerSettingsSO);
+            ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder); 
+            _attacker = new Attacker(firePoint, pool, attackerSO);
 
             interactions.OnKnock += Knock;
             interactions.OnDeath += Die;
@@ -88,7 +88,7 @@ namespace EnemySystem.EnemyMelee
         {
             transform.rotation = transform.LookAt2D(_target.transform.position);
 
-            if (Vector2.Distance(transform.position, _target.transform.position) < attackerSettingsSO.AttackRange)
+            if (Vector2.Distance(transform.position, _target.transform.position) < attackerSO.AttackRange)
             {
                 _attacker.StartShoot();
                 StartCoroutine(DelayAttack());
@@ -105,7 +105,7 @@ namespace EnemySystem.EnemyMelee
         
         private IEnumerator DelayAttack()
         {
-            yield return new WaitForSeconds(attackerSettingsSO.ShootDelay);
+            yield return new WaitForSeconds(attackerSO.ShootDelay);
             StartCoroutine(CheckRange());
         }
     }

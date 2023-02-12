@@ -1,5 +1,5 @@
 ﻿using System;
-using EntitySystem.Data.Health;
+using EntitySystem.Data.Interactions;
 using EntitySystem.Health;
 using EntitySystem.Interactions;
 using UnityEngine;
@@ -8,7 +8,8 @@ namespace EnemySystem.Health
 {
     public class EnemyInteractions : MonoBehaviour, IEnemyDamageable, IDraggable
     {
-        [SerializeField] private HealthSettingsSO settingsSO;
+        [SerializeField] private HealthSO healthSO;
+        [SerializeField] private SplittableSO splittableSO;
 
         private int _currentHealth;
         private bool _isKnocked;
@@ -19,10 +20,9 @@ namespace EnemySystem.Health
         public event Action OnDeath;
 
         public bool IsDraggable => _isKnocked && !_isDead;
-
         private void Awake()
         {
-            _currentHealth = settingsSO.Health;
+            _currentHealth = healthSO.Health;
         }
 
         public void TakeDamage(int damage)
@@ -45,6 +45,11 @@ namespace EnemySystem.Health
                 _isDead = true;
                 OnDeath?.Invoke();
             }
+        }
+        
+        public void Heal(int amount)
+        {
+            _currentHealth = _currentHealth + amount > healthSO.Health ? healthSO.Health : _currentHealth + amount;
         }
     }
 }

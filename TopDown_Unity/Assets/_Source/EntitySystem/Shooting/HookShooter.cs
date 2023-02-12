@@ -8,7 +8,7 @@ namespace EntitySystem.Shooting
 {
     public class HookShooter
     {
-        private HookShooterSettingsSO _settingsSO;
+        private HookShooterSO _so;
         private Transform _firePoint;
         private Hook _hook;
         private Dragger _dragger;
@@ -20,9 +20,9 @@ namespace EntitySystem.Shooting
 
         public bool IsOut { get; private set; }
 
-        public HookShooter(Transform firePoint, Hook hook, Dragger dragger, HookShooterSettingsSO settingsSO)
+        public HookShooter(Transform firePoint, Hook hook, Dragger dragger, HookShooterSO so)
         {
-            _settingsSO = settingsSO;
+            _so = so;
             _firePoint = firePoint;
             _hook = hook;
             _dragger = dragger;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace EnemySystem.Data.Combat
 {
-    [CreateAssetMenu(menuName = "SO/EnemySystem/Combat/RangeAttackerSettings", fileName = "NewRangeAttackerSettings")]
-    public class RangeAttackerSettings : AttackerSettingsSO
+    [CreateAssetMenu(menuName = "SO/EnemySystem/Combat/RangeAttacker", fileName = "NewRangeAttacker")]
+    public class RangeAttackerSO : AttackerSO
     {
         [field: SerializeField] public float AttackRange { get; private set; }
     }

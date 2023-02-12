@@ -1,5 +1,5 @@
 ﻿using System;
-using EntitySystem.Data.Health;
+using EntitySystem.Data.Interactions;
 using EntitySystem.Health;
 using UnityEngine;
 
@@ -7,7 +7,7 @@ namespace PlayerSystem
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
-        [SerializeField] private HealthSettingsSO settingsSO;
+        [SerializeField] private HealthSO so;
 
         private int _currentHealth;
         private bool _isDead;
@@ -19,7 +19,7 @@ namespace PlayerSystem
 
         private void Awake()
         {
-            _currentHealth = settingsSO.Health;
+            _currentHealth = so.Health;
         }
 
         public void TakeDamage(int damage)
@@ -34,6 +34,11 @@ namespace PlayerSystem
             
             _isDead = true;
             OnDeath?.Invoke();
+        }
+
+        public void Heal(int amount)
+        {
+            _currentHealth = _currentHealth + amount > so.Health ? so.Health : _currentHealth + amount;
         }
     }
 }

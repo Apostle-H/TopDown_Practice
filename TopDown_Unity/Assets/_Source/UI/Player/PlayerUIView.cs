@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace UI.Player
 {
-    public class playerUIView : MonoBehaviour
+    public class PlayerUIView : MonoBehaviour
     {
         [SerializeField] private Image hpBar;
 

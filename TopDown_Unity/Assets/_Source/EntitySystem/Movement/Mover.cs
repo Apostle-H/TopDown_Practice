@@ -7,17 +7,17 @@ namespace EntitySystem.Movement
     public class Mover
     {
         private Rigidbody2D _rb;
-        private MoverSettingsSO _settingsSO;
+        private MoverSO _so;
 
         private Vector2 _direction;
         private bool _isCarrying;
 
         private Sequence _movePerformer;
 
-        public Mover(Rigidbody2D rb, MoverSettingsSO settingsSO)
+        public Mover(Rigidbody2D rb, MoverSO so)
         {
             _rb = rb;
-            _settingsSO = settingsSO;
+            _so = so;
             
             InitSequence();
         }
@@ -37,7 +37,7 @@ namespace EntitySystem.Movement
         private void PerformMove()
         {
             _direction = _direction.normalized;
-            float speed = _isCarrying ? _settingsSO.CarrySpeed : _settingsSO.Speed;
+            float speed = _isCarrying ? _so.CarrySpeed : _so.Speed;
             Vector2 newPos = _rb.position + _direction * (speed * Time.fixedDeltaTime);
             _rb.MovePosition(newPos);
 

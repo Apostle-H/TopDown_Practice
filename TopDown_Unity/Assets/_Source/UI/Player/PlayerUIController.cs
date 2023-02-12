@@ -2,14 +2,14 @@
 
 namespace UI.Player
 {
-    public class playerUIController
+    public class PlayerUIController
     {
-        private playerUIModel _model;
-        private playerUIView _view;
+        private PlayerUIModel _model;
+        private PlayerUIView _view;
 
         private PlayerHealth _health;
 
-        public playerUIController(playerUIModel model, playerUIView view, PlayerHealth health)
+        public PlayerUIController(PlayerUIModel model, PlayerUIView view, PlayerHealth health)
         {
             _model = model;
             _view = view;

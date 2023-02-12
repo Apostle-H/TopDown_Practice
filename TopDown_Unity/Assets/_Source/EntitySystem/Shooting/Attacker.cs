@@ -7,7 +7,7 @@ namespace EntitySystem.Shooting
 {
     public class Attacker
     {
-        private AttackerSettingsSO _settingsSO;
+        private AttackerSO _so;
         protected Transform _firePoint;
 
         private ProjectilePool _pool;
@@ -17,11 +17,11 @@ namespace EntitySystem.Shooting
         private bool _shoot;
         private Sequence _shootDelayer;
 
-        public Attacker(Transform firePoint, ProjectilePool pool, AttackerSettingsSO settingsSO)
+        public Attacker(Transform firePoint, ProjectilePool pool, AttackerSO so)
         {
             _firePoint = firePoint;
             _pool = pool;
-            _settingsSO = settingsSO;
+            _so = so;
 
             InitSequence();
         }
@@ -64,7 +64,7 @@ namespace EntitySystem.Shooting
             _shootDelayer.SetAutoKill(false);
             
             _shootDelayer.AppendCallback(Shoot);
-            _shootDelayer.AppendInterval(_settingsSO.ShootDelay);
+            _shootDelayer.AppendInterval(_so.ShootDelay);
             _shootDelayer.AppendCallback(() => { if (_shoot) _shootDelayer.Restart(); });
         }
     }

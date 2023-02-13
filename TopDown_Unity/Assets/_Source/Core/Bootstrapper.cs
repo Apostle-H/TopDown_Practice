@@ -66,7 +66,7 @@ namespace Core
             HookShooter hookShooter = new HookShooter(playerFirePoint, hook, dragger, playerHookShooterSO);
 
             PlayerMoveInvoker moveInvoker = new PlayerMoveInvoker(_input, playerTransform, mover, shooterRotator);
-            PlayerShootInvoker shootInvoker = new PlayerShootInvoker(_input, playerTransform, shooterRotator, attacker);
+            PlayerShootInvoker shootInvoker = new PlayerShootInvoker(_input, attacker);
             PlayerHookInvoker hookInvoker = new PlayerHookInvoker(_input, playerTransform, shooterRotator,
                 playerDragAreaCheckerSO, dragger, hookShooter);
             

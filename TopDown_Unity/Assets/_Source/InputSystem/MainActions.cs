@@ -30,9 +30,18 @@ namespace InputSystem
             ""id"": ""e4cb655d-2f74-4cbc-90ca-3e0e7194d781"",
             ""actions"": [
                 {
-                    ""name"": ""Direction"",
+                    ""name"": ""MoveDirection"",
                     ""type"": ""Value"",
                     ""id"": ""c574a328-07e1-432a-b8bb-b1ec9e7591d6"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LookDirection"",
+                    ""type"": ""Value"",
+                    ""id"": ""4ffd247e-67f3-4ad7-8129-6e63d5a3208b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -47,7 +56,7 @@ namespace InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Direction"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -58,7 +67,7 @@ namespace InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Direction"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -69,7 +78,7 @@ namespace InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Direction"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -80,7 +89,7 @@ namespace InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Direction"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -91,18 +100,29 @@ namespace InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Direction"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5facef6-bdd6-488b-b8c0-6e43fd52ea62"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LookDirection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
         {
-            ""name"": ""Attack"",
+            ""name"": ""Shoot"",
             ""id"": ""9c57392e-2133-43fd-a286-325d2fd834eb"",
             ""actions"": [
                 {
-                    ""name"": ""Shoot"",
+                    ""name"": ""Attack"",
                     ""type"": ""Button"",
                     ""id"": ""9abb3c07-0bcb-4cfd-bb79-f887338d4a72"",
                     ""expectedControlType"": ""Button"",
@@ -113,20 +133,11 @@ namespace InputSystem
                 {
                     ""name"": ""Hook"",
                     ""type"": ""Button"",
-                    ""id"": ""b5be453c-0720-4bbe-a59a-c0344f6b1b1c"",
+                    ""id"": ""0c7b9714-9714-4ceb-8de9-f2d5670bee2d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""MousePos"",
-                    ""type"": ""Value"",
-                    ""id"": ""52cf077b-74c7-45ca-ad1e-22f10c416579"",
-                    ""expectedControlType"": ""Vector2"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -137,24 +148,13 @@ namespace InputSystem
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Shoot"",
+                    ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""4a6a08cd-92ac-4fb1-afbf-fbf4eaaf6163"",
-                    ""path"": ""<Mouse>/position"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""MousePos"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9ed71573-7b6d-490f-aebb-e5bde9282504"",
+                    ""id"": ""784ef50f-fc9e-4154-abf4-fea03b967e15"",
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -166,7 +166,7 @@ namespace InputSystem
             ]
         },
         {
-            ""name"": ""Drag"",
+            ""name"": ""Interactions"",
             ""id"": ""fcc950c0-a529-401c-9b72-665cee220d68"",
             ""actions"": [
                 {
@@ -192,21 +192,73 @@ namespace InputSystem
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Consumables"",
+            ""id"": ""24ef7430-e142-459c-a260-929cdcddb437"",
+            ""actions"": [
+                {
+                    ""name"": ""PatchUse"",
+                    ""type"": ""Button"",
+                    ""id"": ""8deac199-2caa-4645-a756-b17338ae31ff"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PatchCraft"",
+                    ""type"": ""Button"",
+                    ""id"": ""7ac6afdd-60b2-4c1c-b3b4-522803ba5200"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""965b9c44-a548-4cd7-a00d-e811e9433957"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PatchUse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e88d851d-e079-45d7-8adc-b71d77689956"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PatchCraft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
             // Movement
             m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-            m_Movement_Direction = m_Movement.FindAction("Direction", throwIfNotFound: true);
-            // Attack
-            m_Attack = asset.FindActionMap("Attack", throwIfNotFound: true);
-            m_Attack_Shoot = m_Attack.FindAction("Shoot", throwIfNotFound: true);
-            m_Attack_Hook = m_Attack.FindAction("Hook", throwIfNotFound: true);
-            m_Attack_MousePos = m_Attack.FindAction("MousePos", throwIfNotFound: true);
-            // Drag
-            m_Drag = asset.FindActionMap("Drag", throwIfNotFound: true);
-            m_Drag_ConnectRelease = m_Drag.FindAction("ConnectRelease", throwIfNotFound: true);
+            m_Movement_MoveDirection = m_Movement.FindAction("MoveDirection", throwIfNotFound: true);
+            m_Movement_LookDirection = m_Movement.FindAction("LookDirection", throwIfNotFound: true);
+            // Shoot
+            m_Shoot = asset.FindActionMap("Shoot", throwIfNotFound: true);
+            m_Shoot_Attack = m_Shoot.FindAction("Attack", throwIfNotFound: true);
+            m_Shoot_Hook = m_Shoot.FindAction("Hook", throwIfNotFound: true);
+            // Interactions
+            m_Interactions = asset.FindActionMap("Interactions", throwIfNotFound: true);
+            m_Interactions_ConnectRelease = m_Interactions.FindAction("ConnectRelease", throwIfNotFound: true);
+            // Consumables
+            m_Consumables = asset.FindActionMap("Consumables", throwIfNotFound: true);
+            m_Consumables_PatchUse = m_Consumables.FindAction("PatchUse", throwIfNotFound: true);
+            m_Consumables_PatchCraft = m_Consumables.FindAction("PatchCraft", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -266,12 +318,14 @@ namespace InputSystem
         // Movement
         private readonly InputActionMap m_Movement;
         private IMovementActions m_MovementActionsCallbackInterface;
-        private readonly InputAction m_Movement_Direction;
+        private readonly InputAction m_Movement_MoveDirection;
+        private readonly InputAction m_Movement_LookDirection;
         public struct MovementActions
         {
             private @MainActions m_Wrapper;
             public MovementActions(@MainActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Direction => m_Wrapper.m_Movement_Direction;
+            public InputAction @MoveDirection => m_Wrapper.m_Movement_MoveDirection;
+            public InputAction @LookDirection => m_Wrapper.m_Movement_LookDirection;
             public InputActionMap Get() { return m_Wrapper.m_Movement; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -281,93 +335,91 @@ namespace InputSystem
             {
                 if (m_Wrapper.m_MovementActionsCallbackInterface != null)
                 {
-                    @Direction.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnDirection;
-                    @Direction.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnDirection;
-                    @Direction.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnDirection;
+                    @MoveDirection.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnMoveDirection;
+                    @MoveDirection.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnMoveDirection;
+                    @MoveDirection.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnMoveDirection;
+                    @LookDirection.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnLookDirection;
+                    @LookDirection.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnLookDirection;
+                    @LookDirection.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnLookDirection;
                 }
                 m_Wrapper.m_MovementActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Direction.started += instance.OnDirection;
-                    @Direction.performed += instance.OnDirection;
-                    @Direction.canceled += instance.OnDirection;
+                    @MoveDirection.started += instance.OnMoveDirection;
+                    @MoveDirection.performed += instance.OnMoveDirection;
+                    @MoveDirection.canceled += instance.OnMoveDirection;
+                    @LookDirection.started += instance.OnLookDirection;
+                    @LookDirection.performed += instance.OnLookDirection;
+                    @LookDirection.canceled += instance.OnLookDirection;
                 }
             }
         }
         public MovementActions @Movement => new MovementActions(this);
 
-        // Attack
-        private readonly InputActionMap m_Attack;
-        private IAttackActions m_AttackActionsCallbackInterface;
-        private readonly InputAction m_Attack_Shoot;
-        private readonly InputAction m_Attack_Hook;
-        private readonly InputAction m_Attack_MousePos;
-        public struct AttackActions
+        // Shoot
+        private readonly InputActionMap m_Shoot;
+        private IShootActions m_ShootActionsCallbackInterface;
+        private readonly InputAction m_Shoot_Attack;
+        private readonly InputAction m_Shoot_Hook;
+        public struct ShootActions
         {
             private @MainActions m_Wrapper;
-            public AttackActions(@MainActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @Shoot => m_Wrapper.m_Attack_Shoot;
-            public InputAction @Hook => m_Wrapper.m_Attack_Hook;
-            public InputAction @MousePos => m_Wrapper.m_Attack_MousePos;
-            public InputActionMap Get() { return m_Wrapper.m_Attack; }
+            public ShootActions(@MainActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @Attack => m_Wrapper.m_Shoot_Attack;
+            public InputAction @Hook => m_Wrapper.m_Shoot_Hook;
+            public InputActionMap Get() { return m_Wrapper.m_Shoot; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(AttackActions set) { return set.Get(); }
-            public void SetCallbacks(IAttackActions instance)
+            public static implicit operator InputActionMap(ShootActions set) { return set.Get(); }
+            public void SetCallbacks(IShootActions instance)
             {
-                if (m_Wrapper.m_AttackActionsCallbackInterface != null)
+                if (m_Wrapper.m_ShootActionsCallbackInterface != null)
                 {
-                    @Shoot.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnShoot;
-                    @Shoot.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnShoot;
-                    @Shoot.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnShoot;
-                    @Hook.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnHook;
-                    @Hook.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnHook;
-                    @Hook.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnHook;
-                    @MousePos.started -= m_Wrapper.m_AttackActionsCallbackInterface.OnMousePos;
-                    @MousePos.performed -= m_Wrapper.m_AttackActionsCallbackInterface.OnMousePos;
-                    @MousePos.canceled -= m_Wrapper.m_AttackActionsCallbackInterface.OnMousePos;
+                    @Attack.started -= m_Wrapper.m_ShootActionsCallbackInterface.OnAttack;
+                    @Attack.performed -= m_Wrapper.m_ShootActionsCallbackInterface.OnAttack;
+                    @Attack.canceled -= m_Wrapper.m_ShootActionsCallbackInterface.OnAttack;
+                    @Hook.started -= m_Wrapper.m_ShootActionsCallbackInterface.OnHook;
+                    @Hook.performed -= m_Wrapper.m_ShootActionsCallbackInterface.OnHook;
+                    @Hook.canceled -= m_Wrapper.m_ShootActionsCallbackInterface.OnHook;
                 }
-                m_Wrapper.m_AttackActionsCallbackInterface = instance;
+                m_Wrapper.m_ShootActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @Shoot.started += instance.OnShoot;
-                    @Shoot.performed += instance.OnShoot;
-                    @Shoot.canceled += instance.OnShoot;
+                    @Attack.started += instance.OnAttack;
+                    @Attack.performed += instance.OnAttack;
+                    @Attack.canceled += instance.OnAttack;
                     @Hook.started += instance.OnHook;
                     @Hook.performed += instance.OnHook;
                     @Hook.canceled += instance.OnHook;
-                    @MousePos.started += instance.OnMousePos;
-                    @MousePos.performed += instance.OnMousePos;
-                    @MousePos.canceled += instance.OnMousePos;
                 }
             }
         }
-        public AttackActions @Attack => new AttackActions(this);
+        public ShootActions @Shoot => new ShootActions(this);
 
-        // Drag
-        private readonly InputActionMap m_Drag;
-        private IDragActions m_DragActionsCallbackInterface;
-        private readonly InputAction m_Drag_ConnectRelease;
-        public struct DragActions
+        // Interactions
+        private readonly InputActionMap m_Interactions;
+        private IInteractionsActions m_InteractionsActionsCallbackInterface;
+        private readonly InputAction m_Interactions_ConnectRelease;
+        public struct InteractionsActions
         {
             private @MainActions m_Wrapper;
-            public DragActions(@MainActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @ConnectRelease => m_Wrapper.m_Drag_ConnectRelease;
-            public InputActionMap Get() { return m_Wrapper.m_Drag; }
+            public InteractionsActions(@MainActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @ConnectRelease => m_Wrapper.m_Interactions_ConnectRelease;
+            public InputActionMap Get() { return m_Wrapper.m_Interactions; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
             public bool enabled => Get().enabled;
-            public static implicit operator InputActionMap(DragActions set) { return set.Get(); }
-            public void SetCallbacks(IDragActions instance)
+            public static implicit operator InputActionMap(InteractionsActions set) { return set.Get(); }
+            public void SetCallbacks(IInteractionsActions instance)
             {
-                if (m_Wrapper.m_DragActionsCallbackInterface != null)
+                if (m_Wrapper.m_InteractionsActionsCallbackInterface != null)
                 {
-                    @ConnectRelease.started -= m_Wrapper.m_DragActionsCallbackInterface.OnConnectRelease;
-                    @ConnectRelease.performed -= m_Wrapper.m_DragActionsCallbackInterface.OnConnectRelease;
-                    @ConnectRelease.canceled -= m_Wrapper.m_DragActionsCallbackInterface.OnConnectRelease;
+                    @ConnectRelease.started -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnConnectRelease;
+                    @ConnectRelease.performed -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnConnectRelease;
+                    @ConnectRelease.canceled -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnConnectRelease;
                 }
-                m_Wrapper.m_DragActionsCallbackInterface = instance;
+                m_Wrapper.m_InteractionsActionsCallbackInterface = instance;
                 if (instance != null)
                 {
                     @ConnectRelease.started += instance.OnConnectRelease;
@@ -376,20 +428,66 @@ namespace InputSystem
                 }
             }
         }
-        public DragActions @Drag => new DragActions(this);
+        public InteractionsActions @Interactions => new InteractionsActions(this);
+
+        // Consumables
+        private readonly InputActionMap m_Consumables;
+        private IConsumablesActions m_ConsumablesActionsCallbackInterface;
+        private readonly InputAction m_Consumables_PatchUse;
+        private readonly InputAction m_Consumables_PatchCraft;
+        public struct ConsumablesActions
+        {
+            private @MainActions m_Wrapper;
+            public ConsumablesActions(@MainActions wrapper) { m_Wrapper = wrapper; }
+            public InputAction @PatchUse => m_Wrapper.m_Consumables_PatchUse;
+            public InputAction @PatchCraft => m_Wrapper.m_Consumables_PatchCraft;
+            public InputActionMap Get() { return m_Wrapper.m_Consumables; }
+            public void Enable() { Get().Enable(); }
+            public void Disable() { Get().Disable(); }
+            public bool enabled => Get().enabled;
+            public static implicit operator InputActionMap(ConsumablesActions set) { return set.Get(); }
+            public void SetCallbacks(IConsumablesActions instance)
+            {
+                if (m_Wrapper.m_ConsumablesActionsCallbackInterface != null)
+                {
+                    @PatchUse.started -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchUse;
+                    @PatchUse.performed -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchUse;
+                    @PatchUse.canceled -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchUse;
+                    @PatchCraft.started -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchCraft;
+                    @PatchCraft.performed -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchCraft;
+                    @PatchCraft.canceled -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchCraft;
+                }
+                m_Wrapper.m_ConsumablesActionsCallbackInterface = instance;
+                if (instance != null)
+                {
+                    @PatchUse.started += instance.OnPatchUse;
+                    @PatchUse.performed += instance.OnPatchUse;
+                    @PatchUse.canceled += instance.OnPatchUse;
+                    @PatchCraft.started += instance.OnPatchCraft;
+                    @PatchCraft.performed += instance.OnPatchCraft;
+                    @PatchCraft.canceled += instance.OnPatchCraft;
+                }
+            }
+        }
+        public ConsumablesActions @Consumables => new ConsumablesActions(this);
         public interface IMovementActions
         {
-            void OnDirection(InputAction.CallbackContext context);
+            void OnMoveDirection(InputAction.CallbackContext context);
+            void OnLookDirection(InputAction.CallbackContext context);
         }
-        public interface IAttackActions
+        public interface IShootActions
         {
-            void OnShoot(InputAction.CallbackContext context);
+            void OnAttack(InputAction.CallbackContext context);
             void OnHook(InputAction.CallbackContext context);
-            void OnMousePos(InputAction.CallbackContext context);
         }
-        public interface IDragActions
+        public interface IInteractionsActions
         {
             void OnConnectRelease(InputAction.CallbackContext context);
+        }
+        public interface IConsumablesActions
+        {
+            void OnPatchUse(InputAction.CallbackContext context);
+            void OnPatchCraft(InputAction.CallbackContext context);
         }
     }
 }

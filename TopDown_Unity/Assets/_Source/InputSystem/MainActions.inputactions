@@ -6,9 +6,18 @@
             "id": "e4cb655d-2f74-4cbc-90ca-3e0e7194d781",
             "actions": [
                 {
-                    "name": "Direction",
+                    "name": "MoveDirection",
                     "type": "Value",
                     "id": "c574a328-07e1-432a-b8bb-b1ec9e7591d6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LookDirection",
+                    "type": "Value",
+                    "id": "4ffd247e-67f3-4ad7-8129-6e63d5a3208b",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -23,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Direction",
+                    "action": "MoveDirection",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -34,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Direction",
+                    "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -45,7 +54,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Direction",
+                    "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -56,7 +65,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Direction",
+                    "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -67,18 +76,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Direction",
+                    "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f5facef6-bdd6-488b-b8c0-6e43fd52ea62",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LookDirection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
         {
-            "name": "Attack",
+            "name": "Shoot",
             "id": "9c57392e-2133-43fd-a286-325d2fd834eb",
             "actions": [
                 {
-                    "name": "Shoot",
+                    "name": "Attack",
                     "type": "Button",
                     "id": "9abb3c07-0bcb-4cfd-bb79-f887338d4a72",
                     "expectedControlType": "Button",
@@ -89,20 +109,11 @@
                 {
                     "name": "Hook",
                     "type": "Button",
-                    "id": "b5be453c-0720-4bbe-a59a-c0344f6b1b1c",
+                    "id": "0c7b9714-9714-4ceb-8de9-f2d5670bee2d",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "MousePos",
-                    "type": "Value",
-                    "id": "52cf077b-74c7-45ca-ad1e-22f10c416579",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -113,24 +124,13 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Shoot",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4a6a08cd-92ac-4fb1-afbf-fbf4eaaf6163",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MousePos",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9ed71573-7b6d-490f-aebb-e5bde9282504",
+                    "id": "784ef50f-fc9e-4154-abf4-fea03b967e15",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
@@ -142,7 +142,7 @@
             ]
         },
         {
-            "name": "Drag",
+            "name": "Interactions",
             "id": "fcc950c0-a529-401c-9b72-665cee220d68",
             "actions": [
                 {
@@ -164,6 +164,54 @@
                     "processors": "",
                     "groups": "",
                     "action": "ConnectRelease",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Consumables",
+            "id": "24ef7430-e142-459c-a260-929cdcddb437",
+            "actions": [
+                {
+                    "name": "PatchUse",
+                    "type": "Button",
+                    "id": "8deac199-2caa-4645-a756-b17338ae31ff",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "PatchCraft",
+                    "type": "Button",
+                    "id": "7ac6afdd-60b2-4c1c-b3b4-522803ba5200",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "965b9c44-a548-4cd7-a00d-e811e9433957",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PatchUse",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e88d851d-e079-45d7-8adc-b71d77689956",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PatchCraft",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

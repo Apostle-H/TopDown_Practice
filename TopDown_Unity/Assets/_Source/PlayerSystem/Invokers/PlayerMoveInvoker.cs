@@ -28,16 +28,16 @@ namespace PlayerSystem.Invokers
 
         public void Bind()
         {
-            _input.MovementActions.Direction.performed += UpdateDirection;
-            _input.MovementActions.Direction.canceled += UpdateDirection;
-            _input.AttackActions.MousePos.performed += RotateGun;
+            _input.MovementActions.MoveDirection.performed += UpdateDirection;
+            _input.MovementActions.MoveDirection.canceled += UpdateDirection;
+            _input.MovementActions.LookDirection.performed += RotateGun;
         }
 
         public void Expose()
         {
-            _input.MovementActions.Direction.performed -= UpdateDirection;
-            _input.MovementActions.Direction.canceled -= UpdateDirection;
-            _input.AttackActions.MousePos.performed -= RotateGun;
+            _input.MovementActions.MoveDirection.performed -= UpdateDirection;
+            _input.MovementActions.MoveDirection.canceled -= UpdateDirection;
+            _input.MovementActions.LookDirection.performed -= RotateGun;
 
             _mover.UpdateDirection(Vector2.zero);
         }

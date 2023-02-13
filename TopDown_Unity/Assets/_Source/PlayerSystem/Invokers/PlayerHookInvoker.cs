@@ -39,7 +39,7 @@ namespace PlayerSystem.Invokers
 
         public void Bind()
         {
-            _input.AttackActions.Hook.performed += Hook;
+            _input.ShootActions.Hook.performed += Hook;
             _input.DragActions.ConnectRelease.performed += Drag;
 
             _hookShooter.OnHooked += Hooked;
@@ -48,7 +48,7 @@ namespace PlayerSystem.Invokers
 
         public void Expose()
         {
-            _input.AttackActions.Hook.performed -= Hook;
+            _input.ShootActions.Hook.performed -= Hook;
             _input.DragActions.ConnectRelease.performed -= Drag;
 
             _hookShooter.OnHooked -= Hooked;

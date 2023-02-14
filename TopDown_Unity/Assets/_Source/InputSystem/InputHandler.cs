@@ -6,7 +6,7 @@ namespace InputSystem
 
         public MainActions.MovementActions MovementActions => _actions.Movement;
         public MainActions.ShootActions ShootActions => _actions.Shoot;
-        public MainActions.InteractionsActions DragActions => _actions.Interactions;
+        public MainActions.InteractionsActions InteractionActions => _actions.Interactions;
         public MainActions.ConsumablesActions ConsumablesActions => _actions.Consumables;
         
         public bool IsEnabled => _actions.asset.enabled;

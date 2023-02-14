@@ -40,7 +40,7 @@ namespace PlayerSystem.Invokers
         public void Bind()
         {
             _input.ShootActions.Hook.performed += Hook;
-            _input.DragActions.ConnectRelease.performed += Drag;
+            _input.InteractionActions.ConnectRelease.performed += Drag;
 
             _hookShooter.OnHooked += Hooked;
             _hookShooter.OnReleased += Released;
@@ -49,7 +49,7 @@ namespace PlayerSystem.Invokers
         public void Expose()
         {
             _input.ShootActions.Hook.performed -= Hook;
-            _input.DragActions.ConnectRelease.performed -= Drag;
+            _input.InteractionActions.ConnectRelease.performed -= Drag;
 
             _hookShooter.OnHooked -= Hooked;
             _hookShooter.OnReleased -= Released;
@@ -57,13 +57,13 @@ namespace PlayerSystem.Invokers
 
         private void HookOut()
         {
-            _input.DragActions.ConnectRelease.performed -= Drag;
+            _input.InteractionActions.ConnectRelease.performed -= Drag;
             OnHookOut?.Invoke();
         }
 
         private void HookIn()
         {
-            _input.DragActions.ConnectRelease.performed += Drag;
+            _input.InteractionActions.ConnectRelease.performed += Drag;
             OnHookIn?.Invoke();
         }
 

@@ -3332,7 +3332,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389754102}
   m_LocalRotation: {x: -0, y: -0, z: -0.00000029802317, w: 1}
-  m_LocalPosition: {x: 14.85, y: -0.049999952, z: 0}
+  m_LocalPosition: {x: 14.85, y: -3.56, z: 0}
   m_LocalScale: {x: 0.6055, y: 3.9626, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4674,10 +4674,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1459956686}
     - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
-      propertyPath: playerDamageable
-      value: 
-      objectReference: {fileID: 1459956685}
-    - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
       propertyPath: playerDraggerJoint
       value: 
       objectReference: {fileID: 1459956681}
@@ -4685,10 +4681,6 @@ PrefabInstance:
       propertyPath: playerGunPivotPoint
       value: 
       objectReference: {fileID: 1395952574}
-    - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
-      propertyPath: playerHealthSettingsSO
-      value: 
-      objectReference: {fileID: 11400000, guid: 9c069d84887a03e48a9f9a77f99a3388, type: 2}
     - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
       propertyPath: playerProjectilesHolder
       value: 
@@ -7523,7 +7515,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &676514651
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7604,7 +7596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeac82c87ac4fd788632fc81816e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsSO: {fileID: 11400000, guid: 930d66827d5bb6548bef79bf04df359e, type: 2}
+  healthSO: {fileID: 0}
+  splittableSO: {fileID: 0}
 --- !u!114 &676514654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7617,7 +7610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf44f59fef2d5d4ea697685fdd0b079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: {fileID: 676514653}
+  interactions: {fileID: 676514653}
   enemyCount:
   - {fileID: 1495816075}
   - {fileID: 1628528314}
@@ -12539,11 +12532,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 30204800906836728, guid: 630cc415da2778544b9f42ad767309ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.46
+      value: 21.09
       objectReference: {fileID: 0}
     - target: {fileID: 30204800906836728, guid: 630cc415da2778544b9f42ad767309ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.01
+      value: -1.74
       objectReference: {fileID: 0}
     - target: {fileID: 30204800906836728, guid: 630cc415da2778544b9f42ad767309ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12929,7 +12922,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1056026941}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -16563,10 +16556,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 850940596}
     m_Modifications:
-    - target: {fileID: 8705901569076792458, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8705901569076792459, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -16609,10 +16598,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8705901569076792459, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705901569076792461, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
-      propertyPath: m_GravityScale
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8705901569076792467, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
@@ -19178,10 +19163,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 850940596}
     m_Modifications:
-    - target: {fileID: 7879470085298731812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: splittableSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 7879bc4eea190f74eaae1a294537f898, type: 2}
     - target: {fileID: 7879470085322643812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
       propertyPath: m_RootOrder
       value: 2

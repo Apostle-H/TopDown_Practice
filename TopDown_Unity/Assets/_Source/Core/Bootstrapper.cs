@@ -7,6 +7,8 @@ using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
 using InputSystem;
 using PlayerSystem;
+using PlayerSystem.Consumables;
+using PlayerSystem.Data.Consumables;
 using PlayerSystem.Data.Interactions;
 using PlayerSystem.Interactions;
 using PlayerSystem.Invokers;
@@ -19,17 +21,25 @@ namespace Core
     public class Bootstrapper : MonoBehaviour
     {
         [Header("Player System")] 
+        [Header("General")]
         [SerializeField] private Transform playerTransform;
         [SerializeField] private PlayerHealth playerHealth;
+        [Header("Movement")]
         [SerializeField] private Rigidbody2D playerRb;
         [SerializeField] private MoverSO playerMoverSO;
+        [Header("Shooting")]
         [SerializeField] private Transform playerProjectilesHolder;
         [SerializeField] private Transform playerFirePoint;
         [SerializeField] private Transform playerGunPivotPoint;
         [SerializeField] private AttackerSO playerAttackerSO;
+        [Header("Hooking")]
         [SerializeField] private AreaCheckerSO playerDragAreaCheckerSO;
         [SerializeField] private SpringJoint2D playerDraggerJoint;
         [SerializeField] private HookShooterSO playerHookShooterSO;
+        [Header("Splitter")] 
+        [SerializeField] private AreaCheckerSO playerSplitAreaCheckerSO;
+        [Header("Consumables")]
+        [SerializeField] private PatchSO playerPatchSO;
 
         [Header("UI"), Space(5f)] 
         [Header("Player")]
@@ -64,13 +74,17 @@ namespace Core
             Attacker attacker = new Attacker(playerFirePoint, projectilePool, playerAttackerSO);
             Dragger dragger = new Dragger(playerDraggerJoint);
             HookShooter hookShooter = new HookShooter(playerFirePoint, hook, dragger, playerHookShooterSO);
+            PlayerResources playerResources = new PlayerResources();
+            Splitter splitter = new Splitter(playerResources);
+            Patch patch = new Patch(playerHealth, playerPatchSO);
 
             PlayerMoveInvoker moveInvoker = new PlayerMoveInvoker(_input, playerTransform, mover, shooterRotator);
             PlayerShootInvoker shootInvoker = new PlayerShootInvoker(_input, attacker);
             PlayerHookInvoker hookInvoker = new PlayerHookInvoker(_input, playerTransform, shooterRotator,
                 playerDragAreaCheckerSO, dragger, hookShooter);
-            
-            _playerMasterInvoker = new PlayerMasterInvoker(moveInvoker, shootInvoker, hookInvoker, playerHealth);
+            PlayerSplitInvoker splitInvoker = new PlayerSplitInvoker(_input, playerTransform, splitter, playerSplitAreaCheckerSO);
+            PlayerConsumablesInvoker consumablesInvoker = new PlayerConsumablesInvoker(_input, playerResources, patch);
+            _playerMasterInvoker = new PlayerMasterInvoker(moveInvoker, shootInvoker, hookInvoker, splitInvoker, consumablesInvoker, playerHealth);
         }
 
         private void InitUI()

@@ -11,7 +11,7 @@ namespace PlayerSystem.Invokers
 
         private Attacker _attacker;
 
-        public PlayerShootInvoker(InputHandler input, Transform transform, ShooterRotator shooterRotator, Attacker attacker)
+        public PlayerShootInvoker(InputHandler input, Attacker attacker)
         {
             _input = input;
             _attacker = attacker;
@@ -19,14 +19,14 @@ namespace PlayerSystem.Invokers
 
         public void Bind()
         {
-            _input.AttackActions.Shoot.started += SetShoot;
-            _input.AttackActions.Shoot.canceled += SetShoot;
+            _input.ShootActions.Attack.started += SetShoot;
+            _input.ShootActions.Attack.canceled += SetShoot;
         }
 
         public void Expose()
         {
-            _input.AttackActions.Shoot.started -= SetShoot;
-            _input.AttackActions.Shoot.canceled -= SetShoot;
+            _input.ShootActions.Attack.started -= SetShoot;
+            _input.ShootActions.Attack.canceled -= SetShoot;
             
             _attacker.StopShoot();
         }

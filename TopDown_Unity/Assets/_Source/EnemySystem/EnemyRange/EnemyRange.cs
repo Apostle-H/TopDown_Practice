@@ -13,11 +13,11 @@ namespace EnemySystem.EnemyRange
     public class EnemyRange : MonoBehaviour
     {
         [SerializeField] private EnemyInteractions interactions;
-        [SerializeField] private EnemyRangeCharacteristicsSO enemyRangeCharacteristicsSO;
+        [SerializeField] private EnemyStaticSO enemyStaticSO;
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private RangeAttackerSO attackerSOSO;
+        [SerializeField] private StaticRangeAttackerSO attackerSO;
         [SerializeField] private Rigidbody2D rb;
 
         private CircleCollider2D _collider2D;
@@ -29,10 +29,10 @@ namespace EnemySystem.EnemyRange
 
         private void Awake()
         {
-            rangeCollider.radius = attackerSOSO.AttackRange;
+            rangeCollider.radius = attackerSO.AttackRange;
             
-            ProjectilePool pool = new ProjectilePool(attackerSOSO.ShootDelay, attackerSOSO.ProjectilePrefab, projectilesHolder);
-            _attacker = new Attacker(firePoint, pool, attackerSOSO);
+            ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder);
+            _attacker = new Attacker(firePoint, pool, attackerSO);
 
             interactions.OnKnock += Knock;
             interactions.OnDeath += Die;
@@ -48,7 +48,7 @@ namespace EnemySystem.EnemyRange
         
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (enemyRangeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
+            if (enemyStaticSO.TargetMask.Contains(col.gameObject.layer))
             {
                 _target = col.gameObject;
                 _isTargetInRadius = true;
@@ -60,7 +60,7 @@ namespace EnemySystem.EnemyRange
 
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (enemyRangeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
+            if (enemyStaticSO.TargetMask.Contains(col.gameObject.layer))
             {
                 _target = null;
                 _isTargetInRadius = false;

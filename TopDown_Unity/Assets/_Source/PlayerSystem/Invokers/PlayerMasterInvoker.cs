@@ -18,27 +18,32 @@ namespace PlayerSystem
         private PlayerMoveInvoker _moveInvoker;
         private PlayerShootInvoker _shootInvoker;
         private PlayerHookInvoker _hookInvoker;
+        private PlayerSplitInvoker _splitInvoker;
+        private PlayerConsumablesInvoker _consumablesInvoker;
 
         private PlayerHealth _health;
 
         public PlayerMasterInvoker(PlayerMoveInvoker moveInvoker, PlayerShootInvoker shootInvoker, PlayerHookInvoker hookInvoker, 
-            PlayerHealth health)
+            PlayerSplitInvoker splitInvoker, PlayerConsumablesInvoker consumablesInvoker, PlayerHealth health)
         {
             _moveInvoker = moveInvoker;
             _shootInvoker = shootInvoker;
             _hookInvoker = hookInvoker;
+            _consumablesInvoker = consumablesInvoker;
+            _splitInvoker = splitInvoker;
+            
             _health = health;
         }
 
         public void Bind()
         {
-            _health.OnDeath += _moveInvoker.Expose;
-            _health.OnDeath += _shootInvoker.Expose;
-            _health.OnDeath += _hookInvoker.Expose;
+            _health.OnDeath += Expose;
             
             _moveInvoker.Bind();
             _shootInvoker.Bind();
             _hookInvoker.Bind();
+            _splitInvoker.Bind();
+            _consumablesInvoker.Bind();
 
             _hookInvoker.OnHookOut += _shootInvoker.Expose;
             _hookInvoker.OnHookIn += _shootInvoker.Bind;
@@ -56,6 +61,8 @@ namespace PlayerSystem
             _moveInvoker.Expose();
             _shootInvoker.Expose();
             _hookInvoker.Expose();
+            _splitInvoker.Bind();
+            _consumablesInvoker.Expose();
         }
     }
 }

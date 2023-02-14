@@ -82,11 +82,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactions: {fileID: 7879470085298731794}
-  enemyRangeCharacteristicsSO: {fileID: 11400000, guid: 7bb646d9b4e9bbc4a8a46ef569b79c06, type: 2}
+  enemyStaticSO: {fileID: 11400000, guid: a16b0337e34cd404fb031998cc3a2300, type: 2}
   rangeCollider: {fileID: 7879470086588031281}
   projectilesHolder: {fileID: 7879470085230201847}
   firePoint: {fileID: 7879470085590009070}
-  attackerSettingsSO: {fileID: 11400000, guid: e54211bf746e5ac47b66c75801dc4a99, type: 2}
+  attackerSO: {fileID: 11400000, guid: e54211bf746e5ac47b66c75801dc4a99, type: 2}
   rb: {fileID: 7879470085298731816}
 --- !u!114 &7879470085298731794
 MonoBehaviour:
@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeac82c87ac4fd788632fc81816e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsSO: {fileID: 11400000, guid: c36db321ddab02847a8ce31e04609182, type: 2}
+  healthSO: {fileID: 11400000, guid: c36db321ddab02847a8ce31e04609182, type: 2}
+  splittableSO: {fileID: 11400000, guid: 7879bc4eea190f74eaae1a294537f898, type: 2}
 --- !u!212 &7879470085298731812
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0

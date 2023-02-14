@@ -9,12 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366111f369b341ba97e1c1669257b27e, type: 3}
-  m_Name: MeleeEnemy
+  m_Script: {fileID: 11500000, guid: f9db1e70248044cfb793b8994e97ce18, type: 3}
+  m_Name: Splittable
   m_EditorClassIdentifier: 
-  <Hp>k__BackingField: 21
-  <MoveSpeed>k__BackingField: 2
-  <RotateSpeed>k__BackingField: 100
-  <TargetLayer>k__BackingField:
-    serializedVersion: 2
-    m_Bits: 64
+  <Worth>k__BackingField: 3

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace EnemySystem.Health
 {
-    public class EnemyInteractions : MonoBehaviour, IEnemyDamageable, IDraggable
+    public class EnemyInteractions : MonoBehaviour, IEnemyDamageable, IDraggable, ISplittable
     {
         [SerializeField] private HealthSO healthSO;
         [SerializeField] private SplittableSO splittableSO;
@@ -20,6 +20,9 @@ namespace EnemySystem.Health
         public event Action OnDeath;
 
         public bool IsDraggable => _isKnocked && !_isDead;
+        public bool IsSplittable => _isKnocked && !_isDead;
+        public int Worth => splittableSO.Worth;
+
         private void Awake()
         {
             _currentHealth = healthSO.Health;

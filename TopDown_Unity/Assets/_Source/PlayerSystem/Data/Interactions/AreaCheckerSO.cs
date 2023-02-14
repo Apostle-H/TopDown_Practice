@@ -6,6 +6,6 @@ namespace PlayerSystem.Data.Interactions
     public class AreaCheckerSO : ScriptableObject
     {
         [field: SerializeField] public float CheckRadius { get; private set; }
-        [field: SerializeField] public LayerMask DragMask { get; private set; }
+        [field: SerializeField] public LayerMask CheckMask { get; private set; }
     }
 }

@@ -16,7 +16,7 @@ namespace EnemySystem.EnemyMelee
     public class EnemyMelee : MonoBehaviour
     {
         [SerializeField] private EnemyInteractions interactions;
-        [SerializeField] private EnemyMeleeCharacteristicsSO enemyMeleeCharacteristicsSO;
+        [SerializeField] private EnemyMeleeSO enemyMeleeSO;
         [SerializeField] private CircleCollider2D rangeCollider;
         [SerializeField] private Transform projectilesHolder;
         [SerializeField] private Transform firePoint;
@@ -35,7 +35,7 @@ namespace EnemySystem.EnemyMelee
             _navMesh.updateRotation = false;
             _navMesh.updateUpAxis = false;
             
-            _navMeshMover = new NavMeshMover(_navMesh, enemyMeleeCharacteristicsSO.MoveSpeed);
+            _navMeshMover = new NavMeshMover(_navMesh, enemyMeleeSO.MoveSpeed);
 
             rangeCollider.radius = attackerSO.TriggerRange;
             
@@ -48,7 +48,7 @@ namespace EnemySystem.EnemyMelee
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (enemyMeleeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
+            if (enemyMeleeSO.TargetMask.Contains(col.gameObject.layer))
             {
                 _target = col.gameObject;
                 _navMeshMover.TargetFound(_target);
@@ -59,7 +59,7 @@ namespace EnemySystem.EnemyMelee
         
         private void OnTriggerExit2D(Collider2D col)
         {
-            if (enemyMeleeCharacteristicsSO.TargetLayer.Contains(col.gameObject.layer))
+            if (enemyMeleeSO.TargetMask.Contains(col.gameObject.layer))
             {
                 _target = null;
                 _navMeshMover.TargetLost();

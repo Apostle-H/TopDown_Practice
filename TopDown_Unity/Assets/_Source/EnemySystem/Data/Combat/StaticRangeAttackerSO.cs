@@ -5,7 +5,7 @@ using UnityEngine;
 namespace EnemySystem.Data.Combat
 {
     [CreateAssetMenu(menuName = "SO/EnemySystem/Combat/RangeAttacker", fileName = "NewRangeAttacker")]
-    public class RangeAttackerSO : AttackerSO
+    public class StaticRangeAttackerSO : AttackerSO
     {
         [field: SerializeField] public float AttackRange { get; private set; }
     }

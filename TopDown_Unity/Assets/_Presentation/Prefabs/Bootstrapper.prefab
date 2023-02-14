@@ -47,13 +47,15 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   playerHealth: {fileID: 0}
   playerRb: {fileID: 0}
-  playerMoverSettingSO: {fileID: 11400000, guid: 2c4e9e488d822ab48a7191e9d7e38743, type: 2}
+  playerMoverSO: {fileID: 11400000, guid: 2c4e9e488d822ab48a7191e9d7e38743, type: 2}
   playerProjectilesHolder: {fileID: 0}
   playerFirePoint: {fileID: 0}
   playerGunPivotPoint: {fileID: 0}
-  playerAttackerSettingsSO: {fileID: 11400000, guid: 0052367d7a1d2e844b5e436fbefcfbb2, type: 2}
-  playerDragAreaCheckerSettingsSO: {fileID: 11400000, guid: 6f1c82325bb70414aaff58897568046b, type: 2}
+  playerAttackerSO: {fileID: 11400000, guid: 0052367d7a1d2e844b5e436fbefcfbb2, type: 2}
+  playerDragAreaCheckerSO: {fileID: 11400000, guid: 6f1c82325bb70414aaff58897568046b, type: 2}
   playerDraggerJoint: {fileID: 0}
-  playerHookShooterSettingsSO: {fileID: 11400000, guid: 2f086b40b89ca044c8455a17bc0486eb, type: 2}
+  playerHookShooterSO: {fileID: 11400000, guid: 2f086b40b89ca044c8455a17bc0486eb, type: 2}
+  playerSplitAreaCheckerSO: {fileID: 11400000, guid: 0ce5a4aee56bd034cb0c904160ef1ed8, type: 2}
+  playerPatchSO: {fileID: 11400000, guid: e3c0101493aba6c46af3486fc79264f6, type: 2}
   playerUIView: {fileID: 0}
-  playerHealthSettingsSO: {fileID: 11400000, guid: 9c069d84887a03e48a9f9a77f99a3388, type: 2}
+  playerHealthSO: {fileID: 11400000, guid: 9c069d84887a03e48a9f9a77f99a3388, type: 2}

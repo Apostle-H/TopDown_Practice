@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01c1b12af0ad4be982246d8e970ac352, type: 3}
-  m_Name: PlayerDraggerSettings
+  m_Name: PlayerSplitAreaChecker
   m_EditorClassIdentifier: 
-  <CheckRadius>k__BackingField: 1
+  <CheckRadius>k__BackingField: 2
   <CheckMask>k__BackingField:
     serializedVersion: 2
     m_Bits: 128

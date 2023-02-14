@@ -177,17 +177,37 @@ namespace InputSystem
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Split"",
+                    ""type"": ""Button"",
+                    ""id"": ""37f70ae7-cc81-4bb5-b691-506a313ba7a6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""1f9b900b-9b7d-4fc8-aec9-9719d432a3a2"",
-                    ""path"": ""<Keyboard>/q"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""ConnectRelease"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b50ba9ce-b116-4db3-8852-fa06157e00d9"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Split"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -255,6 +275,7 @@ namespace InputSystem
             // Interactions
             m_Interactions = asset.FindActionMap("Interactions", throwIfNotFound: true);
             m_Interactions_ConnectRelease = m_Interactions.FindAction("ConnectRelease", throwIfNotFound: true);
+            m_Interactions_Split = m_Interactions.FindAction("Split", throwIfNotFound: true);
             // Consumables
             m_Consumables = asset.FindActionMap("Consumables", throwIfNotFound: true);
             m_Consumables_PatchUse = m_Consumables.FindAction("PatchUse", throwIfNotFound: true);
@@ -401,11 +422,13 @@ namespace InputSystem
         private readonly InputActionMap m_Interactions;
         private IInteractionsActions m_InteractionsActionsCallbackInterface;
         private readonly InputAction m_Interactions_ConnectRelease;
+        private readonly InputAction m_Interactions_Split;
         public struct InteractionsActions
         {
             private @MainActions m_Wrapper;
             public InteractionsActions(@MainActions wrapper) { m_Wrapper = wrapper; }
             public InputAction @ConnectRelease => m_Wrapper.m_Interactions_ConnectRelease;
+            public InputAction @Split => m_Wrapper.m_Interactions_Split;
             public InputActionMap Get() { return m_Wrapper.m_Interactions; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -418,6 +441,9 @@ namespace InputSystem
                     @ConnectRelease.started -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnConnectRelease;
                     @ConnectRelease.performed -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnConnectRelease;
                     @ConnectRelease.canceled -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnConnectRelease;
+                    @Split.started -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnSplit;
+                    @Split.performed -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnSplit;
+                    @Split.canceled -= m_Wrapper.m_InteractionsActionsCallbackInterface.OnSplit;
                 }
                 m_Wrapper.m_InteractionsActionsCallbackInterface = instance;
                 if (instance != null)
@@ -425,6 +451,9 @@ namespace InputSystem
                     @ConnectRelease.started += instance.OnConnectRelease;
                     @ConnectRelease.performed += instance.OnConnectRelease;
                     @ConnectRelease.canceled += instance.OnConnectRelease;
+                    @Split.started += instance.OnSplit;
+                    @Split.performed += instance.OnSplit;
+                    @Split.canceled += instance.OnSplit;
                 }
             }
         }
@@ -483,6 +512,7 @@ namespace InputSystem
         public interface IInteractionsActions
         {
             void OnConnectRelease(InputAction.CallbackContext context);
+            void OnSplit(InputAction.CallbackContext context);
         }
         public interface IConsumablesActions
         {

@@ -13,6 +13,7 @@ namespace PlayerSystem
         private bool _isDead;
         
         public event Action OnDamaged;
+        public event Action OnHeal;
         public event Action OnDeath;
 
         public int CurrentHealth => _currentHealth;
@@ -39,6 +40,7 @@ namespace PlayerSystem
         public void Heal(int amount)
         {
             _currentHealth = _currentHealth + amount > so.Health ? so.Health : _currentHealth + amount;
+            OnHeal?.Invoke();
         }
     }
 }

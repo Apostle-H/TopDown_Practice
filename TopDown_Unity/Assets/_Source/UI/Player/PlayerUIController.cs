@@ -16,6 +16,7 @@ namespace UI.Player
             _health = health;
 
             _health.OnDamaged += UpdateHealth;
+            _health.OnHeal += UpdateHealth;
         }
 
         private void UpdateHealth()

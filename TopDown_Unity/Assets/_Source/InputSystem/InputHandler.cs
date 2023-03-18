@@ -1,3 +1,5 @@
+using UnityEngine.InputSystem;
+
 namespace InputSystem
 {
     public class InputHandler

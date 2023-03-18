@@ -38,8 +38,7 @@ namespace EntitySystem.Movement
         {
             _direction = _direction.normalized;
             float speed = _isCarrying ? _so.CarrySpeed : _so.Speed;
-            Vector2 newPos = _rb.position + _direction * (speed * Time.fixedDeltaTime);
-            _rb.MovePosition(newPos);
+            _rb.velocity = _direction * speed;
 
             if (_direction.magnitude == 0f)
             {

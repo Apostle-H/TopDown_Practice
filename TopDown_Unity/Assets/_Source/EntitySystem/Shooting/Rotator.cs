@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace EntitySystem.Shooting
 {
-    public class ShooterRotator
+    public class Rotator
     {
         private Transform _pivotPoint;
 
-        public ShooterRotator(Transform pivotPoint)
+        public Rotator(Transform pivotPoint)
         {
             _pivotPoint = pivotPoint;
         }

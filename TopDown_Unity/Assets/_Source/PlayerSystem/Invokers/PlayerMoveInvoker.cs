@@ -16,14 +16,14 @@ namespace PlayerSystem.Invokers
 
         private Transform _transform;
         private Mover _mover;
-        private ShooterRotator _shooterRotator;
+        private Rotator _rotator;
 
-        public PlayerMoveInvoker(InputHandler input, Transform transform, Mover mover, ShooterRotator shooterRotator)
+        public PlayerMoveInvoker(InputHandler input, Transform transform, Mover mover, Rotator rotator)
         {
             _input = input;
             _transform = transform;
             _mover = mover;
-            _shooterRotator = shooterRotator;
+            _rotator = rotator;
         }
 
         public void Bind()
@@ -55,7 +55,7 @@ namespace PlayerSystem.Invokers
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(ctx.ReadValue<Vector2>());
             float rotationAngle = _transform.LookAt2D(mousePos).eulerAngles.z;
-            _shooterRotator.Rotate(rotationAngle);
+            _rotator.Rotate(rotationAngle);
         }
     }
 }

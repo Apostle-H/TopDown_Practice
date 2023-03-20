@@ -15,23 +15,22 @@ namespace PlayerSystem.Invokers
         private InputHandler _input;
 
         private Transform _transform;
-        private ShooterRotator _shooterRotator;
+        private Rotator _rotator;
         private AreaCheckerSO _dragAreaCheckerSO;
         private Dragger _dragger;
         private HookShooter _hookShooter;
 
         public event Action OnHookOut;
-        public event Action OnHookIn;
-        
         public event Action OnHooked;
         public event Action OnReleased;
+        public event Action OnHookIn;
 
-        public PlayerHookInvoker(InputHandler input, Transform transform, ShooterRotator shooterRotator,
+        public PlayerHookInvoker(InputHandler input, Transform transform, Rotator rotator,
             AreaCheckerSO dragAreaCheckerSO, Dragger dragger, HookShooter hookShooter)
         {
             _input = input;
             _transform = transform;
-            _shooterRotator = shooterRotator;
+            _rotator = rotator;
             _dragAreaCheckerSO = dragAreaCheckerSO;
             _dragger = dragger;
             _hookShooter = hookShooter;
@@ -42,8 +41,10 @@ namespace PlayerSystem.Invokers
             _input.ShootActions.Hook.performed += Hook;
             _input.InteractionActions.ConnectRelease.performed += Drag;
 
+            _hookShooter.OnHookOut += HookOut;
             _hookShooter.OnHooked += Hooked;
             _hookShooter.OnReleased += Released;
+            _hookShooter.OnHookIn += HookIn;
         }
 
         public void Expose()
@@ -51,8 +52,10 @@ namespace PlayerSystem.Invokers
             _input.ShootActions.Hook.performed -= Hook;
             _input.InteractionActions.ConnectRelease.performed -= Drag;
 
+            _hookShooter.OnHookOut -= HookOut;
             _hookShooter.OnHooked -= Hooked;
             _hookShooter.OnReleased -= Released;
+            _hookShooter.OnHookIn -= HookIn;
         }
 
         private void HookOut()
@@ -76,15 +79,9 @@ namespace PlayerSystem.Invokers
         private void Hook(InputAction.CallbackContext ctx)
         {
             if (!_hookShooter.IsOut)
-            {
                 _hookShooter.ShootOut();
-                HookOut();
-            }
             else
-            {
                 _hookShooter.StoreIn();
-                HookIn();
-            }
         }
         
         private void Drag(InputAction.CallbackContext ctx)
@@ -93,7 +90,7 @@ namespace PlayerSystem.Invokers
             if (!_dragger.IsDragging && (dragTarget = PhysicsService.CheckArea(_transform, _dragAreaCheckerSO)))
             {
                 float rotationAngle = _transform.LookAt2D(dragTarget.position).eulerAngles.z;
-                _shooterRotator.Rotate(rotationAngle);
+                _rotator.Rotate(rotationAngle);
                 Hook(default);
             }
         }

@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System;
+using DG.Tweening;
 using PlayerSystem.Data.Consumables;
 using UnityEngine;
 
@@ -9,10 +10,13 @@ namespace PlayerSystem.Consumables
         private GameObject _area;
         private ShieldSO _so;
 
-        private int _availableAmount;
-        private Sequence _offSequence;
+        private Sequence _offer;
         
         public int Cost => _so.Cost;
+        public int Crafted { get; private set; }
+
+        public event Action OnCrafted;
+        public event Action OnUsed;
 
         public Shield(GameObject area, ShieldSO so)
         {
@@ -24,20 +28,23 @@ namespace PlayerSystem.Consumables
 
         public void Craft()
         {
-            _availableAmount++;
+            Crafted++;
+
+            OnCrafted?.Invoke();
         }
 
         public void Use()
         {
-            if (_availableAmount <= 0)
+            if (Crafted <= 0)
             {
                 return;
             }
 
             _area.SetActive(true);
-            _availableAmount--;
+            Crafted--;
+            _offer.Restart();
             
-            _offSequence.Restart();
+            OnUsed?.Invoke();
         }
 
         private void Off() => 
@@ -45,12 +52,12 @@ namespace PlayerSystem.Consumables
 
         private void InitSequence()
         {
-            _offSequence = DOTween.Sequence();
-            _offSequence.SetAutoKill(false);
-            _offSequence.Pause();
+            _offer = DOTween.Sequence();
+            _offer.SetAutoKill(false);
+            _offer.Pause();
 
-            _offSequence.AppendInterval(_so.Durarion);
-            _offSequence.AppendCallback(Off);
+            _offer.AppendInterval(_so.Durarion);
+            _offer.AppendCallback(Off);
         }
     }
 }

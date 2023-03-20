@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using EntitySystem.Data.Combat;
 using EntitySystem.Shooting.Projectiles;
@@ -16,6 +17,10 @@ namespace EntitySystem.Shooting
         
         private bool _shoot;
         private Sequence _shootDelayer;
+
+        public float ShootDelay => _so.ShootDelay;
+        
+        public event Action OnShoot; 
 
         public Attacker(Transform firePoint, ProjectilePool pool, AttackerSO so)
         {
@@ -50,6 +55,7 @@ namespace EntitySystem.Shooting
             projectile.transform.rotation = _firePoint.rotation;
             
             projectile.ShootSelf();
+            OnShoot?.Invoke();
         }
 
         public void StopShoot()

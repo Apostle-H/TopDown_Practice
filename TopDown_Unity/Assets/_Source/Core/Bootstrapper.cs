@@ -50,6 +50,11 @@ namespace Core
 
         private InputHandler _input;
 
+        private Attacker _playerAttacker;
+        private HookShooter _playerHookShooter;
+        private PlayerResources _playerResources;
+        private Patch _patch;
+        private Shield _shield;
         private PlayerMasterInvoker _playerMasterInvoker;
 
         private Game _game;
@@ -72,32 +77,32 @@ namespace Core
             hook.gameObject.SetActive(false);
             
             Mover mover = new Mover(playerRb, playerMoverSO);
-            ShooterRotator shooterRotator = new ShooterRotator(playerGunPivotPoint);
+            Rotator rotator = new Rotator(playerGunPivotPoint);
             
-            Attacker attacker = new Attacker(playerFirePoint, projectilePool, playerAttackerSO);
+            _playerAttacker = new Attacker(playerFirePoint, projectilePool, playerAttackerSO);
             Dragger dragger = new Dragger(playerDraggerJoint);
-            HookShooter hookShooter = new HookShooter(playerFirePoint, hook, dragger, playerHookShooterSO);
+            _playerHookShooter = new HookShooter(playerFirePoint, hook, dragger, playerHookShooterSO);
             
-            PlayerResources playerResources = new PlayerResources();
-            Splitter splitter = new Splitter(playerResources);
-            Patch patch = new Patch(playerHealth, playerPatchSO);
-            Shield shield = new Shield(playerShield, playerShieldSO);
+            _playerResources = new PlayerResources();
+            Splitter splitter = new Splitter(_playerResources);
+            _patch = new Patch(playerHealth, playerPatchSO);
+            _shield = new Shield(playerShield, playerShieldSO);
             
-            playerResources.Add(10);
+            _playerResources.Add(10);
 
-            PlayerMoveInvoker moveInvoker = new PlayerMoveInvoker(_input, playerTransform, mover, shooterRotator);
-            PlayerShootInvoker shootInvoker = new PlayerShootInvoker(_input, attacker);
-            PlayerHookInvoker hookInvoker = new PlayerHookInvoker(_input, playerTransform, shooterRotator,
-                playerDragAreaCheckerSO, dragger, hookShooter);
+            PlayerMoveInvoker moveInvoker = new PlayerMoveInvoker(_input, playerTransform, mover, rotator);
+            PlayerShootInvoker shootInvoker = new PlayerShootInvoker(_input, _playerAttacker);
+            PlayerHookInvoker hookInvoker = new PlayerHookInvoker(_input, playerTransform, rotator,
+                playerDragAreaCheckerSO, dragger, _playerHookShooter);
             PlayerSplitInvoker splitInvoker = new PlayerSplitInvoker(_input, playerTransform, splitter, playerSplitAreaCheckerSO);
-            PlayerConsumablesInvoker consumablesInvoker = new PlayerConsumablesInvoker(_input, playerResources, patch, shield);
+            PlayerConsumablesInvoker consumablesInvoker = new PlayerConsumablesInvoker(_input, _playerResources, _patch, _shield);
             _playerMasterInvoker = new PlayerMasterInvoker(moveInvoker, shootInvoker, hookInvoker, splitInvoker, consumablesInvoker, playerHealth);
         }
 
         private void InitUI()
         {
-            PlayerUIModel playerUIModel = new PlayerUIModel(playerHealthSO);
-            PlayerUIController playerUIController = new PlayerUIController(playerUIModel, playerUIView, playerHealth);
+            PlayerUIModel model = new PlayerUIModel(_input);
+            new PlayerUIController(model, playerUIView, playerHealth, _playerAttacker, _playerHookShooter, _playerResources, _patch, _shield);
         }
     }
 }

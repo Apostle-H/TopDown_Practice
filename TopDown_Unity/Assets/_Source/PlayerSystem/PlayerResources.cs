@@ -9,7 +9,6 @@ namespace PlayerSystem
         public void Add(int amount)
         {
             Count += amount;
-            Debug.Log(Count);
         }
 
         public bool Consume(int amount)
@@ -20,7 +19,6 @@ namespace PlayerSystem
             }
 
             Count -= amount;
-            Debug.Log(Count);
             return true;
         }
     }

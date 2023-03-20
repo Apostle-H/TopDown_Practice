@@ -218,18 +218,18 @@ namespace InputSystem
             ""id"": ""24ef7430-e142-459c-a260-929cdcddb437"",
             ""actions"": [
                 {
-                    ""name"": ""PatchUse"",
+                    ""name"": ""Patch"",
                     ""type"": ""Button"",
-                    ""id"": ""8deac199-2caa-4645-a756-b17338ae31ff"",
+                    ""id"": ""7ac6afdd-60b2-4c1c-b3b4-522803ba5200"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PatchCraft"",
+                    ""name"": ""Shield"",
                     ""type"": ""Button"",
-                    ""id"": ""7ac6afdd-60b2-4c1c-b3b4-522803ba5200"",
+                    ""id"": ""db58185e-3b01-47d6-b6af-df31540472aa"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold"",
@@ -239,23 +239,23 @@ namespace InputSystem
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""965b9c44-a548-4cd7-a00d-e811e9433957"",
-                    ""path"": ""<Keyboard>/z"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""PatchUse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""e88d851d-e079-45d7-8adc-b71d77689956"",
                     ""path"": ""<Keyboard>/z"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PatchCraft"",
+                    ""action"": ""Patch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fedd1284-41e4-4525-a619-cfcd1d858efb"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shield"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -278,8 +278,8 @@ namespace InputSystem
             m_Interactions_Split = m_Interactions.FindAction("Split", throwIfNotFound: true);
             // Consumables
             m_Consumables = asset.FindActionMap("Consumables", throwIfNotFound: true);
-            m_Consumables_PatchUse = m_Consumables.FindAction("PatchUse", throwIfNotFound: true);
-            m_Consumables_PatchCraft = m_Consumables.FindAction("PatchCraft", throwIfNotFound: true);
+            m_Consumables_Patch = m_Consumables.FindAction("Patch", throwIfNotFound: true);
+            m_Consumables_Shield = m_Consumables.FindAction("Shield", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -462,14 +462,14 @@ namespace InputSystem
         // Consumables
         private readonly InputActionMap m_Consumables;
         private IConsumablesActions m_ConsumablesActionsCallbackInterface;
-        private readonly InputAction m_Consumables_PatchUse;
-        private readonly InputAction m_Consumables_PatchCraft;
+        private readonly InputAction m_Consumables_Patch;
+        private readonly InputAction m_Consumables_Shield;
         public struct ConsumablesActions
         {
             private @MainActions m_Wrapper;
             public ConsumablesActions(@MainActions wrapper) { m_Wrapper = wrapper; }
-            public InputAction @PatchUse => m_Wrapper.m_Consumables_PatchUse;
-            public InputAction @PatchCraft => m_Wrapper.m_Consumables_PatchCraft;
+            public InputAction @Patch => m_Wrapper.m_Consumables_Patch;
+            public InputAction @Shield => m_Wrapper.m_Consumables_Shield;
             public InputActionMap Get() { return m_Wrapper.m_Consumables; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -479,22 +479,22 @@ namespace InputSystem
             {
                 if (m_Wrapper.m_ConsumablesActionsCallbackInterface != null)
                 {
-                    @PatchUse.started -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchUse;
-                    @PatchUse.performed -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchUse;
-                    @PatchUse.canceled -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchUse;
-                    @PatchCraft.started -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchCraft;
-                    @PatchCraft.performed -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchCraft;
-                    @PatchCraft.canceled -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatchCraft;
+                    @Patch.started -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatch;
+                    @Patch.performed -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatch;
+                    @Patch.canceled -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnPatch;
+                    @Shield.started -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnShield;
+                    @Shield.performed -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnShield;
+                    @Shield.canceled -= m_Wrapper.m_ConsumablesActionsCallbackInterface.OnShield;
                 }
                 m_Wrapper.m_ConsumablesActionsCallbackInterface = instance;
                 if (instance != null)
                 {
-                    @PatchUse.started += instance.OnPatchUse;
-                    @PatchUse.performed += instance.OnPatchUse;
-                    @PatchUse.canceled += instance.OnPatchUse;
-                    @PatchCraft.started += instance.OnPatchCraft;
-                    @PatchCraft.performed += instance.OnPatchCraft;
-                    @PatchCraft.canceled += instance.OnPatchCraft;
+                    @Patch.started += instance.OnPatch;
+                    @Patch.performed += instance.OnPatch;
+                    @Patch.canceled += instance.OnPatch;
+                    @Shield.started += instance.OnShield;
+                    @Shield.performed += instance.OnShield;
+                    @Shield.canceled += instance.OnShield;
                 }
             }
         }
@@ -516,8 +516,8 @@ namespace InputSystem
         }
         public interface IConsumablesActions
         {
-            void OnPatchUse(InputAction.CallbackContext context);
-            void OnPatchCraft(InputAction.CallbackContext context);
+            void OnPatch(InputAction.CallbackContext context);
+            void OnShield(InputAction.CallbackContext context);
         }
     }
 }

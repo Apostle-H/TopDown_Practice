@@ -40,6 +40,8 @@ namespace Core
         [SerializeField] private AreaCheckerSO playerSplitAreaCheckerSO;
         [Header("Consumables")]
         [SerializeField] private PatchSO playerPatchSO;
+        [SerializeField] private GameObject playerShield;
+        [SerializeField] private ShieldSO playerShieldSO;
 
         [Header("UI"), Space(5f)] 
         [Header("Player")]
@@ -71,19 +73,24 @@ namespace Core
             
             Mover mover = new Mover(playerRb, playerMoverSO);
             ShooterRotator shooterRotator = new ShooterRotator(playerGunPivotPoint);
+            
             Attacker attacker = new Attacker(playerFirePoint, projectilePool, playerAttackerSO);
             Dragger dragger = new Dragger(playerDraggerJoint);
             HookShooter hookShooter = new HookShooter(playerFirePoint, hook, dragger, playerHookShooterSO);
+            
             PlayerResources playerResources = new PlayerResources();
             Splitter splitter = new Splitter(playerResources);
             Patch patch = new Patch(playerHealth, playerPatchSO);
+            Shield shield = new Shield(playerShield, playerShieldSO);
+            
+            playerResources.Add(10);
 
             PlayerMoveInvoker moveInvoker = new PlayerMoveInvoker(_input, playerTransform, mover, shooterRotator);
             PlayerShootInvoker shootInvoker = new PlayerShootInvoker(_input, attacker);
             PlayerHookInvoker hookInvoker = new PlayerHookInvoker(_input, playerTransform, shooterRotator,
                 playerDragAreaCheckerSO, dragger, hookShooter);
             PlayerSplitInvoker splitInvoker = new PlayerSplitInvoker(_input, playerTransform, splitter, playerSplitAreaCheckerSO);
-            PlayerConsumablesInvoker consumablesInvoker = new PlayerConsumablesInvoker(_input, playerResources, patch);
+            PlayerConsumablesInvoker consumablesInvoker = new PlayerConsumablesInvoker(_input, playerResources, patch, shield);
             _playerMasterInvoker = new PlayerMasterInvoker(moveInvoker, shootInvoker, hookInvoker, splitInvoker, consumablesInvoker, playerHealth);
         }
 

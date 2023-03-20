@@ -194,18 +194,18 @@
             "id": "24ef7430-e142-459c-a260-929cdcddb437",
             "actions": [
                 {
-                    "name": "PatchUse",
+                    "name": "Patch",
                     "type": "Button",
-                    "id": "8deac199-2caa-4645-a756-b17338ae31ff",
+                    "id": "7ac6afdd-60b2-4c1c-b3b4-522803ba5200",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PatchCraft",
+                    "name": "Shield",
                     "type": "Button",
-                    "id": "7ac6afdd-60b2-4c1c-b3b4-522803ba5200",
+                    "id": "db58185e-3b01-47d6-b6af-df31540472aa",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Hold",
@@ -215,23 +215,23 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "965b9c44-a548-4cd7-a00d-e811e9433957",
-                    "path": "<Keyboard>/z",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PatchUse",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e88d851d-e079-45d7-8adc-b71d77689956",
                     "path": "<Keyboard>/z",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PatchCraft",
+                    "action": "Patch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fedd1284-41e4-4525-a619-cfcd1d858efb",
+                    "path": "<Keyboard>/x",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shield",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

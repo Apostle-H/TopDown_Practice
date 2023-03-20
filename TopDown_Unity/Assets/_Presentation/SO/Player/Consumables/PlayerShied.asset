@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: baac26c6f62944ab825de0e1cd64c945, type: 3}
-  m_Name: NewPatchSettings
+  m_Script: {fileID: 11500000, guid: 08e7d4d446b24af4bc493592ab570f6e, type: 3}
+  m_Name: PlayerShied
   m_EditorClassIdentifier: 
-  <Cost>k__BackingField: 3
-  <HealAmount>k__BackingField: 2
+  <Cost>k__BackingField: 1
+  <Durarion>k__BackingField: 5

@@ -9,9 +9,9 @@ namespace PlayerSystem.Consumables
         private IDamageable _target;
         private PatchSO _so;
 
-        public int Cost => _so.Cost;
-
         private int _availableAmount;
+
+        public int Cost => _so.Cost;
 
         public Patch(IDamageable target, PatchSO so)
         {
@@ -22,8 +22,6 @@ namespace PlayerSystem.Consumables
         public void Craft()
         {
             _availableAmount++;
-            
-            Debug.Log(_availableAmount);
         }
 
         public void Use()
@@ -35,7 +33,6 @@ namespace PlayerSystem.Consumables
             
             _target.Heal(_so.HealAmount);
             _availableAmount--;
-            Debug.Log(_availableAmount);
         }
     }
 }

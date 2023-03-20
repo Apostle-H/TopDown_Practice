@@ -30,6 +30,7 @@ namespace EntitySystem.Shooting.Projectiles
             _haveHooked = true;
             hookJoint.connectedBody = col.rigidbody;
             hookJoint.enabled = true;
+            
             OnHooked?.Invoke();
         }
 

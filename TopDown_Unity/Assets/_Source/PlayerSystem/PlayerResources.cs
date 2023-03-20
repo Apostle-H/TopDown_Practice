@@ -1,24 +1,32 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace PlayerSystem
 {
     public class PlayerResources
     {
-        public int Count { get; private set; }
+        public int Amount { get; private set; }
+
+        public event Action OnAdded;
+        public event Action OnConsumed;
 
         public void Add(int amount)
         {
-            Count += amount;
+            Amount += amount;
+            
+            OnAdded?.Invoke();
         }
 
         public bool Consume(int amount)
         {
-            if (Count - amount < 0)
+            if (Amount - amount < 0)
             {
                 return false;
             }
 
-            Count -= amount;
+            Amount -= amount;
+            
+            OnConsumed?.Invoke();
             return true;
         }
     }

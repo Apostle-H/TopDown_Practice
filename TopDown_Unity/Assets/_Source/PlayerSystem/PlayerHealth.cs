@@ -16,6 +16,8 @@ namespace PlayerSystem
         public event Action OnHeal;
         public event Action OnDeath;
 
+        public int MaxHealth => so.Health;
+        
         public int CurrentHealth => _currentHealth;
 
         private void Awake()

@@ -1,4 +1,5 @@
-﻿using EntitySystem.Health;
+﻿using System;
+using EntitySystem.Health;
 using PlayerSystem.Data.Consumables;
 using UnityEngine;
 
@@ -9,9 +10,11 @@ namespace PlayerSystem.Consumables
         private IDamageable _target;
         private PatchSO _so;
 
-        private int _availableAmount;
-
         public int Cost => _so.Cost;
+        public int Crafted { get; private set; }
+
+        public event Action OnCrafted;
+        public event Action OnUsed;
 
         public Patch(IDamageable target, PatchSO so)
         {
@@ -21,18 +24,22 @@ namespace PlayerSystem.Consumables
 
         public void Craft()
         {
-            _availableAmount++;
+            Crafted++;
+            
+            OnCrafted?.Invoke();
         }
 
         public void Use()
         {
-            if (_availableAmount <= 0)
+            if (Crafted <= 0)
             {
                 return;
             }
             
             _target.Heal(_so.HealAmount);
-            _availableAmount--;
+            Crafted--;
+            
+            OnUsed?.Invoke();
         }
     }
 }

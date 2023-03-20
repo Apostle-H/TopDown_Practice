@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using LevelSystem.Data;
 using UnityEngine;
 using Utils;
-using Random = UnityEngine.Random;
 
 namespace LevelSystem
 {
@@ -15,7 +12,7 @@ namespace LevelSystem
         [SerializeField] private LevelPartsSetSO levelPartsSetSO;
         [SerializeField] [Range(0f, 1f)] private float fillPercentage;
 
-        private HashSet<Socket> _chosenSockets = new HashSet<Socket>();
+        private readonly HashSet<Socket> _chosenSockets = new HashSet<Socket>();
         private List<Socket> _leftOverSockets;
 
         private void Awake()

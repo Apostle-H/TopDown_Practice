@@ -1,11 +1,10 @@
 ﻿using EntitySystem.Interactions;
-using UnityEngine;
 
 namespace PlayerSystem.Interactions
 {
     public class Splitter
     {
-        private PlayerResources _resources;
+        private readonly PlayerResources _resources;
 
         public Splitter(PlayerResources resources)
         {

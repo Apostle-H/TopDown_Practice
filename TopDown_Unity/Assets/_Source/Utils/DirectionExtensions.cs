@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using LevelSystem.Data;
-using Unity.Burst.Intrinsics;
 using UnityEngine;
 
 namespace Utils

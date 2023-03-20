@@ -4,7 +4,7 @@ namespace EntitySystem.Shooting
 {
     public class Rotator
     {
-        private Transform _pivotPoint;
+        private readonly Transform _pivotPoint;
 
         public Rotator(Transform pivotPoint)
         {

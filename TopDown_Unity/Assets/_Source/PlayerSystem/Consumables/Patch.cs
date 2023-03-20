@@ -1,14 +1,13 @@
 ﻿using System;
 using EntitySystem.Health;
 using PlayerSystem.Data.Consumables;
-using UnityEngine;
 
 namespace PlayerSystem.Consumables
 {
     public class Patch : IConsumable
     {
-        private IDamageable _target;
-        private PatchSO _so;
+        private readonly IDamageable _target;
+        private readonly PatchSO _so;
 
         public int Cost => _so.Cost;
         public int Crafted { get; private set; }

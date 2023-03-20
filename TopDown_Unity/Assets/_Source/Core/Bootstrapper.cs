@@ -1,7 +1,6 @@
 using EntitySystem.Data.Combat;
 using EntitySystem.Data.Interactions;
 using EntitySystem.Data.Movement;
-using EntitySystem.Health;
 using EntitySystem.Movement;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
@@ -14,7 +13,6 @@ using PlayerSystem.Interactions;
 using PlayerSystem.Invokers;
 using UI.Player;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Core
 {

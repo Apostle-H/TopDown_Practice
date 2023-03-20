@@ -5,7 +5,7 @@ namespace EntitySystem.Shooting.Projectiles
 {
     public class ProjectilePool
     {
-        private Queue<Projectile> _pool;
+        private readonly Queue<Projectile> _pool;
 
         public ProjectilePool(float shootDelay, GameObject projectilePrefab, Transform projectilesParent)
         {

@@ -8,10 +8,10 @@ namespace EntitySystem.Shooting
 {
     public class Attacker
     {
-        private AttackerSO _so;
-        protected Transform _firePoint;
+        private readonly AttackerSO _so;
+        protected readonly Transform firePoint;
 
-        private ProjectilePool _pool;
+        private readonly ProjectilePool _pool;
 
         private float _rotation;
         
@@ -24,7 +24,7 @@ namespace EntitySystem.Shooting
 
         public Attacker(Transform firePoint, ProjectilePool pool, AttackerSO so)
         {
-            _firePoint = firePoint;
+            this.firePoint = firePoint;
             _pool = pool;
             _so = so;
 
@@ -51,8 +51,8 @@ namespace EntitySystem.Shooting
             
             Projectile projectile = _pool.Get();
             projectile.gameObject.SetActive(true);
-            projectile.transform.position = _firePoint.position;
-            projectile.transform.rotation = _firePoint.rotation;
+            projectile.transform.position = firePoint.position;
+            projectile.transform.rotation = firePoint.rotation;
             
             projectile.ShootSelf();
             OnShoot?.Invoke();

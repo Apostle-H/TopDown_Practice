@@ -12,11 +12,11 @@ namespace TutorSystem
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            if (layerMask.Contains(col.gameObject.layer))
-            {
-                gameObject.SetActive(false);
-                OnPressed?.Invoke();
-            }
+            if (!layerMask.Contains(col.gameObject.layer)) 
+                return;
+            
+            gameObject.SetActive(false);
+            OnPressed?.Invoke();
         }
     }
 }

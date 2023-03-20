@@ -1,15 +1,14 @@
 ﻿using EntitySystem.Shooting;
 using InputSystem;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace PlayerSystem.Invokers
 {
     public class PlayerShootInvoker
     {
-        private InputHandler _input;
+        private readonly InputHandler _input;
 
-        private Attacker _attacker;
+        private readonly Attacker _attacker;
 
         public PlayerShootInvoker(InputHandler input, Attacker attacker)
         {

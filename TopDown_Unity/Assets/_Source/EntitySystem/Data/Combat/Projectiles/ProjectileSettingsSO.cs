@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace EntitySystem.Data.Combat.Projectiles
 {
-    [CreateAssetMenu(menuName = "SO/EntitySystem/Shooting/ProjectileSettings", fileName = "NewProjectileSettings")]
+    [CreateAssetMenu(menuName = "SO/EntitySystem/Shooting/Projectile", fileName = "NewProjectile")]
     public class ProjectileSettingsSO : ScriptableObject
     {
         [field: SerializeField] public int Damage { get; private set; }

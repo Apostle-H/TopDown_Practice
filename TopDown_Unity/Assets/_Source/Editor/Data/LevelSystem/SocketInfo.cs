@@ -8,7 +8,7 @@ namespace Data.LevelSystem
     public class SocketInfo : Object
     {
         public SerializedObject serializedObject;
-        public Dictionary<Direction, SerializedProperty> neighboursProperties;
+        public readonly Dictionary<Direction, SerializedProperty> neighboursProperties;
 
         public SocketInfo()
         {

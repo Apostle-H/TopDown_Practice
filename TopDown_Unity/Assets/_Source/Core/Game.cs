@@ -1,12 +1,12 @@
 using InputSystem;
-using PlayerSystem;
+using PlayerSystem.Invokers;
 
 namespace Core
 {
     public class Game
     {
-        private InputHandler _input;
-        private PlayerMasterInvoker _playerMasterInvoker;
+        private readonly InputHandler _input;
+        private readonly PlayerMasterInvoker _playerMasterInvoker;
         
         public Game(InputHandler input, PlayerMasterInvoker playerMasterInvoker)
         {

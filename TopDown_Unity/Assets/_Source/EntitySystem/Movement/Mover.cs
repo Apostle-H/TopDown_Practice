@@ -6,8 +6,8 @@ namespace EntitySystem.Movement
 {
     public class Mover
     {
-        private Rigidbody2D _rb;
-        private MoverSO _so;
+        private readonly Rigidbody2D _rb;
+        private readonly MoverSO _so;
 
         private Vector2 _direction;
         private bool _isCarrying;

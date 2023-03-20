@@ -7,8 +7,8 @@ namespace PlayerSystem.Consumables
 {
     public class Shield : IConsumable
     {
-        private GameObject _area;
-        private ShieldSO _so;
+        private readonly GameObject _area;
+        private readonly ShieldSO _so;
 
         private Sequence _offer;
         

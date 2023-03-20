@@ -1,5 +1,4 @@
 ﻿using EnemySystem.Health;
-using EntitySystem.Health;
 using UnityEngine;
 
 namespace TutorSystem

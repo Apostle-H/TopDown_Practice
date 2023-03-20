@@ -1,22 +1,19 @@
 ﻿using EntitySystem.Movement;
 using EntitySystem.Shooting;
 using InputSystem;
-using PlayerSystem.Data.Interactions;
-using PlayerSystem.Interactions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Utils;
-using Utils.Services;
 
 namespace PlayerSystem.Invokers
 {
     public class PlayerMoveInvoker
     {
-        private InputHandler _input;
+        private readonly InputHandler _input;
 
-        private Transform _transform;
-        private Mover _mover;
-        private Rotator _rotator;
+        private readonly Transform _transform;
+        private readonly Mover _mover;
+        private readonly Rotator _rotator;
 
         public PlayerMoveInvoker(InputHandler input, Transform transform, Mover mover, Rotator rotator)
         {

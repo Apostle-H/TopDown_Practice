@@ -6,8 +6,8 @@ namespace EnemySystem.Movement
     public class NavMeshMover
     {
         private GameObject _target;
-        private NavMeshAgent _navMesh;
-        private int _speed;
+        private readonly NavMeshAgent _navMesh;
+        private readonly int _speed;
         
         public NavMeshMover(NavMeshAgent navMesh, int speed)
         {

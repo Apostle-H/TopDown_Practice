@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace TutorSystem
 {
@@ -13,10 +12,10 @@ namespace TutorSystem
         {
             _counter = buttonsToOpen.Length;
 
-            for (int i = 0; i < buttonsToOpen.Length; i++)
+            foreach (var trigger in buttonsToOpen)
             {
-                buttonsToOpen[i].OnPressed += CountDown;
-            } 
+                trigger.OnPressed += CountDown;
+            }
         }
 
         private void CountDown()

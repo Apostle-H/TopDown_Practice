@@ -4,17 +4,16 @@ using PlayerSystem.Data.Interactions;
 using PlayerSystem.Interactions;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.PlayerLoop;
 using Utils.Services;
 
 namespace PlayerSystem.Invokers
 {
     public class PlayerSplitInvoker
     {
-        private InputHandler _input;
-        private Transform _transform;
-        private Splitter _splitter;
-        private AreaCheckerSO _splitAreaCheckerSO;
+        private readonly InputHandler _input;
+        private readonly Transform _transform;
+        private readonly Splitter _splitter;
+        private readonly AreaCheckerSO _splitAreaCheckerSO;
 
         public PlayerSplitInvoker(InputHandler input, Transform transform, Splitter splitter, AreaCheckerSO splitAreaCheckerSO)
         {

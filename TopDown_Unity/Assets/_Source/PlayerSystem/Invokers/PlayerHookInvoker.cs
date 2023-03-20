@@ -12,13 +12,13 @@ namespace PlayerSystem.Invokers
 {
     public class PlayerHookInvoker
     {
-        private InputHandler _input;
+        private readonly InputHandler _input;
 
-        private Transform _transform;
-        private Rotator _rotator;
-        private AreaCheckerSO _dragAreaCheckerSO;
-        private Dragger _dragger;
-        private HookShooter _hookShooter;
+        private readonly Transform _transform;
+        private readonly Rotator _rotator;
+        private readonly AreaCheckerSO _dragAreaCheckerSO;
+        private readonly Dragger _dragger;
+        private readonly HookShooter _hookShooter;
 
         public event Action OnHookOut;
         public event Action OnHooked;

@@ -16,7 +16,7 @@ namespace LevelSystem
         [SerializeField] private Socket rightNeighbour;
         [field: SerializeField] public float Size { get; private set; } = 2.5f;
 
-        private Dictionary<Direction, bool> _definedDirections = new Dictionary<Direction, bool>();
+        private readonly Dictionary<Direction, bool> _definedDirections = new Dictionary<Direction, bool>();
 
         public bool Collapsed { get; private set; }
         public LevelPart CollapsedPart { get; private set; }

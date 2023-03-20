@@ -1,17 +1,16 @@
 ﻿using InputSystem;
 using PlayerSystem.Consumables;
-using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PlayerSystem
+namespace PlayerSystem.Invokers
 {
     public class PlayerConsumablesInvoker
     {
-        private InputHandler _input;
+        private readonly InputHandler _input;
 
-        private PlayerResources _resources;
-        private Patch _patch;
-        private Shield _shield;
+        private readonly PlayerResources _resources;
+        private readonly Patch _patch;
+        private readonly Shield _shield;
 
         private bool _isPatchCraft;
         private bool _isShieldCraft;

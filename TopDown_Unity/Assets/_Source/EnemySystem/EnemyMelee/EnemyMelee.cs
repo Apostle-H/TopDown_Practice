@@ -3,8 +3,6 @@ using EnemySystem.Data;
 using EnemySystem.Data.Combat;
 using EnemySystem.Health;
 using EnemySystem.Movement;
-using EntitySystem.Data.Combat;
-using EntitySystem.Health;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
 using UnityEngine;

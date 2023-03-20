@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using EnemySystem.Data;
+﻿using EnemySystem.Data;
 using EnemySystem.Data.Combat;
 using EnemySystem.Health;
-using EntitySystem.Health;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
 using UnityEngine;

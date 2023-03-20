@@ -9,11 +9,11 @@ namespace EntitySystem.Shooting
     public class HookShooter
     {
         private HookShooterSO _so;
-        private Transform _firePoint;
-        private Hook _hook;
-        private Dragger _dragger;
+        private readonly Transform _firePoint;
+        private readonly Hook _hook;
+        private readonly Dragger _dragger;
 
-        private Rigidbody2D _hookRb;
+        private readonly Rigidbody2D _hookRb;
 
         private bool _hooked;
 

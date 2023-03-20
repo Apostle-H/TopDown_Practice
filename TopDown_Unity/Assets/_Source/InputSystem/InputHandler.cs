@@ -1,10 +1,8 @@
-using UnityEngine.InputSystem;
-
 namespace InputSystem
 {
     public class InputHandler
     {
-        private MainActions _actions;
+        private readonly MainActions _actions;
 
         public MainActions.MovementActions MovementActions => _actions.Movement;
         public MainActions.ShootActions ShootActions => _actions.Shoot;

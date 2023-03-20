@@ -1,27 +1,14 @@
-using System;
-using EntitySystem.Health;
-using InputSystem;
-using PlayerSystem.Interactions;
-using EntitySystem.Shooting;
-using EntitySystem.Movement;
-using PlayerSystem.Data.Interactions;
-using PlayerSystem.Invokers;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using Utils;
-using Utils.Services;
-
-namespace PlayerSystem
+namespace PlayerSystem.Invokers
 {
     public class PlayerMasterInvoker
     {
-        private PlayerMoveInvoker _moveInvoker;
-        private PlayerShootInvoker _shootInvoker;
-        private PlayerHookInvoker _hookInvoker;
-        private PlayerSplitInvoker _splitInvoker;
-        private PlayerConsumablesInvoker _consumablesInvoker;
+        private readonly PlayerMoveInvoker _moveInvoker;
+        private readonly PlayerShootInvoker _shootInvoker;
+        private readonly PlayerHookInvoker _hookInvoker;
+        private readonly PlayerSplitInvoker _splitInvoker;
+        private readonly PlayerConsumablesInvoker _consumablesInvoker;
 
-        private PlayerHealth _health;
+        private readonly PlayerHealth _health;
 
         public PlayerMasterInvoker(PlayerMoveInvoker moveInvoker, PlayerShootInvoker shootInvoker, PlayerHookInvoker hookInvoker, 
             PlayerSplitInvoker splitInvoker, PlayerConsumablesInvoker consumablesInvoker, PlayerHealth health)

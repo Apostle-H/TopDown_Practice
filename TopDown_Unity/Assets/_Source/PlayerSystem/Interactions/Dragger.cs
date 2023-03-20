@@ -1,12 +1,10 @@
-using System;
-using PlayerSystem.Data.Interactions;
 using UnityEngine;
 
 namespace PlayerSystem.Interactions
 {
     public class Dragger
     {
-        private SpringJoint2D _enemyDragJoint;
+        private readonly SpringJoint2D _enemyDragJoint;
 
         public bool IsDragging => _enemyDragJoint.connectedBody != null;
 

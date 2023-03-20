@@ -1,5 +1,4 @@
 ﻿using EntitySystem.Data.Combat;
-using EntitySystem.Shooting;
 using UnityEngine;
 
 namespace EnemySystem.Data.Combat

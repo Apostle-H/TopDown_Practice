@@ -10,6 +10,7 @@ namespace EnemySystem.Health
     {
         [SerializeField] private HealthSO healthSO;
         [SerializeField] private SplittableSO splittableSO;
+        [SerializeField] private ParticleSystem particleKnock;
 
         private int _currentHealth;
         private bool _isKnocked;
@@ -41,6 +42,7 @@ namespace EnemySystem.Health
             if (!_isKnocked)
             {
                 _isKnocked = true;
+                particleKnock.Play();
                 OnKnock?.Invoke();
             }
             else if (!_isDead)

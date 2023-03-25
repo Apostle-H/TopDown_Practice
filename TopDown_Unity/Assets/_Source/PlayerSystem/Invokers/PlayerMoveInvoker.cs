@@ -45,9 +45,11 @@ namespace PlayerSystem.Invokers
         public void SpeedUpReleasing() =>
             _mover.UpdateIsCarrying(false);
 
-        private void UpdateDirection(InputAction.CallbackContext ctx) =>
+        private void UpdateDirection(InputAction.CallbackContext ctx)
+        {
             _mover.UpdateDirection(ctx.ReadValue<Vector2>());
-        
+        }
+
         private void RotateGun(InputAction.CallbackContext ctx)
         {
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(ctx.ReadValue<Vector2>());

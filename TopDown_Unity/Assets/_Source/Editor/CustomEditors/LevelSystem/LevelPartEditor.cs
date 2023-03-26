@@ -28,12 +28,12 @@ namespace CustomEditors.LevelSystem
                 iterator.NextVisible(false);
                 _socketsRules.Add(direction, iterator.Copy());
             });
-
-            _offsetFromCenter = _castedTarget.Size * 2 / 2.1f;
         }
 
         private void OnSceneGUI()
         {
+            _offsetFromCenter = _castedTarget.Size * 2 / 2.1f;
+            
             DirectionExtensions.ForEachDirection(direction =>
             {
                 Vector2 pos = (Vector2)_castedTarget.transform.position + (direction.GetVector2() * _offsetFromCenter);
@@ -47,7 +47,7 @@ namespace CustomEditors.LevelSystem
         {
             bool currentState = _socketsRules[direction].boolValue;
             Handles.color = currentState ? Color.green : Color.red;
-            if (Handles.Button(pos, Quaternion.identity, 0.3f, 0.3f, Handles.SphereHandleCap))
+            if (Handles.Button(pos, Quaternion.identity, _offsetFromCenter / 6, _offsetFromCenter / 6, Handles.SphereHandleCap))
             {
                 _socketsRules[direction].boolValue = !currentState;
             }

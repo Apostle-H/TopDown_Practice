@@ -11,6 +11,7 @@ using PlayerSystem.Data.Consumables;
 using PlayerSystem.Data.Interactions;
 using PlayerSystem.Interactions;
 using PlayerSystem.Invokers;
+using SurrenderZone;
 using UI.Player;
 using UnityEngine;
 
@@ -45,6 +46,12 @@ namespace Core
         [Header("Player")]
         [SerializeField] private PlayerUIView playerUIView;
         [SerializeField] private HealthSO playerHealthSO;
+        
+        [Header("Surrender Zone"), Space(5f)] 
+        [Header("Positions")] 
+        [SerializeField] private Transform surrenderZonePosition;
+        [Header("Pointer")] 
+        [SerializeField] private Pointer pointer;
 
         private InputHandler _input;
 
@@ -95,6 +102,8 @@ namespace Core
             PlayerSplitInvoker splitInvoker = new PlayerSplitInvoker(_input, playerTransform, splitter, playerSplitAreaCheckerSO);
             PlayerConsumablesInvoker consumablesInvoker = new PlayerConsumablesInvoker(_input, _playerResources, _patch, _shield);
             _playerMasterInvoker = new PlayerMasterInvoker(moveInvoker, shootInvoker, hookInvoker, splitInvoker, consumablesInvoker, playerHealth);
+            
+            pointer.SetPositionTargetAndEvent(hookInvoker, surrenderZonePosition);
         }
 
         private void InitUI()

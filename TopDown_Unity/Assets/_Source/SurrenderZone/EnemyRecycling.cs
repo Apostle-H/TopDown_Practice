@@ -1,4 +1,3 @@
-using System;
 using EntitySystem.Interactions;
 using UnityEngine;
 using Utils;

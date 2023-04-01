@@ -1,3 +1,4 @@
+using EnemySystem.EnemyAcne;
 using EntitySystem.Data.Combat;
 using EntitySystem.Data.Interactions;
 using EntitySystem.Data.Movement;
@@ -11,6 +12,7 @@ using PlayerSystem.Data.Consumables;
 using PlayerSystem.Data.Interactions;
 using PlayerSystem.Interactions;
 using PlayerSystem.Invokers;
+using ResourceSystem.GlobalResource;
 using SurrenderZone;
 using UI.Player;
 using UnityEngine;
@@ -46,12 +48,16 @@ namespace Core
         [Header("Player")]
         [SerializeField] private PlayerUIView playerUIView;
         [SerializeField] private HealthSO playerHealthSO;
-        
+
         [Header("Surrender Zone"), Space(5f)] 
-        [Header("Positions")] 
+        [Header("Positions")]
         [SerializeField] private Transform surrenderZonePosition;
         [Header("Pointer")] 
         [SerializeField] private Pointer pointer;
+        
+        [Header("Temporarily"), Space(5f)]
+        [SerializeField] private EnemyRecycling recycling;
+        [SerializeField] private AcneEnemy acneEnemy;
 
         private InputHandler _input;
 
@@ -62,6 +68,8 @@ namespace Core
         private Shield _shield;
         private PlayerMasterInvoker _playerMasterInvoker;
 
+        private GlobalResource _globalResource;
+        
         private Game _game;
 
         private void Awake()
@@ -70,6 +78,7 @@ namespace Core
 
             InitPlayer();
             InitUI();
+            InitResource();
 
             _game = new Game(_input, _playerMasterInvoker);
             _game.Start();
@@ -110,6 +119,13 @@ namespace Core
         {
             PlayerUIModel model = new PlayerUIModel(_input);
             new PlayerUIController(model, playerUIView, playerHealth, _playerAttacker, _playerHookShooter, _playerResources, _patch, _shield);
+        }
+
+        private void InitResource()
+        {
+            _globalResource = new GlobalResource();
+            recycling.OnEnemyRecycled += _globalResource.ChangeResourceCount;
+            _globalResource.OnChangeResourceCount += acneEnemy.CheckResourceCount;
         }
     }
 }

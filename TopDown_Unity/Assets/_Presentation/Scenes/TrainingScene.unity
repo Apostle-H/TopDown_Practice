@@ -4678,6 +4678,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1459956683}
     - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
+      propertyPath: acneEnemy
+      value: 
+      objectReference: {fileID: 676514654}
+    - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
+      propertyPath: recycling
+      value: 
+      objectReference: {fileID: 102163153}
+    - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 1459956685}
@@ -7547,7 +7555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &676514651
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7628,8 +7636,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeac82c87ac4fd788632fc81816e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSO: {fileID: 0}
-  splittableSO: {fileID: 0}
+  healthSO: {fileID: 11400000, guid: 930d66827d5bb6548bef79bf04df359e, type: 2}
+  splittableSO: {fileID: 11400000, guid: 7879bc4eea190f74eaae1a294537f898, type: 2}
 --- !u!114 &676514654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7643,11 +7651,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactions: {fileID: 676514653}
-  enemyCount:
-  - {fileID: 1495816075}
-  - {fileID: 1628528314}
-  - {fileID: 1495816075}
   invincibleCollider: {fileID: 780257957}
+  amountResourceToRemoveShield: 5
 --- !u!58 &676514655
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 1037
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Inspector
   m_RootView: {fileID: 7}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: GameView
+  m_Name: SceneView
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -43,15 +43,15 @@ MonoBehaviour:
     y: 0
     width: 1120
     height: 656
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
-  m_ActualView: {fileID: 18}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
   - {fileID: 18}
   - {fileID: 13}
-  m_Selected: 1
-  m_LastSelected: 2
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -611,22 +611,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Presentation/Prefabs/UI
+    - Assets/_Presentation/SO/Player
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/_Presentation/Prefabs/UI
+  - Assets/_Presentation/SO/Player
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\Apostle\Documents\Mine\ITHub\3rdYear\Second\Practice\TopDown\TopDown_Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 6a5d0000
-    m_LastClickedID: 23914
-    m_ExpandedIDs: 000000005c5700005e57000060570000625700006457000066570000685700006a5700006c5700006e57000070570000725700007457000076570000785700007a5700007c5700007e57000080570000825700008457000086570000
+    scrollPos: {x: 0, y: 366}
+    m_SelectedIDs: 76570000
+    m_LastClickedID: 22390
+    m_ExpandedIDs: 000000006c5700006e57000070570000725700007457000076570000785700007a5700007c5700007e57000080570000825700008457000086570000885700008a5700008c5700008e5700009057000092570000945700009657000098570000aa57000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -654,7 +654,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005c5700005e57000060570000625700006457000066570000685700006a5700006c5700006e57000070570000725700007457000076570000785700007a5700007c5700007e57000080570000825700008457000086570000
+    m_ExpandedIDs: 000000006c5700006e57000070570000725700007457000076570000785700007a5700007c5700007e57000080570000825700008457000086570000885700008a5700008c5700008e5700009057000092570000945700009657000098570000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -679,9 +679,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 3ca90000
-    m_LastClickedInstanceID: 43324
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: 52faffff
+    m_LastClickedInstanceID: -1454
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c623000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -782,9 +782,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: dc560000
       m_LastClickedID: 0
-      m_ExpandedIDs: 08fbffff
+      m_ExpandedIDs: 4ae3ffff4ce3ffff60e6ffff4ce8ffff8ce9fffffcebffff06ecffff0afbffff9e550000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1088,9 +1088,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 435.87872, y: 229.38293, z: 2.4623716}
+    m_Target: {x: 481.06262, y: 360.52646, z: 4.3669887}
     speed: 2
-    m_Value: {x: 435.87872, y: 229.38293, z: 2.4623716}
+    m_Value: {x: 481.06262, y: 360.52646, z: 4.3669887}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1141,9 +1141,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 394.87753
+    m_Target: 558.6866
     speed: 2
-    m_Value: 394.87753
+    m_Value: 558.6866
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1229,7 +1229,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1

@@ -44,20 +44,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1013ea62d94447b40df891ebb1c6b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSetUpSO: {fileID: 11400000, guid: 8736e01d70402484286728c46fc143ee, type: 2}
   playerTransform: {fileID: 0}
   playerHealth: {fileID: 0}
   playerRb: {fileID: 0}
-  playerMoverSO: {fileID: 11400000, guid: 2c4e9e488d822ab48a7191e9d7e38743, type: 2}
   playerProjectilesHolder: {fileID: 0}
   playerFirePoint: {fileID: 0}
   playerGunPivotPoint: {fileID: 0}
-  playerAttackerSO: {fileID: 11400000, guid: 0052367d7a1d2e844b5e436fbefcfbb2, type: 2}
-  playerDragAreaCheckerSO: {fileID: 11400000, guid: 6f1c82325bb70414aaff58897568046b, type: 2}
   playerDraggerJoint: {fileID: 0}
-  playerHookShooterSO: {fileID: 11400000, guid: 2f086b40b89ca044c8455a17bc0486eb, type: 2}
-  playerSplitAreaCheckerSO: {fileID: 11400000, guid: 0ce5a4aee56bd034cb0c904160ef1ed8, type: 2}
-  playerPatchSO: {fileID: 11400000, guid: e3c0101493aba6c46af3486fc79264f6, type: 2}
   playerShield: {fileID: 0}
-  playerShieldSO: {fileID: 11400000, guid: 1b0f7db558b8fb0478a10f0265c93f50, type: 2}
   playerUIView: {fileID: 0}
   playerHealthSO: {fileID: 11400000, guid: 9c069d84887a03e48a9f9a77f99a3388, type: 2}

@@ -7,7 +7,7 @@ namespace PlayerSystem
 {
     public class PlayerHealth : MonoBehaviour, IDamageable
     {
-        [SerializeField] private HealthSO so;
+        private HealthSO _so;
 
         private int _currentHealth;
         private bool _isDead;
@@ -16,13 +16,14 @@ namespace PlayerSystem
         public event Action OnHeal;
         public event Action OnDeath;
 
-        public int MaxHealth => so.Health;
+        public int MaxHealth => _so.Health;
         
         public int CurrentHealth => _currentHealth;
 
-        private void Awake()
+        public void Init(HealthSO so)
         {
-            _currentHealth = so.Health;
+            _so = so;
+            _currentHealth = _so.Health;
         }
 
         public void TakeDamage(int damage)
@@ -41,7 +42,7 @@ namespace PlayerSystem
 
         public void Heal(int amount)
         {
-            _currentHealth = _currentHealth + amount > so.Health ? so.Health : _currentHealth + amount;
+            _currentHealth = _currentHealth + amount > _so.Health ? _so.Health : _currentHealth + amount;
             OnHeal?.Invoke();
         }
     }

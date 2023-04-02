@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43e6aa52a46548ad8f10da8ab8e2945c, type: 3}
-  m_Name: PlayerDamageableSettings
+  m_Script: {fileID: 11500000, guid: d57d2d7f46444b0ba3f4f607cfb6ad78, type: 3}
+  m_Name: SpeedMoverUpgrade
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 10
+  <Info>k__BackingField: +speed
+  <NewMoverSO>k__BackingField: {fileID: 11400000, guid: 459b06c8150997a46aee0066640530dc, type: 2}

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b6b7bcd15846f5af24a0b46a8bd64e, type: 3}
+  m_Name: PlayerSetUp
+  m_EditorClassIdentifier: 
+  <HealthSO>k__BackingField: {fileID: 11400000, guid: 9c069d84887a03e48a9f9a77f99a3388, type: 2}
+  <MoverSO>k__BackingField: {fileID: 11400000, guid: 2c4e9e488d822ab48a7191e9d7e38743, type: 2}
+  <AttackerSO>k__BackingField: {fileID: 11400000, guid: 0052367d7a1d2e844b5e436fbefcfbb2, type: 2}
+  <DragAreaCheckerSO>k__BackingField: {fileID: 11400000, guid: 6f1c82325bb70414aaff58897568046b, type: 2}
+  <HookShooterSO>k__BackingField: {fileID: 11400000, guid: 2f086b40b89ca044c8455a17bc0486eb, type: 2}
+  <SplitAreaCheckerSO>k__BackingField: {fileID: 11400000, guid: 0ce5a4aee56bd034cb0c904160ef1ed8, type: 2}
+  <PatchSO>k__BackingField: {fileID: 11400000, guid: e3c0101493aba6c46af3486fc79264f6, type: 2}
+  <ShieldSO>k__BackingField: {fileID: 11400000, guid: 1b0f7db558b8fb0478a10f0265c93f50, type: 2}

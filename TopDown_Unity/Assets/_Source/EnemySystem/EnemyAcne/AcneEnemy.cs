@@ -7,13 +7,7 @@ namespace EnemySystem.EnemyAcne
     public class AcneEnemy : MonoBehaviour
     {
         [SerializeField] private EnemyInteractions interactions;
-        [SerializeField] private CircleCollider2D invincibleCollider;
         [SerializeField] private int amountResourceToRemoveShield;
-        
-        private void Awake()
-        {
-            interactions.OnKnock += Die;
-        }
 
         private void Die()
         {
@@ -28,7 +22,7 @@ namespace EnemySystem.EnemyAcne
         {
             if (resourceCount >= amountResourceToRemoveShield)
             {
-                invincibleCollider.enabled = false;
+                interactions.OnKnock += Die;
             }
         }
     }

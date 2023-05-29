@@ -16,6 +16,7 @@ using ResourceSystem.GlobalResource;
 using SurrenderZone;
 using UI.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Core
 {
@@ -57,7 +58,7 @@ namespace Core
         
         [Header("Temporarily"), Space(5f)]
         [SerializeField] private EnemyRecycling recycling;
-        [SerializeField] private AcneEnemy acneEnemy;
+        [FormerlySerializedAs("acneEnemy")] [SerializeField] private EnemyAcne enemyAcne;
 
         private InputHandler _input;
 
@@ -125,7 +126,7 @@ namespace Core
         {
             _globalResource = new GlobalResource();
             recycling.OnEnemyRecycled += _globalResource.ChangeResourceCount;
-            _globalResource.OnChangeResourceCount += acneEnemy.CheckResourceCount;
+            _globalResource.OnChangeResourceCount += enemyAcne.CheckResourceCount;
         }
     }
 }

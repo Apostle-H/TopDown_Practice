@@ -3,6 +3,7 @@ using EntitySystem.Data.Interactions;
 using EntitySystem.Health;
 using EntitySystem.Interactions;
 using UnityEngine;
+using Utils;
 
 namespace EnemySystem.Health
 {
@@ -11,6 +12,9 @@ namespace EnemySystem.Health
         [SerializeField] private HealthSO healthSO;
         [SerializeField] private SplittableSO splittableSO;
         [SerializeField] private ParticleSystem particleKnock;
+        [SerializeField] private SpriteRenderer sprite;
+        [SerializeField] private Color deadColor;
+        [SerializeField] private LayerMask canKill;
 
         private int _currentHealth;
         private bool _isKnocked;
@@ -29,7 +33,7 @@ namespace EnemySystem.Health
             _currentHealth = healthSO.Health;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, LayerMask layerObject)
         {
             _currentHealth = _currentHealth - damage < 0 ? 0 : _currentHealth - damage;
             OnDamaged?.Invoke();
@@ -39,17 +43,22 @@ namespace EnemySystem.Health
                 return;
             }
 
-            if (!_isKnocked)
+            if (!_isKnocked
+                && canKill.Contains(layerObject))
             {
                 _isKnocked = true;
-                particleKnock.Play();
+                sprite.color = deadColor;
                 OnKnock?.Invoke();
             }
-            else if (!_isDead)
+            else
             {
-                _isDead = true;
-                OnDeath?.Invoke();
+                particleKnock.Play();
             }
+            // else if (!_isDead)
+            // {
+            //     _isDead = true;
+            //     OnDeath?.Invoke();
+            // }
         }
         
         public void Heal(int amount)

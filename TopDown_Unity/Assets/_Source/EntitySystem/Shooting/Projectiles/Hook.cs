@@ -1,5 +1,6 @@
 using System;
 using EntitySystem.Data.Combat.Projectiles;
+using EntitySystem.Health;
 using EntitySystem.Interactions;
 using UnityEngine;
 using Utils;
@@ -21,9 +22,11 @@ namespace EntitySystem.Shooting.Projectiles
         {
             if (!CheckForTarget(col))
             {
+                col.gameObject.TryGetComponent(out IDamageable target);
+                target.TakeDamage(0, gameObject.layer);
                 return;
             }
-            
+
             _haveHooked = true;
             hookJoint.connectedBody = col.rigidbody;
             hookJoint.enabled = true;

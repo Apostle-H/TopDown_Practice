@@ -515,9 +515,29 @@ PrefabInstance:
     m_TransformParent: {fileID: 1295443162}
     m_Modifications:
     - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 780336702}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: deadColor.b
+      value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: deadColor.g
+      value: 0.6039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: deadColor.r
+      value: 0.7529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
       propertyPath: splittableSO
       value: 
       objectReference: {fileID: 11400000, guid: 7879bc4eea190f74eaae1a294537f898, type: 2}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: canKill.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 7879470085322643812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2019,11 +2039,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 30204800906836728, guid: 630cc415da2778544b9f42ad767309ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.41
+      value: 28.56
       objectReference: {fileID: 0}
     - target: {fileID: 30204800906836728, guid: 630cc415da2778544b9f42ad767309ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.010000229
+      value: 22.79
       objectReference: {fileID: 0}
     - target: {fileID: 30204800906836728, guid: 630cc415da2778544b9f42ad767309ce, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10103,6 +10123,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &780336702 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7879470085298731812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+  m_PrefabInstance: {fileID: 20068822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &780822374
 GameObject:
   m_ObjectHideFlags: 0
@@ -11022,6 +11047,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295443162}
     m_Modifications:
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1580763825}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: deadColor.b
+      value: 0.41568628
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: deadColor.g
+      value: 0.6039216
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: deadColor.r
+      value: 0.7529412
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: canKill.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 7879470085298731812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
       propertyPath: m_SortingOrder
       value: 1
@@ -14511,6 +14556,10 @@ PrefabInstance:
       objectReference: {fileID: 164290372}
     - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
       propertyPath: acneEnemy
+      value: 
+      objectReference: {fileID: 4484627788330070787}
+    - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
+      propertyPath: enemyAcne
       value: 
       objectReference: {fileID: 4484627788330070787}
     - target: {fileID: 1559072315134631866, guid: d44e193209f1f264e98f7cb53a71ae51, type: 3}
@@ -18459,6 +18508,11 @@ Transform:
   m_Father: {fileID: 1538358021}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1580763825 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7879470085298731812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+  m_PrefabInstance: {fileID: 874479235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1582575745
 GameObject:
   m_ObjectHideFlags: 0
@@ -23353,6 +23407,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295443162}
     m_Modifications:
+    - target: {fileID: 8705901569076792454, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 2113575975}
+    - target: {fileID: 8705901569076792454, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
+      propertyPath: deadColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705901569076792454, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
+      propertyPath: deadColor.b
+      value: 0.41651833
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705901569076792454, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
+      propertyPath: deadColor.g
+      value: 0.6025898
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705901569076792454, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
+      propertyPath: deadColor.r
+      value: 0.754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705901569076792454, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
+      propertyPath: canKill.m_Bits
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 8705901569076792459, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23424,6 +23502,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeac82c87ac4fd788632fc81816e449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &2113575975 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8705901569076792458, guid: d7d658b0dd0990547b453ff59b37a100, type: 3}
+  m_PrefabInstance: {fileID: 2113575966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2119752965
 GameObject:
   m_ObjectHideFlags: 0
@@ -23748,6 +23831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf44f59fef2d5d4ea697685fdd0b079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!212 &4484627788330070790 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 9159477983651702042, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+  m_PrefabInstance: {fileID: 4693201083052348956}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4693201083052348956
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23804,8 +23892,48 @@ PrefabInstance:
       value: AcneEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 4484627788330070790}
+    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: deadColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: deadColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: deadColor.g
+      value: 0.29648557
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: deadColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
       propertyPath: particleKnock
       value: 
       objectReference: {fileID: 2113575967}
+    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: canKill.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: timeBeforeDeath
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: rotationInBattle
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: countAttackProjectile
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: rotationForProjectileAxisZ
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}

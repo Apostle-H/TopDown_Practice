@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using EnemySystem.Data.Combat;
 using EnemySystem.Health;
@@ -9,35 +8,48 @@ using UnityEngine.SceneManagement;
 
 namespace EnemySystem.EnemyAcne
 {
-    public class AcneEnemy : MonoBehaviour
+    public class EnemyAcne : MonoBehaviour
     {
         [SerializeField] private EnemyInteractions interactions;
         [SerializeField] private GameObject barrier;
         [SerializeField] private Transform projectilesHolder;
         [SerializeField] private Transform firePoint;
         [SerializeField] private AcneRangeAttackerSO attackerSO;
+        [SerializeField] private float rotationInBattle;
         [SerializeField] private int amountResourceToRemoveShield;
+        [SerializeField] private int countAttackProjectile;
+        [SerializeField] private float rotationForProjectileAxisZ;
+        [SerializeField] private float timeBeforeDeath;
         
-        private Attacker _attackers;
+        private Attacker _attacker;
 
         private void Awake()
         {
             Init();
         }
 
-        private void Die()
+        private void Dead()
         {
+            interactions.OnKnock -= Dead;
+            
+            _attacker.StopShoot();
+            
+            StartCoroutine(Die());
+        }
+
+        private IEnumerator Die()
+        {
+            yield return new WaitForSeconds(timeBeforeDeath);
+            
             gameObject.SetActive(false);
             
-            interactions.OnKnock -= Die;
-
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void GetDamage()
         {
             interactions.OnDamaged -= GetDamage;
-            _attackers.StartShoot();
+            _attacker.StartShoot();
             StartCoroutine(Rotation());
         }
 
@@ -46,15 +58,15 @@ namespace EnemySystem.EnemyAcne
             while (true)
             {
                 yield return new WaitForSeconds(Time.fixedDeltaTime);
-                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + 0.5f);
+                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + rotationInBattle);
             }
         }
 
         private void Init()
         {
-            ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder, 12);
+            ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder, countAttackProjectile);
             
-            _attackers = new Attacker(firePoint, pool, attackerSO, 12, 30);
+            _attacker = new Attacker(firePoint, pool, attackerSO, countAttackProjectile, rotationForProjectileAxisZ);
         }
 
         public void CheckResourceCount(int resourceCount)
@@ -63,7 +75,7 @@ namespace EnemySystem.EnemyAcne
             {
                 barrier.SetActive(false);
                 interactions.OnDamaged += GetDamage;
-                interactions.OnKnock += Die;
+                interactions.OnKnock += Dead;
             }
         }
     }

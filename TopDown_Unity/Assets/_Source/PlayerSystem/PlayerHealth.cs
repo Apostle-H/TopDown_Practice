@@ -25,7 +25,7 @@ namespace PlayerSystem
             _currentHealth = so.Health;
         }
 
-        public void TakeDamage(int damage)
+        public void TakeDamage(int damage, LayerMask layerMask)
         {
             _currentHealth = _currentHealth - damage < 0 ? 0 : _currentHealth - damage;
             OnDamaged?.Invoke();

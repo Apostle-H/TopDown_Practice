@@ -32,21 +32,21 @@ namespace PlayerSystem.Invokers
             _splitInvoker.Bind();
             _consumablesInvoker.Bind();
 
-            _hookInvoker.OnHookOut += _shootInvoker.Expose;
-            _hookInvoker.OnHookIn += _shootInvoker.Bind;
+            // _hookInvoker.OnHookOut += _shootInvoker.Expose;
+            // _hookInvoker.OnHookIn += _shootInvoker.Bind;
             _hookInvoker.OnHooked += _moveInvoker.SlowDownCarrying;
             _hookInvoker.OnReleased += _moveInvoker.SpeedUpReleasing;
         }
 
         public void Expose()
         {
-            _hookInvoker.OnHookOut -= _shootInvoker.Expose;
-            _hookInvoker.OnHookIn -= _shootInvoker.Bind;
+            // _hookInvoker.OnHookOut -= _shootInvoker.Expose;
+            // _hookInvoker.OnHookIn -= _shootInvoker.Bind;
             _hookInvoker.OnHooked -= _moveInvoker.SlowDownCarrying;
             _hookInvoker.OnReleased -= _moveInvoker.SpeedUpReleasing;
             
             _moveInvoker.Expose();
-            _shootInvoker.Expose();
+            // _shootInvoker.Expose();
             _hookInvoker.Expose();
             _splitInvoker.Bind();
             _consumablesInvoker.Expose();

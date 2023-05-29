@@ -10,23 +10,28 @@ namespace EntitySystem.Shooting
     {
         private readonly AttackerSO _so;
         protected readonly Transform firePoint;
+        private readonly int _countFireProjectile;
+        private readonly float _rotationProjectileStatic;
 
         private readonly ProjectilePool _pool;
 
-        private float _rotation;
-        
+        private float _rotationProjectile;
+
         private bool _shoot;
         private Sequence _shootDelayer;
 
         public float ShootDelay => _so.ShootDelay;
         
-        public event Action OnShoot; 
+        public event Action OnShoot;
 
-        public Attacker(Transform firePoint, ProjectilePool pool, AttackerSO so)
+        public Attacker(Transform firePoint, ProjectilePool pool, AttackerSO so, int countFireProjectile = 1, float rotationProjectileStatic = 0)
         {
             this.firePoint = firePoint;
             _pool = pool;
             _so = so;
+            _countFireProjectile = countFireProjectile;
+            _rotationProjectile = rotationProjectileStatic;
+            _rotationProjectileStatic = rotationProjectileStatic;
 
             InitSequence();
         }
@@ -48,14 +53,22 @@ namespace EntitySystem.Shooting
             {
                 return;
             }
+
+            var point = firePoint.rotation.eulerAngles;
             
-            Projectile projectile = _pool.Get();
-            projectile.gameObject.SetActive(true);
-            projectile.transform.position = firePoint.position;
-            projectile.transform.rotation = firePoint.rotation;
-            
-            projectile.ShootSelf();
-            OnShoot?.Invoke();
+            for (int i = 0; i < _countFireProjectile; i++)
+            {
+                Projectile projectile = _pool.Get();
+                projectile.gameObject.SetActive(true);
+                projectile.transform.position = firePoint.position;
+                projectile.transform.rotation = Quaternion.Euler(point.x, point.y, point.z + _rotationProjectile);
+                _rotationProjectile += _rotationProjectileStatic;
+                
+                projectile.ShootSelf();
+                OnShoot?.Invoke();
+            }
+
+            _rotationProjectile = firePoint.rotation.z;
         }
 
         public void StopShoot()

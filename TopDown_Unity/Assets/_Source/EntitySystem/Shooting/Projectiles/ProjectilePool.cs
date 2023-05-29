@@ -7,12 +7,11 @@ namespace EntitySystem.Shooting.Projectiles
     {
         private readonly Queue<Projectile> _pool;
 
-        public ProjectilePool(float shootDelay, GameObject projectilePrefab, Transform projectilesParent)
+        public ProjectilePool(float shootDelay, GameObject projectilePrefab, Transform projectilesParent, int countAttackProjectile = 1)
         {
             _pool = new Queue<Projectile>();
-            
             float projectileLifeTime = projectilePrefab.GetComponent<Projectile>().LifeTime;
-            int neededProjectileCount = 1 + Mathf.CeilToInt(projectileLifeTime / shootDelay);
+            int neededProjectileCount = (1 + Mathf.CeilToInt(projectileLifeTime / shootDelay)) * countAttackProjectile;
             for (int i = 0; i < neededProjectileCount; i++)
             {
                 Projectile projectile = Object.Instantiate(projectilePrefab, projectilesParent).GetComponent<Projectile>();

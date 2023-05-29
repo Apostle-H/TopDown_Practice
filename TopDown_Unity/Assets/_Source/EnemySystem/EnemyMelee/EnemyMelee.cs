@@ -37,7 +37,7 @@ namespace EnemySystem.EnemyMelee
 
             rangeCollider.radius = attackerSO.TriggerRange;
             
-            ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder); 
+            ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder);
             _attacker = new Attacker(firePoint, pool, attackerSO);
 
             interactions.OnKnock += Knock;

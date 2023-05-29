@@ -23,7 +23,7 @@ namespace EntitySystem.Shooting.Projectiles
             if (!CheckForTarget(col))
             {
                 col.gameObject.TryGetComponent(out IDamageable target);
-                target.TakeDamage(0, gameObject.layer);
+                target?.TakeDamage(0, gameObject.layer);
                 return;
             }
 

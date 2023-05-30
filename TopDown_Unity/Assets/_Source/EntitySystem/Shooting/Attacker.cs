@@ -10,6 +10,7 @@ namespace EntitySystem.Shooting
     {
         private readonly AttackerSO _so;
         protected readonly Transform firePoint;
+        private readonly AudioSource _shootSource;
         private readonly int _countFireProjectile;
         private readonly float _rotationProjectileStatic;
 
@@ -24,11 +25,12 @@ namespace EntitySystem.Shooting
         
         public event Action OnShoot;
 
-        public Attacker(Transform firePoint, ProjectilePool pool, AttackerSO so, int countFireProjectile = 1, float rotationProjectileStatic = 0)
+        public Attacker(Transform firePoint, ProjectilePool pool, AttackerSO so, AudioSource shootSource, int countFireProjectile = 1, float rotationProjectileStatic = 0)
         {
             this.firePoint = firePoint;
             _pool = pool;
             _so = so;
+            _shootSource = shootSource;
             _countFireProjectile = countFireProjectile;
             _rotationProjectile = rotationProjectileStatic;
             _rotationProjectileStatic = rotationProjectileStatic;
@@ -68,6 +70,8 @@ namespace EntitySystem.Shooting
                 OnShoot?.Invoke();
             }
 
+            _shootSource.Play();
+            
             _rotationProjectile = firePoint.rotation.z;
         }
 

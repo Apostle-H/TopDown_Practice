@@ -9,12 +9,16 @@ namespace UI.Note
     {
         [SerializeField] private GameObject[] notes;
 
+        private bool _read;
+        
         private void Update()
         {
-            if (Input.anyKeyDown)
+            if (_read
+                && Input.anyKeyDown)
             {
                 for (int i = 0; i < notes.Length; i++)
                 {
+                    _read = false;
                     notes[i].SetActive(false);
                 }
             }
@@ -32,7 +36,11 @@ namespace UI.Note
 
         private void ReadNote(int id)
         {
-            notes[id - 1].SetActive(true);
+            Debug.Log(id);
+            _read = true;
+            // notes[id - 1].SetActive(true);
+            notes[0].SetActive(true);
+            notes[1].SetActive(true);
         }
     }
 }

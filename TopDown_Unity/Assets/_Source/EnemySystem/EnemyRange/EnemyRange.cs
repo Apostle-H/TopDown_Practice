@@ -17,6 +17,7 @@ namespace EnemySystem.EnemyRange
         [SerializeField] private Transform firePoint;
         [SerializeField] private StaticRangeAttackerSO attackerSO;
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private AudioSource source;
 
         private CircleCollider2D _collider2D;
 
@@ -30,7 +31,7 @@ namespace EnemySystem.EnemyRange
             rangeCollider.radius = attackerSO.AttackRange;
             
             ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder);
-            _attacker = new Attacker(firePoint, pool, attackerSO);
+            _attacker = new Attacker(firePoint, pool, attackerSO, source);
 
             interactions.OnKnock += Knock;
             interactions.OnDeath += Die;

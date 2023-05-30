@@ -20,6 +20,7 @@ namespace EnemySystem.EnemyMelee
         [SerializeField] private Transform firePoint;
         [SerializeField] private MeleeAttackerSO attackerSO;
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private AudioSource source;
 
         private NavMeshAgent _navMesh;
         private NavMeshMover _navMeshMover;
@@ -38,7 +39,7 @@ namespace EnemySystem.EnemyMelee
             rangeCollider.radius = attackerSO.TriggerRange;
             
             ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder);
-            _attacker = new Attacker(firePoint, pool, attackerSO);
+            _attacker = new Attacker(firePoint, pool, attackerSO, source);
 
             interactions.OnKnock += Knock;
             interactions.OnDeath += Die;

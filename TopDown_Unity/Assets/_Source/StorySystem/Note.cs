@@ -11,9 +11,12 @@ namespace StorySystem
         [SerializeField] private GameObject hint;
         [SerializeField] private LayerMask player;
 
+        private bool _playerStay;
+
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (_playerStay
+                && Input.GetKeyDown(KeyCode.E))
             {
                 Signals.Get<ReadNoteSignal>().Dispatch(id);
             }
@@ -23,6 +26,7 @@ namespace StorySystem
         {
             if (player.Contains(other.gameObject.layer))
             {
+                _playerStay = true;
                 hint.SetActive(true);
             }
         }
@@ -31,6 +35,7 @@ namespace StorySystem
         {
             if (player.Contains(other.gameObject.layer))
             {
+                _playerStay = false;
                 hint.SetActive(false);
             }
         }

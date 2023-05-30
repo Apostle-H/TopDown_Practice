@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 711106180721699094}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -28.99, y: -9.68, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5096,12 +5096,12 @@ MonoBehaviour:
   healthSO: {fileID: 11400000, guid: 90edf72d996ed8648a4c238d7e134d9e, type: 2}
   splittableSO: {fileID: 11400000, guid: 7879bc4eea190f74eaae1a294537f898, type: 2}
   particleKnock: {fileID: 4297495988336017987}
-  sprite: {fileID: 0}
-  deadColor: {r: 0, g: 0, b: 0, a: 0}
+  sprite: {fileID: 8705901569076792458}
+  deadColor: {r: 0.754717, g: 0.6025898, b: 0.41651833, a: 1}
   canKill:
     serializedVersion: 2
-    m_Bits: 0
-  canGetDamage: 0
+    m_Bits: 256
+  canGetDamage: 1
 --- !u!212 &8705901569076792458
 SpriteRenderer:
   m_ObjectHideFlags: 0

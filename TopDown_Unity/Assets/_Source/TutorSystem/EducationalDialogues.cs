@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using TMPro;
+using UnityEngine;
 using Utils;
 
 namespace TutorSystem
@@ -6,6 +8,9 @@ namespace TutorSystem
     public class EducationalDialogues : MonoBehaviour
     {
         [SerializeField] private GameObject dialog;
+        [SerializeField] private TMP_Text textObject;
+        [SerializeField] private string text;
+        [SerializeField] private float timeDialog;
         [SerializeField] private LayerMask player;
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -13,15 +18,16 @@ namespace TutorSystem
             if (player.Contains(other.gameObject.layer))
             {
                 dialog.SetActive(true);
+                textObject.text = text;
+                StartCoroutine(EndDialog());
             }
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        private IEnumerator EndDialog()
         {
-            if (player.Contains(other.gameObject.layer))
-            {
-                dialog.SetActive(false);
-            }
+            yield return new WaitForSeconds(timeDialog);
+            dialog.SetActive(false);
+            gameObject.SetActive(false);
         }
     }
 }

@@ -15,10 +15,13 @@ namespace EnemySystem.Health
         [SerializeField] private SpriteRenderer sprite;
         [SerializeField] private Color deadColor;
         [SerializeField] private LayerMask canKill;
+        [SerializeField] private bool canGetDamage;
 
         private int _currentHealth;
         private bool _isKnocked;
         private bool _isDead;
+
+        public bool CanGetDamage { get => canGetDamage; set => canGetDamage = value; }
 
         public event Action OnDamaged;
         public event Action OnKnock;
@@ -35,6 +38,11 @@ namespace EnemySystem.Health
 
         public void TakeDamage(int damage, LayerMask layerObject)
         {
+            if (!CanGetDamage)
+            {
+                return;
+            }
+            
             _currentHealth = _currentHealth - damage < 0 ? 0 : _currentHealth - damage;
             OnDamaged?.Invoke();
 

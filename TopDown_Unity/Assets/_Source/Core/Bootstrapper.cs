@@ -60,6 +60,9 @@ namespace Core
         [SerializeField] private EnemyRecycling recycling;
         [FormerlySerializedAs("acneEnemy")] [SerializeField] private EnemyAcne enemyAcne;
 
+        [Header("Audio"), Space(5f)] 
+        [SerializeField] private AudioSource playerShoot;
+
         private InputHandler _input;
 
         private Attacker _playerAttacker;
@@ -94,7 +97,7 @@ namespace Core
             Mover mover = new Mover(playerRb, playerMoverSO);
             Rotator rotator = new Rotator(playerGunPivotPoint);
             
-            _playerAttacker = new Attacker(playerFirePoint, projectilePool, playerAttackerSO);
+            _playerAttacker = new Attacker(playerFirePoint, projectilePool, playerAttackerSO, playerShoot);
             Dragger dragger = new Dragger(playerDraggerJoint);
             _playerHookShooter = new HookShooter(playerFirePoint, hook, dragger, playerHookShooterSO);
             

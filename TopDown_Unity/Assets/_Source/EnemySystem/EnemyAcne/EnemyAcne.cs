@@ -20,6 +20,7 @@ namespace EnemySystem.EnemyAcne
         [SerializeField] private int countAttackProjectile;
         [SerializeField] private float rotationForProjectileAxisZ;
         [SerializeField] private float timeBeforeDeath;
+        [SerializeField] private AudioSource source;
         
         private Attacker _attacker;
 
@@ -66,7 +67,7 @@ namespace EnemySystem.EnemyAcne
         {
             ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder, countAttackProjectile);
             
-            _attacker = new Attacker(firePoint, pool, attackerSO, countAttackProjectile, rotationForProjectileAxisZ);
+            _attacker = new Attacker(firePoint, pool, attackerSO, source, countAttackProjectile, rotationForProjectileAxisZ);
         }
 
         public void CheckResourceCount(int resourceCount)
@@ -74,6 +75,7 @@ namespace EnemySystem.EnemyAcne
             if (resourceCount >= amountResourceToRemoveShield)
             {
                 barrier.SetActive(false);
+                interactions.CanGetDamage = true;
                 interactions.OnDamaged += GetDamage;
                 interactions.OnKnock += Dead;
             }

@@ -89,6 +89,7 @@ MonoBehaviour:
   firePoint: {fileID: 7879470085590009070}
   attackerSO: {fileID: 11400000, guid: e54211bf746e5ac47b66c75801dc4a99, type: 2}
   rb: {fileID: 7879470085298731816}
+  source: {fileID: 0}
 --- !u!114 &7879470085298731794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,6 +105,12 @@ MonoBehaviour:
   healthSO: {fileID: 11400000, guid: c36db321ddab02847a8ce31e04609182, type: 2}
   splittableSO: {fileID: 11400000, guid: 7879bc4eea190f74eaae1a294537f898, type: 2}
   particleKnock: {fileID: 5861342911005066546}
+  sprite: {fileID: 7879470085298731812}
+  deadColor: {r: 0.7529412, g: 0.6039216, b: 0.41568628, a: 1}
+  canKill:
+    serializedVersion: 2
+    m_Bits: 256
+  canGetDamage: 1
 --- !u!212 &7879470085298731812
 SpriteRenderer:
   m_ObjectHideFlags: 0

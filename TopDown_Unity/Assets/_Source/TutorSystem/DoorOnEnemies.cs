@@ -5,6 +5,7 @@ namespace TutorSystem
 {
     public class DoorOnEnemies : MonoBehaviour
     {
+        [SerializeField] private AudioSource open;
         [SerializeField] private EnemyInteractions[] damageableToOpen;
 
         private int _counter;
@@ -26,6 +27,7 @@ namespace TutorSystem
             if (_counter <= 0)
             {
                 gameObject.SetActive(false);
+                open.Play();
             }
         }
     }

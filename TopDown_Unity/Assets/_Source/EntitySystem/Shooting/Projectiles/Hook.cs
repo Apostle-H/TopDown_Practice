@@ -12,6 +12,7 @@ namespace EntitySystem.Shooting.Projectiles
         [SerializeField] private HookSettingsSO settingsSO;
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private FixedJoint2D hookJoint;
+        [SerializeField] private AudioSource useHook;
 
         private float _targetDrag;
         private bool _haveHooked;
@@ -36,6 +37,7 @@ namespace EntitySystem.Shooting.Projectiles
 
         public void ShootSelf()
         {
+            useHook.Play();
             hookJoint.enabled = false;
             hookJoint.connectedBody = default;
             _haveHooked = false;

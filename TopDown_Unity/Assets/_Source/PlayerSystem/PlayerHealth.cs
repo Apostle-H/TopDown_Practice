@@ -2,6 +2,8 @@
 using EntitySystem.Data.Interactions;
 using EntitySystem.Health;
 using UnityEngine;
+using Utils;
+using Utils.Events;
 
 namespace PlayerSystem
 {
@@ -25,6 +27,11 @@ namespace PlayerSystem
             _currentHealth = so.Health;
         }
 
+        private void OnDisable()
+        {
+            OnDeath?.Invoke();
+        }
+
         public void TakeDamage(int damage, LayerMask layerMask)
         {
             _currentHealth = _currentHealth - damage < 0 ? 0 : _currentHealth - damage;
@@ -37,6 +44,7 @@ namespace PlayerSystem
             
             _isDead = true;
             OnDeath?.Invoke();
+            Signals.Get<PlayerDeadSignal>().Dispatch();
         }
 
         public void Heal(int amount)

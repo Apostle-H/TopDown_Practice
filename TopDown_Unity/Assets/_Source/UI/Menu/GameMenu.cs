@@ -9,6 +9,7 @@ namespace UI.Menu
 {
     public class GameMenu : MonoBehaviour
     {
+        [SerializeField] private CloneNumber cloneNumber;
         [SerializeField] private GameObject resulPanel;
         [SerializeField] private TMP_Text text;
         [SerializeField] private string winText;
@@ -30,7 +31,7 @@ namespace UI.Menu
             Signals.Get<PlayerDeadSignal>().RemoveListener(Lose);
             Signals.Get<AllLevelEndSignal>().RemoveListener(Win);
             
-            continueButton.onClick.RemoveListener(Continue);
+            continueButton.onClick.RemoveAllListeners();
             exitButton.onClick.RemoveListener(Exit);
         }
 
@@ -54,6 +55,16 @@ namespace UI.Menu
             
             resulPanel.SetActive(true);
             text.text = winText;
+            
+            continueButton.onClick.RemoveListener(Continue);
+            continueButton.onClick.AddListener(ReturnMainMenu);
+            exitButton.gameObject.SetActive(false);
+        }
+
+        private void ReturnMainMenu()
+        {
+            Destroy(cloneNumber.gameObject);
+            SceneManager.LoadScene(0);
         }
 
         private void Continue()

@@ -2786,7 +2786,7 @@ GameObject:
   - component: {fileID: 119130868}
   - component: {fileID: 119130870}
   - component: {fileID: 119130869}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4001,7 +4001,7 @@ GameObject:
   - component: {fileID: 184061440}
   - component: {fileID: 184061442}
   - component: {fileID: 184061441}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6438,7 +6438,7 @@ GameObject:
   - component: {fileID: 257969467}
   - component: {fileID: 257969469}
   - component: {fileID: 257969468}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Note (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10701,7 +10701,7 @@ GameObject:
   - component: {fileID: 413395137}
   - component: {fileID: 413395139}
   - component: {fileID: 413395138}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13208,7 +13208,7 @@ GameObject:
   - component: {fileID: 528494625}
   - component: {fileID: 528494627}
   - component: {fileID: 528494626}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Note (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21189,7 +21189,7 @@ GameObject:
   - component: {fileID: 827508230}
   - component: {fileID: 827508229}
   - component: {fileID: 827508228}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23517,7 +23517,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!1 &882041124
 GameObject:
@@ -24179,7 +24179,7 @@ GameObject:
   - component: {fileID: 926047188}
   - component: {fileID: 926047190}
   - component: {fileID: 926047189}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Note (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24387,7 +24387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 934440927}
   - component: {fileID: 934440928}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24470,7 +24470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 942096975}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Dialogs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25548,7 +25548,7 @@ GameObject:
   - component: {fileID: 976678288}
   - component: {fileID: 976678290}
   - component: {fileID: 976678289}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Note (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27000,7 +27000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1060494029}
   - component: {fileID: 1060494030}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28865,7 +28865,7 @@ GameObject:
   - component: {fileID: 1131057863}
   - component: {fileID: 1131057862}
   - component: {fileID: 1131057861}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31105,7 +31105,7 @@ GameObject:
   - component: {fileID: 1206353197}
   - component: {fileID: 1206353196}
   - component: {fileID: 1206353195}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32357,7 +32357,7 @@ GameObject:
   - component: {fileID: 1238933661}
   - component: {fileID: 1238933660}
   - component: {fileID: 1238933659}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36273,7 +36273,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!1 &1386878054
 GameObject:
@@ -37129,7 +37129,7 @@ GameObject:
   - component: {fileID: 1419517329}
   - component: {fileID: 1419517328}
   - component: {fileID: 1419517327}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38059,7 +38059,7 @@ GameObject:
   - component: {fileID: 1462666493}
   - component: {fileID: 1462666495}
   - component: {fileID: 1462666494}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Note
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39841,7 +39841,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1534725819}
   - component: {fileID: 1534725820}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41326,7 +41326,7 @@ GameObject:
   - component: {fileID: 1612891642}
   - component: {fileID: 1612891644}
   - component: {fileID: 1612891643}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41459,7 +41459,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619152338}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Notes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42754,7 +42754,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1661941397}
   - component: {fileID: 1661941398}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44018,7 +44018,7 @@ GameObject:
   - component: {fileID: 1683083468}
   - component: {fileID: 1683083467}
   - component: {fileID: 1683083466}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45499,7 +45499,7 @@ GameObject:
   - component: {fileID: 1715903091}
   - component: {fileID: 1715903093}
   - component: {fileID: 1715903092}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46176,7 +46176,7 @@ GameObject:
   - component: {fileID: 1764387478}
   - component: {fileID: 1764387480}
   - component: {fileID: 1764387479}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48696,7 +48696,7 @@ GameObject:
   - component: {fileID: 1859708400}
   - component: {fileID: 1859708402}
   - component: {fileID: 1859708401}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Note (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49076,7 +49076,7 @@ GameObject:
   - component: {fileID: 1873512116}
   - component: {fileID: 1873512115}
   - component: {fileID: 1873512114}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51536,7 +51536,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1970900804}
   - component: {fileID: 1970900805}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53590,7 +53590,7 @@ GameObject:
   - component: {fileID: 2036479856}
   - component: {fileID: 2036479858}
   - component: {fileID: 2036479857}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Note (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54006,7 +54006,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!1 &2056174647
 GameObject:
@@ -54560,7 +54560,7 @@ GameObject:
   - component: {fileID: 2097473874}
   - component: {fileID: 2097473876}
   - component: {fileID: 2097473875}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55745,7 +55745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2121326913}
   - component: {fileID: 2121326914}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56480,7 +56480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2146382144}
   - component: {fileID: 2146382145}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

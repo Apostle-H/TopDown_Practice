@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -48,6 +47,7 @@ namespace UI.Menu
             if (SceneManager.sceneCountInBuildSettings - 1 > SceneManager.GetActiveScene().buildIndex)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                return;
             }
             
             Time.timeScale = 0;

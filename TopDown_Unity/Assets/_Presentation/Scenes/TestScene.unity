@@ -3031,7 +3031,7 @@ GameObject:
   - component: {fileID: 142746068}
   - component: {fileID: 142746070}
   - component: {fileID: 142746069}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7370,7 +7370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 327302530}
   - component: {fileID: 327302531}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (114)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13342,7 +13342,7 @@ GameObject:
   - component: {fileID: 552863020}
   - component: {fileID: 552863022}
   - component: {fileID: 552863021}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23256,7 +23256,7 @@ GameObject:
   - component: {fileID: 969915515}
   - component: {fileID: 969915514}
   - component: {fileID: 969915517}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23486,7 +23486,7 @@ GameObject:
   - component: {fileID: 971057025}
   - component: {fileID: 971057024}
   - component: {fileID: 971057023}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Contutie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30465,7 +30465,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264259478}
   - component: {fileID: 1264259479}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Square (109)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33915,7 +33915,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451372148}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36029,7 +36029,7 @@ GameObject:
   - component: {fileID: 1525871258}
   - component: {fileID: 1525871257}
   - component: {fileID: 1525871256}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Exit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38069,7 +38069,7 @@ GameObject:
   - component: {fileID: 1634945580}
   - component: {fileID: 1634945582}
   - component: {fileID: 1634945581}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42354,7 +42354,7 @@ GameObject:
   - component: {fileID: 1834952162}
   - component: {fileID: 1834952164}
   - component: {fileID: 1834952163}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

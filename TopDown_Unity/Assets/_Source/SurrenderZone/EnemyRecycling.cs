@@ -10,7 +10,7 @@ namespace SurrenderZone
         public event Action<int> OnEnemyRecycled;
         
         [SerializeField] private LayerMask enemy;
-        
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (enemy.Contains(other.gameObject.layer) &&

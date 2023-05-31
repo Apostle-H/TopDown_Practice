@@ -130,6 +130,7 @@ namespace Core
             _globalResource = new GlobalResource();
             recycling.OnEnemyRecycled += _globalResource.ChangeResourceCount;
             _globalResource.OnChangeResourceCount += enemyAcne.CheckResourceCount;
+            _globalResource.OnChangeResourceCount += _playerResources.Add;
         }
     }
 }

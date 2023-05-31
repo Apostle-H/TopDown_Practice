@@ -23452,6 +23452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d7b8a7d4e14dfd90c114530a6985cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cloneNumber: {fileID: 0}
   resulPanel: {fileID: 1910491487}
   text: {fileID: 422514689}
   winText: YOU WIN

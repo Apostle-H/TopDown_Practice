@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e6aa52a46548ad8f10da8ab8e2945c, type: 3}
   m_Name: AcneDamageableSettings
   m_EditorClassIdentifier: 
-  <Health>k__BackingField: 12
+  <Health>k__BackingField: 52

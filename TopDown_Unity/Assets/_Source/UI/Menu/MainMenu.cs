@@ -10,6 +10,7 @@ namespace UI.Menu
         [SerializeField] private Button startButton;
         [SerializeField] private Button settingsButton;
         [SerializeField] private Button exitButton;
+        [SerializeField] private GameObject mainPanel;
         [SerializeField] private GameObject settingsPanel;
 
         private void Awake()
@@ -29,11 +30,13 @@ namespace UI.Menu
         private void OpenSettings()
         {
             settingsPanel.SetActive(true);
+            mainPanel.SetActive(false);
         }
 
         private void CloseSettings()
         {
             settingsPanel.SetActive(false);
+            mainPanel.SetActive(true);
         }
 
         private void RemoveEvent()

@@ -23452,7 +23452,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73d7b8a7d4e14dfd90c114530a6985cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cloneNumber: {fileID: 0}
   resulPanel: {fileID: 1910491487}
   text: {fileID: 422514689}
   winText: YOU WIN
@@ -33950,6 +33949,14 @@ PrefabInstance:
     - target: {fileID: 6793356406943302129, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
       propertyPath: m_FillAmount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6793356407244377508, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039768731133113200, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}

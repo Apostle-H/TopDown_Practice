@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,7 +10,6 @@ namespace UI.Menu
 {
     public class GameMenu : MonoBehaviour
     {
-        [SerializeField] private CloneNumber cloneNumber;
         [SerializeField] private GameObject resulPanel;
         [SerializeField] private TMP_Text text;
         [SerializeField] private string winText;
@@ -19,18 +19,24 @@ namespace UI.Menu
 
         private void Awake()
         {
-            Signals.Get<PlayerDeadSignal>().AddListener(Lose);
-            Signals.Get<AllLevelEndSignal>().AddListener(Win);
-            
             continueButton.onClick.AddListener(Continue);
             exitButton.onClick.AddListener(Exit);
         }
 
-        private void RemoveEvent()
+        private void OnEnable()
+        {
+            Signals.Get<PlayerDeadSignal>().AddListener(Lose);
+            Signals.Get<AllLevelEndSignal>().AddListener(Win);
+        }
+
+        private void OnDisable()
         {
             Signals.Get<PlayerDeadSignal>().RemoveListener(Lose);
             Signals.Get<AllLevelEndSignal>().RemoveListener(Win);
-            
+        }
+
+        private void RemoveEvent()
+        {
             continueButton.onClick.RemoveAllListeners();
             exitButton.onClick.RemoveListener(Exit);
         }
@@ -63,7 +69,6 @@ namespace UI.Menu
 
         private void ReturnMainMenu()
         {
-            Destroy(cloneNumber.gameObject);
             SceneManager.LoadScene(0);
         }
 

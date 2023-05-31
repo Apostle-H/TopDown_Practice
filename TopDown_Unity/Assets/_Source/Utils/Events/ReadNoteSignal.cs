@@ -1,4 +1,4 @@
 ﻿namespace Utils.Events
 {
-    public class ReadNoteSignal : ASignal<int> { }
+    public class ReadNoteSignal : ASignal<string> { }
 }

@@ -64,7 +64,6 @@ namespace EnemySystem.EnemyAcne
         private void Init()
         {
             ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder, attackerSO.CountAttackProjectile);
-            
             _attacker = new Attacker(firePoint, pool, attackerSO, source, attackerSO.CountAttackProjectile, attackerSO.RotationForProjectileAxisZ);
         }
 

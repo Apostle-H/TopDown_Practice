@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Utils;
 using Utils.Events;
 
@@ -7,7 +6,7 @@ namespace StorySystem
 {
     public class Note : MonoBehaviour
     {
-        [SerializeField] private int id;
+        [SerializeField] private string textNote;
         [SerializeField] private GameObject hint;
         [SerializeField] private LayerMask player;
 
@@ -18,7 +17,7 @@ namespace StorySystem
             if (_playerStay
                 && Input.GetKeyDown(KeyCode.E))
             {
-                Signals.Get<ReadNoteSignal>().Dispatch(id);
+                Signals.Get<ReadNoteSignal>().Dispatch(textNote);
             }
         }
 

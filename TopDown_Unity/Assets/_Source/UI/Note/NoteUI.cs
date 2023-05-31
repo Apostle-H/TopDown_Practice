@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using Utils;
 using Utils.Events;
 
@@ -6,7 +7,8 @@ namespace UI.Note
 {
     public class NoteUI : MonoBehaviour
     {
-        [SerializeField] private GameObject[] notes;
+        [SerializeField] private GameObject note;
+        [SerializeField] private TMP_Text text;
         [SerializeField] private AudioSource source;
         
         private void OnEnable()
@@ -19,10 +21,11 @@ namespace UI.Note
             Signals.Get<ReadNoteSignal>().RemoveListener(ReadNote);
         }
 
-        private void ReadNote(int id)
+        private void ReadNote(string textNote)
         {
             source.Play();
-            notes[id - 1].SetActive(true);
+            text.text = textNote;
+            note.SetActive(true);
         }
     }
 }

@@ -3954,11 +3954,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf44f59fef2d5d4ea697685fdd0b079, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!212 &218312966 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 9159477983651702042, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
-  m_PrefabInstance: {fileID: 363960493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &228617632
 GameObject:
   m_ObjectHideFlags: 0
@@ -6885,33 +6880,9 @@ PrefabInstance:
       value: AcneEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
-      propertyPath: sprite
-      value: 
-      objectReference: {fileID: 218312966}
-    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
-      propertyPath: deadColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
-      propertyPath: deadColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
-      propertyPath: deadColor.g
-      value: 0.29648557
-      objectReference: {fileID: 0}
-    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
-      propertyPath: deadColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
       propertyPath: particleKnock
       value: 
       objectReference: {fileID: 1828587093}
-    - target: {fileID: 9159477983651702044, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
-      propertyPath: canKill.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
     - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
       propertyPath: timeBeforeDeath
       value: 5

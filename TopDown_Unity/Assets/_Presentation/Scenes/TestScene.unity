@@ -698,6 +698,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295443162}
     m_Modifications:
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1158720060}
     - target: {fileID: 7879470085322643812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -21406,6 +21410,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1295443162}
     m_Modifications:
+    - target: {fileID: 7879470085298731794, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1683954629}
     - target: {fileID: 7879470085322643812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -28439,6 +28447,11 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+--- !u!212 &1158720060 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7879470085298731812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+  m_PrefabInstance: {fileID: 20068822}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1159153767
 GameObject:
   m_ObjectHideFlags: 0
@@ -39105,6 +39118,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &1683954629 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7879470085298731812, guid: 04566565fb9bb7c439531aa6b577a735, type: 3}
+  m_PrefabInstance: {fileID: 874479235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686149936
 GameObject:
   m_ObjectHideFlags: 0

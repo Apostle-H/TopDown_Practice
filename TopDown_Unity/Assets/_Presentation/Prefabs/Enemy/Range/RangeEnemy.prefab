@@ -233,7 +233,7 @@ MonoBehaviour:
   healthSO: {fileID: 11400000, guid: c36db321ddab02847a8ce31e04609182, type: 2}
   splittableSO: {fileID: 11400000, guid: 7879bc4eea190f74eaae1a294537f898, type: 2}
   particleKnock: {fileID: 5861342911005066546}
-  sprite: {fileID: 0}
+  sprite: {fileID: 7879470085298731812}
   deadColor: {r: 0.7529412, g: 0.6039216, b: 0.41568628, a: 1}
   canKill:
     serializedVersion: 2

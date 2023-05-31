@@ -19,7 +19,7 @@ TagManager:
   - EnemyRange
   - PlayerShield
   - SurrenderZone
-  - DialogZone
+  - TriggerZone
   - 
   - 
   - 

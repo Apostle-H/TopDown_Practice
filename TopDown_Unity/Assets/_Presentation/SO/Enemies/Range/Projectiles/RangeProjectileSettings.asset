@@ -21,4 +21,4 @@ MonoBehaviour:
     m_Bits: 64
   <IgnoreMask>k__BackingField:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 24608

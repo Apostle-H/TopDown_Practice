@@ -73,12 +73,10 @@ namespace EnemySystem.EnemyAcne
                 case > 5 when _currentAttacker == _attackerFirst:
                     ChangeAttack(_attackerSecond, secondAttackerSO);
                     _attackCounter = 0;
-                    Debug.Log(1);
                     break;
                 case > 2 when _currentAttacker == _attackerSecond:
                     ChangeAttack(_attackerFirst, firstAttackerSO);
                     _attackCounter = 0;
-                    Debug.Log(2);
                     break;
             }
         }

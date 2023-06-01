@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ShootDelay>k__BackingField: 0.1
   <ProjectilePrefab>k__BackingField: {fileID: 8651070909195823942, guid: fc0c5e4bb84807446a0c8befdf145f3f, type: 3}
-  <RotationInBattle>k__BackingField: 1.2
-  <AmountResourceToRemoveShield>k__BackingField: 1
+  <RotationInBattle>k__BackingField: 0.5
+  <AmountResourceToRemoveShield>k__BackingField: 5
   <CountAttackProjectile>k__BackingField: 12
   <RotationForProjectileAxisZ>k__BackingField: 30

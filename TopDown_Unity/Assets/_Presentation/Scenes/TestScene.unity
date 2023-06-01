@@ -16180,6 +16180,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4025895371608471237, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
+      propertyPath: acne
+      value: 
+      objectReference: {fileID: 11400000, guid: 54ef5ba9780abc74ba08746b87d3d76c, type: 2}
     - target: {fileID: 6793356406169604953, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
       propertyPath: m_Name
       value: PlayerUI
@@ -16282,7 +16286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9039768731133113200, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}

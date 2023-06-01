@@ -4,7 +4,6 @@ using EnemySystem.Health;
 using EntitySystem.Shooting;
 using EntitySystem.Shooting.Projectiles;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Utils;
 using Utils.Events;
 
@@ -16,22 +15,32 @@ namespace EnemySystem.EnemyAcne
         [SerializeField] private GameObject barrier;
         [SerializeField] private Transform projectilesHolder;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private AcneRangeAttackerSO attackerSO;
+        [SerializeField] private AcneRangeAttackerSO firstAttackerSO;
+        [SerializeField] private AcneRangeAttackerSO secondAttackerSO;
         [SerializeField] private float timeBeforeDeath;
         [SerializeField] private AudioSource source;
         
-        private Attacker _attacker;
+        private Attacker _attackerFirst;
+        private Attacker _attackerSecond;
+
+        private Attacker _currentAttacker;
+        private AcneRangeAttackerSO _currentAttackerSO;
+
+        private int _attackCounter;
 
         private void Awake()
         {
             Init();
+
+            _currentAttacker = _attackerFirst;
+            _currentAttackerSO = firstAttackerSO;
         }
 
         private void Dead()
         {
             interactions.OnKnock -= Dead;
             
-            _attacker.StopShoot();
+            _attackerFirst.StopShoot();
             
             StartCoroutine(Die());
         }
@@ -48,8 +57,39 @@ namespace EnemySystem.EnemyAcne
         private void GetDamage()
         {
             interactions.OnDamaged -= GetDamage;
-            _attacker.StartShoot();
+            _currentAttacker.StartShoot();
+            _currentAttacker.OnShoot += CountAttack;
             StartCoroutine(Rotation());
+        }
+
+        private void CountAttack()
+        {
+            _attackCounter++;
+
+            switch (_attackCounter)
+            {
+                case > 5 when _currentAttacker == _attackerFirst:
+                    ChangeAttack(_attackerSecond, secondAttackerSO);
+                    _attackCounter = 0;
+                    Debug.Log(1);
+                    break;
+                case > 2 when _currentAttacker == _attackerSecond:
+                    ChangeAttack(_attackerFirst, firstAttackerSO);
+                    _attackCounter = 0;
+                    Debug.Log(2);
+                    break;
+            }
+        }
+
+        private void ChangeAttack(Attacker newAttacker, AcneRangeAttackerSO newAttackerSO)
+        {
+            _currentAttacker.OnShoot -= CountAttack;
+            _currentAttacker.StopShoot();
+            _currentAttacker = newAttacker;
+            _currentAttacker.OnShoot += CountAttack;
+            _currentAttacker.StartShoot();
+
+            _currentAttackerSO = newAttackerSO;
         }
 
         private IEnumerator Rotation()
@@ -57,25 +97,28 @@ namespace EnemySystem.EnemyAcne
             while (true)
             {
                 yield return new WaitForSeconds(Time.fixedDeltaTime);
-                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + attackerSO.RotationInBattle);
+                transform.rotation = Quaternion.Euler(0, 0, transform.rotation.eulerAngles.z + _currentAttackerSO.RotationInBattle);
             }
         }
 
         private void Init()
         {
-            ProjectilePool pool = new ProjectilePool(attackerSO.ShootDelay, attackerSO.ProjectilePrefab, projectilesHolder, attackerSO.CountAttackProjectile);
-            _attacker = new Attacker(firePoint, pool, attackerSO, source, attackerSO.CountAttackProjectile, attackerSO.RotationForProjectileAxisZ);
+            ProjectilePool firstPool = new ProjectilePool(firstAttackerSO.ShootDelay, firstAttackerSO.ProjectilePrefab, projectilesHolder, firstAttackerSO.CountAttackProjectile);
+            _attackerFirst = new Attacker(firePoint, firstPool, firstAttackerSO, source, firstAttackerSO.CountAttackProjectile, firstAttackerSO.RotationForProjectileAxisZ);
+            
+            ProjectilePool secondPool = new ProjectilePool(secondAttackerSO.ShootDelay, secondAttackerSO.ProjectilePrefab, projectilesHolder, secondAttackerSO.CountAttackProjectile);
+            _attackerSecond = new Attacker(firePoint, secondPool, secondAttackerSO, source, secondAttackerSO.CountAttackProjectile, secondAttackerSO.RotationForProjectileAxisZ);
         }
 
         public void CheckResourceCount(int resourceCount)
         {
-            if (resourceCount >= attackerSO.AmountResourceToRemoveShield)
-            {
-                barrier.SetActive(false);
-                interactions.CanGetDamage = true;
-                interactions.OnDamaged += GetDamage;
-                interactions.OnKnock += Dead;
-            }
+            if (resourceCount < firstAttackerSO.AmountResourceToRemoveShield) 
+                return;
+            
+            barrier.SetActive(false);
+            interactions.CanGetDamage = true;
+            interactions.OnDamaged += GetDamage;
+            interactions.OnKnock += Dead;
         }
     }
 }

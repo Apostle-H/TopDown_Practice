@@ -67,8 +67,8 @@ namespace EntitySystem.Shooting
                 _rotationProjectile += _rotationProjectileStatic;
                 
                 projectile.ShootSelf();
-                OnShoot?.Invoke();
             }
+            OnShoot?.Invoke();
 
             _shootSource.Play();
             

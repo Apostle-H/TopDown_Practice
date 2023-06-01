@@ -429,7 +429,8 @@ MonoBehaviour:
   barrier: {fileID: 9159477983345027885}
   projectilesHolder: {fileID: 4693201081841863417}
   firePoint: {fileID: 4693201082012943469}
-  attackerSO: {fileID: 11400000, guid: 54ef5ba9780abc74ba08746b87d3d76c, type: 2}
+  firstAttackerSO: {fileID: 11400000, guid: 54ef5ba9780abc74ba08746b87d3d76c, type: 2}
+  secondAttackerSO: {fileID: 11400000, guid: 4f8d3c79230c6b14580c418c0ec917d7, type: 2}
   timeBeforeDeath: 5
   source: {fileID: 3479719376890348432}
 --- !u!114 &9159477983651702044

@@ -439,11 +439,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hpBar: {fileID: 6793356406943302129}
   gunBar: {fileID: 6793356406051493484}
+  acne: {fileID: 0}
   resourcesText: {fileID: 1447306936678491073}
-  patchKeyText: {fileID: 0}
-  patchCraftedText: {fileID: 0}
-  shieldKeyText: {fileID: 0}
-  shieldCraftedText: {fileID: 0}
 --- !u!1 &6793356406316923041
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,8 +907,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2b32d58718d9fc641892bea198a81046, type: 2}
+  m_sharedMaterial: {fileID: -4862661075716809948, guid: 2b32d58718d9fc641892bea198a81046, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

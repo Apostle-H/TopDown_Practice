@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using EnemySystem.Data.Combat;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ namespace UI.Player
     {
         [SerializeField] private Image hpBar;
         [SerializeField] private Image gunBar;
+
+        [SerializeField] private AcneRangeAttackerSO acne; 
 
         [SerializeField] private TextMeshProUGUI resourcesText;
         
@@ -28,7 +31,7 @@ namespace UI.Player
         }
 
         public void UpdateResources(int amount) =>
-            resourcesText.text = amount.ToString();
+            resourcesText.text = $"{amount.ToString()}/{acne.AmountResourceToRemoveShield}";
 
         public void SetConsumablesKeys(string patchKey, string shieldKey)
         {

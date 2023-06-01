@@ -105,8 +105,6 @@ namespace Core
             Splitter splitter = new Splitter(_playerResources);
             _patch = new Patch(playerHealth, playerPatchSO);
             _shield = new Shield(playerShield, playerShieldSO);
-            
-            _playerResources.Add(10);
 
             PlayerMoveInvoker moveInvoker = new PlayerMoveInvoker(_input, playerTransform, mover, rotator);
             PlayerShootInvoker shootInvoker = new PlayerShootInvoker(_input, _playerAttacker);

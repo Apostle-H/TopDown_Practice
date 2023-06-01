@@ -41,6 +41,8 @@ namespace EnemySystem.EnemyAcne
             interactions.OnKnock -= Dead;
             
             _attackerFirst.StopShoot();
+            _attackerSecond.StopShoot();
+            _currentAttacker.StopShoot();
             
             StartCoroutine(Die());
         }

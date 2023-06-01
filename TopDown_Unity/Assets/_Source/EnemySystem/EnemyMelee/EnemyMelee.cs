@@ -70,7 +70,10 @@ namespace EnemySystem.EnemyMelee
         private void Knock()
         {
             rangeCollider.enabled = false;
+            
+            _attacker.StopShoot();
             StopAllCoroutines();
+            
             rb.bodyType = RigidbodyType2D.Dynamic;
             
             interactions.OnKnock -= Knock;

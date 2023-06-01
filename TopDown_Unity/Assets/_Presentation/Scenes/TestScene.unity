@@ -5999,7 +5999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u041E\u0442\u043A\u0440\u044B\u0442\u044C \u0434\u0432\u0435\u0440\u0438
     \u043C\u043E\u0436\u043D\u043E \u0432\u0441\u0442\u0430\u0432 \u043D\u0430 \u043F\u0430\u043D\u0435\u043B\u0438"
@@ -16184,10 +16184,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerUI
       objectReference: {fileID: 0}
-    - target: {fileID: 6793356406169604954, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6793356406169604965, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -16277,10 +16273,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6793356407244377508, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9039768731133113200, guid: 45360d16fa5c33d43958f3cde0e90890, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -19317,38 +19309,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &317897887
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 317897888}
-  m_Layer: 0
-  m_Name: Dialogs
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &317897888
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 317897887}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.772026, y: -23.046373, z: 1.4343028}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 758799590}
-  m_Father: {fileID: 164290374}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &318646967
 GameObject:
   m_ObjectHideFlags: 0
@@ -20285,7 +20245,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: aboba
+  m_text: "\u041D\u0443 \u043F\u0440\u0438\u0432\u0435\u0442 \u043D\u043E\u043C\u0435\u0440
+    1 \u0438\u043B\u0438 \u043A\u0430\u043A\u043E\u0439 \u043E\u043D \u0443 \u0442\u0435\u0431\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20312,15 +20273,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.8
+  m_fontSize: 60.75
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 250
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -21279,7 +21240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0422\u044B \u0434\u043E\u043B\u0436\u0435\u043D \u0443\u0431\u0438\u0432\u0430\u0442\u044C
     \u0438 \u0440\u0430\u0441\u0449\u0438\u043F\u043B\u044F\u0442\u044C! "
@@ -21859,7 +21820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0422\u0435\u0431\u0435 \u0434\u043E\u0441\u0442\u0430\u043B\u0430\u0441\u044C
     \u0432\u0435\u043B\u0438\u043A\u0430\u044F \u0446\u0435\u043B\u044C!"
@@ -30968,7 +30929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0422\u044B \u0441\u0442\u0430\u043D\u0435\u0448\u044C 1 \u0441\u043F\u0430\u0441\u0430\u0442\u0435\u043B\u043D\u044B\u043C
     \u043A\u043B\u043E\u043D\u043E\u043C \u0432 \u0438\u0441\u0442\u043E\u0440\u0438\u0438!"
@@ -46455,12 +46416,12 @@ GameObject:
   - component: {fileID: 758799588}
   - component: {fileID: 758799587}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Dialog
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &758799587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46500,7 +46461,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &758799589
 Canvas:
   m_ObjectHideFlags: 0
@@ -46510,7 +46471,7 @@ Canvas:
   m_GameObject: {fileID: 758799586}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
+  m_RenderMode: 0
   m_Camera: {fileID: 1997234518}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -46529,20 +46490,20 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758799586}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.4343028}
-  m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1319706223}
-  m_Father: {fileID: 317897888}
-  m_RootOrder: 0
+  m_Father: {fileID: 1451372148}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 33.98, y: 25.720003}
-  m_SizeDelta: {x: 178.1634, y: 83.1027}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &763034826
 GameObject:
   m_ObjectHideFlags: 0
@@ -49722,7 +49683,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u042F \u0432\u044B\u043F\u0443\u0441\u0442\u0438\u043B \u043F\u0430\u0440\u0443
     \u0437\u0432\u0435\u0440\u0443\u0448\u0435\u043A, \u0443\u0431\u0435\u0439 \u0438\u0445!"
@@ -56344,7 +56305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u041D\u0443 \u043F\u0440\u0438\u0432\u0435\u0442 \u043D\u043E\u043C\u0435\u0440
     1 \u0438\u043B\u0438 \u043A\u0430\u043A\u043E\u0439 \u043E\u043D \u0443 \u0442\u0435\u0431\u044F"
@@ -67649,7 +67610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u043E\u0442\u043A\u0440\u043E\u0439
     \u0434\u0432\u0435\u0440\u044C \u0438 \u0432\u044B\u0445\u043E\u0434\u0438"
@@ -69469,7 +69430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0422\u0435\u043F\u0435\u0440\u044C \u0442\u044B \u0434\u043E\u043B\u0436\u0435\u043D
     \u0443\u0431\u0438\u0442\u044C \u0432\u0440\u0430\u0433\u0430, \u0438 \u0437\u0430\u043A\u0438\u043D\u0443\u0442\u044C
@@ -79984,7 +79945,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1319706223
 RectTransform:
   m_ObjectHideFlags: 0
@@ -80001,10 +79962,10 @@ RectTransform:
   m_Father: {fileID: 758799590}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5886556, y: 0.61920404}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.0000038146973}
-  m_SizeDelta: {x: 0, y: 0.000015259}
+  m_AnchoredPosition: {x: -1, y: -1}
+  m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1319706224
 MonoBehaviour:
@@ -82205,7 +82166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0410 \u0442\u0435\u043F\u0435\u0440\u044C \u0437\u0430\u0441\u0442\u0440\u0435\u043B\u0438
     \u0435\u0433\u043E! "
@@ -86744,6 +86705,7 @@ Transform:
   - {fileID: 973613794}
   - {fileID: 278180256}
   - {fileID: 798468692}
+  - {fileID: 758799590}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -95898,7 +95860,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u041E\u043D \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C \u0434\u043B\u044F
     \u043F\u0435\u0440\u0435\u043C\u0435\u0449\u0435\u043D\u0438\u044F \u043F\u043E
@@ -96890,7 +96852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0421\u0435\u0439\u0447\u0430\u0441 \u0442\u0435\u0431\u044F \u0432\u0441\u0442\u0440\u0435\u0442\u0438\u0442
     \u0441\u0433\u0443\u0441\u0442\u043E\u043A \u0431\u0438\u043E\u043C\u0430\u0441\u0441\u044B!"
@@ -97053,7 +97015,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0420\u0430\u0434\u0438 \u043C\u043E\u0435\u0433\u043E \u0441\u043F\u0430\u0441\u0435\u043D\u0438\u044F
     \u0441 \u044D\u0442\u043E\u0439 \u0434\u044B\u0440\u044B!!"
@@ -105774,10 +105736,10 @@ RectTransform:
   m_Father: {fileID: 490138893}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0145264, y: -0.21459961}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0.44378474, y: 0.47610205}
+  m_AnchorMax: {x: 0.55425835, y: 0.52950346}
+  m_AnchoredPosition: {x: 1.5, y: -1.5}
+  m_SizeDelta: {x: 85, y: 19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779887778
 MonoBehaviour:
@@ -105826,12 +105788,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 45.1
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 250
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -110439,7 +110401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u041C\u0438\u043B\u0435\u043D\u044C\u043A\u0438\u0435 \u0437\u0432\u0435\u0440\u0443\u0448\u043A\u0438,
     \u043F\u0440\u0430\u0432\u0434\u0430? "
@@ -119822,7 +119784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u041A\u0430\u043A \u0438 \u0442\u0432\u043E\u0438\u043C \u0441\u043E\u0431\u0440\u0430\u0442\u0430\u043C!"
   timeDialog: 2
@@ -125446,7 +125408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0417\u0430\u0431\u044B\u043B \u0441\u043A\u0430\u0437\u0430\u0442\u044C.
     \u0414\u043E\u0431\u0438\u0442\u044C \u0442\u044B \u0438\u0445 \u0441\u043C\u043E\u0436\u0435\u0448\u044C
@@ -129884,7 +129846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialog: {fileID: 758799586}
+  dialog: {fileID: 1319706222}
   textObject: {fileID: 330674065}
   text: "\u0421\u0435\u0439\u0447\u0430\u0441 \u043C\u044B \u043D\u0430\u0445\u043E\u0434\u0438\u043C\u0441\u044F
     \u043D\u0430 \u043C\u043E\u0435\u043C \u0430\u0432\u0430\u043D\u043F\u043E\u0441\u0442\u0435.

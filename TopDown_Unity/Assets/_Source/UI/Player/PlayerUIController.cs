@@ -34,7 +34,6 @@ namespace UI.Player
             _shield = shield;
 
             InitSequence();
-            // _view.SetConsumablesKeys(model.PatchKey, model.ShieldKey);
 
             _health.OnDamaged += UpdateHealth;
             _health.OnHeal += UpdateHealth;
@@ -46,14 +45,7 @@ namespace UI.Player
             _resources.OnAdded += UpdateResources;
             _resources.OnConsumed += UpdateResources;
             
-            // _patch.OnCrafted += UpdatePatchCrafted;
-            // _patch.OnUsed += UpdatePatchCrafted;
-            // _shield.OnCrafted += UpdateShieldCrated;
-            // _shield.OnUsed += UpdateShieldCrated;
-            
             UpdateResources();
-            // UpdatePatchCrafted();
-            // UpdateShieldCrated();
         }
 
         private void UpdateHealth()
@@ -79,12 +71,6 @@ namespace UI.Player
         private void UpdateResources() =>
             _view.UpdateResources(_resources.Amount);
         
-        // private void UpdatePatchCrafted() =>
-        //     _view.UpdatePatchCrafted(_patch.Crafted);
-        
-        // private void UpdateShieldCrated() =>
-        //     _view.UpdateShieldCrafted(_shield.Crafted);
-
         private void InitSequence()
         {
             _weaponRecharge = DOTween.Sequence();

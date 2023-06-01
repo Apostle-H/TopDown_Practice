@@ -1,7 +1,4 @@
 ﻿namespace Utils.Events
 {
-    public class AllLevelEndSignal : ASignal
-    {
-        
-    }
+    public class AllLevelEndSignal : ASignal { }
 }

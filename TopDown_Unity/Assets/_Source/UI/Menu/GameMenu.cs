@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -9,16 +10,26 @@ namespace UI.Menu
 {
     public class GameMenu : MonoBehaviour
     {
+        [SerializeField] private CanvasGroup blackBackground;
         [SerializeField] private GameObject resulPanel;
         [SerializeField] private TMP_Text text;
         [SerializeField] private string loseText;
         [SerializeField] private Button continueButton;
         [SerializeField] private Button exitButton;
 
+        private const float DURATION = 1.5f;
+
         private void Awake()
         {
             continueButton.onClick.AddListener(Continue);
             exitButton.onClick.AddListener(Exit);
+            
+            blackBackground.DOFade(endValue: 0, DURATION)
+                .OnComplete(() => 
+                {
+                    blackBackground.gameObject.SetActive(false);
+                    blackBackground.GetComponent<CanvasGroup>().DOKill();
+                });
         }
 
         private void OnEnable()
@@ -49,7 +60,7 @@ namespace UI.Menu
 
         private void NextScene()
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            TransitionBetweenScenes(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         private void Continue()
@@ -57,8 +68,7 @@ namespace UI.Menu
             Time.timeScale = 1;
 
             RemoveEvent();
-
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            TransitionBetweenScenes(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void Exit()
@@ -66,8 +76,18 @@ namespace UI.Menu
             Time.timeScale = 1;
 
             RemoveEvent();
-            
-            SceneManager.LoadScene(0);
+            TransitionBetweenScenes(0);
+        }
+
+        private void TransitionBetweenScenes(int sceneIndex)
+        {
+            blackBackground.gameObject.SetActive(true);
+            blackBackground.DOFade(endValue: 1, DURATION)
+                .OnComplete(() => 
+                {
+                    SceneManager.LoadScene(sceneIndex);
+                    blackBackground.DOKill();
+                });
         }
     }
 }

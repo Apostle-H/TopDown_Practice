@@ -14,12 +14,6 @@ namespace UI.Player
 
         [SerializeField] private TextMeshProUGUI resourcesText;
         
-        // [SerializeField] private TextMeshProUGUI patchKeyText;
-        // [SerializeField] private TextMeshProUGUI patchCraftedText;
-        //
-        // [SerializeField] private TextMeshProUGUI shieldKeyText;
-        // [SerializeField] private TextMeshProUGUI shieldCraftedText;
-
         public void UpdateHealth(float fillPercentage)
         {
             hpBar.fillAmount = fillPercentage;
@@ -32,20 +26,5 @@ namespace UI.Player
 
         public void UpdateResources(int amount) =>
             resourcesText.text = $"{amount.ToString()}/{acne.AmountResourceToRemoveShield}";
-
-        // public void SetConsumablesKeys(string patchKey, string shieldKey)
-        // {
-        //     patchKeyText.text = patchKey;
-        //     shieldKeyText.text = shieldKey;
-        // }
-
-        // public void UpdatePatchCrafted(int crafted) =>
-        //     UpdateCrafted(patchCraftedText, crafted.ToString());
-        
-        // public void UpdateShieldCrafted(int crafted) =>
-        //     UpdateCrafted(shieldCraftedText, crafted.ToString());
-
-        private void UpdateCrafted(TextMeshProUGUI craftedText, string crafted) => 
-            craftedText.text = crafted;
     }
 }

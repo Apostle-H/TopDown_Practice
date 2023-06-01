@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ShootDelay>k__BackingField: 0.4
   <ProjectilePrefab>k__BackingField: {fileID: 8651070909195823942, guid: b963a65f285d1b54496ac6fb4a254d56, type: 3}
-  <AttackRange>k__BackingField: 7
+  <AttackRange>k__BackingField: 15

@@ -2749,11 +2749,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a978a8de8e8462595ce47d17a936613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textNote: "\u0415\u0441\u0442\u044C \u043A\u0442\u043E \u0436\u0438\u0432\u043E\u0439?
+  textNote: "\u0413\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u044F \u0437\u0430\u043F\u0438\u0441\u044C
+    4 \u0415\u0441\u0442\u044C \u043A\u0442\u043E \u0436\u0438\u0432\u043E\u0439?
     \u041A\u0430\u043A\u0438\u0435 \u0442\u043E \u0441\u0442\u0440\u0430\u043D\u043D\u044B\u0435
     \u0442\u0432\u0430\u0440\u0438 \u0437\u0430\u043F\u043E\u043B\u0437\u0430\u044E\u0442
     \u043D\u0430 \u043A\u043E\u0440\u0430\u0431\u043B\u044C, \u043D\u0443\u0436\u043D\u0430
-    \u043F**?*...."
+    \u043F**?*... "
   hint: {fileID: 118993888}
   player:
     serializedVersion: 2
@@ -4075,10 +4076,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a978a8de8e8462595ce47d17a936613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textNote: "\u041C\u0430\u0439\u043A\u043B, \u0442\u044B \u043F\u0440\u0430\u0432\u0434\u0430
+  textNote: "\u0413\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u044F \u0437\u0430\u043F\u0438\u0441\u044C
+    2 \u041C\u0430\u0439\u043A\u043B, \u0442\u044B \u043F\u0440\u0430\u0432\u0434\u0430
     \u0445\u043E\u0447\u0435\u0448\u044C \u0440\u0430\u0431\u043E\u0442\u0430\u0442\u044C
     \u043D\u0430\u0434  \u043A\u043B\u043E\u043D\u0430\u043C\u0438? \u042D\u0442\u043E
-    \u0436\u0435 \u0437\u0430\u043C\u0435\u0447\u0430\u0442\u0435\u043B\u044C\u043D\u043E!"
+    \u0436\u0435 \u0437\u0430\u043C\u0435\u0447\u0430\u0442\u0435\u043B\u044C\u043D\u043E! "
   hint: {fileID: 909206069}
   player:
     serializedVersion: 2
@@ -4156,11 +4158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a978a8de8e8462595ce47d17a936613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textNote: "\u0413\u043E\u0432\u043E\u0440\u0438\u0442 \u043A\u0430\u043F\u0438\u0442\u0430\u043D
+  textNote: "\u0413\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u044F \u0437\u0430\u043F\u0438\u0441\u044C
+    3 \u0413\u043E\u0432\u043E\u0440\u0438\u0442 \u043A\u0430\u043F\u0438\u0442\u0430\u043D
     \u043A\u043E\u0440\u0430\u0431\u043B\u044F \"\u043F\u0440\u043E\u043C\u0435\u0442\u0435\u0439\".
     \u0421\u0440\u043E\u0447\u043D\u043E \u0442\u0440\u0435\u0431\u0443\u0435\u0442\u0441\u044F
     \u043F\u043E\u043C\u043E\u0449\u044C \u043D\u0430 \u0443\u043A\u0430\u0437\u0430\u043D\u043D\u044B\u0435
-    \u043A\u043E\u043E*?*:..."
+    \u043A\u043E\u043E*?*:... "
   hint: {fileID: 1846480329}
   player:
     serializedVersion: 2
@@ -9895,86 +9898,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &338783576
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 338783577}
-  - component: {fileID: 338783579}
-  - component: {fileID: 338783578}
-  m_Layer: 14
-  m_Name: Triger-Zone-Dialog (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &338783577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338783576}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.66, y: -14.89, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1280379265}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &338783578
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338783576}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -1.2489839, y: 3.284317}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 14.976516, y: 16.758064}
-  m_EdgeRadius: 0
---- !u!114 &338783579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338783576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d41f9ac282b4452899c8b27a0e8fb8ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog: {fileID: 1310196009}
-  textObject: {fileID: 67659825}
-  text: "\u0411\u044B\u043B\u0430 \u0431\u044B \u043E\u043D\u0430 \u0441\u0435\u0439\u0447\u0430\u0441
-    \u0440\u044F\u0434\u043E\u043C"
-  timeDialog: 2
-  player:
-    serializedVersion: 2
-    m_Bits: 64
-  source: {fileID: 682323038}
 --- !u!1 &338958445
 GameObject:
   m_ObjectHideFlags: 0
@@ -34060,10 +33983,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a978a8de8e8462595ce47d17a936613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textNote: "\u0412 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0435 \u0432\u0440\u0435\u043C\u044F
-    \u0432 \u0441\u0442\u043E\u043B\u043E\u0432\u043A\u0435 \u043D\u0438\u0447\u0435\u0433\u043E
+  textNote: "\u0413\u043E\u043B\u043E\u0441\u043E\u0432\u0430\u044F \u0437\u0430\u043F\u0438\u0441\u044C
+    1 \u0412 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0435\u0435 \u0432\u0440\u0435\u043C\u044F
+    \u0432 \u0441\u0442\u043E\u043B\u043E\u0432\u043E\u0439 \u043D\u0438\u0447\u0435\u0433\u043E
     \u043D\u043E\u0440\u043C\u0430\u043B\u044C\u043D\u043E\u0433\u043E \u043D\u0435
-    \u043F\u043E\u0434\u0430\u044E\u0442"
+    \u043F\u043E\u0434\u0430\u044E\u0442 "
   hint: {fileID: 684131601}
   player:
     serializedVersion: 2
@@ -34251,7 +34175,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2093820430}
-  - {fileID: 338783577}
   - {fileID: 1983738010}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -49126,7 +49049,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1280379265}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1983738011
 BoxCollider2D:

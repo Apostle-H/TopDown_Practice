@@ -3145,7 +3145,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -30, y: -30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &126243937
 GameObject:
@@ -3759,6 +3759,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 211005999}
 --- !u!1 &158315963
 GameObject:
   m_ObjectHideFlags: 0
@@ -5465,6 +5466,11 @@ PrefabInstance:
 --- !u!82 &211005998 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8258285328382641211, guid: 6176aaf0cb5f47e448bf77a400e50459, type: 3}
+  m_PrefabInstance: {fileID: 211005997}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &211005999 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1226935000739029699, guid: 6176aaf0cb5f47e448bf77a400e50459, type: 3}
   m_PrefabInstance: {fileID: 211005997}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &212083824
@@ -7887,6 +7893,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 211005999}
 --- !u!1 &330733908
 GameObject:
   m_ObjectHideFlags: 0
@@ -9132,6 +9139,10 @@ PrefabInstance:
       value: AcneEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: firstAttackerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 8b00d36effd5dcd428d72a72059cdf4a, type: 2}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
       propertyPath: timeBeforeDeath
       value: 5
       objectReference: {fileID: 0}
@@ -9139,6 +9150,10 @@ PrefabInstance:
       propertyPath: rotationInBattle
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: secondAttackerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f8d3c79230c6b14580c418c0ec917d7, type: 2}
     - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
       propertyPath: countAttackProjectile
       value: 12
@@ -10756,6 +10771,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 211005999}
 --- !u!1 &403646320
 GameObject:
   m_ObjectHideFlags: 0
@@ -39279,6 +39295,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 211005999}
 --- !u!1 &1502265323
 GameObject:
   m_ObjectHideFlags: 0
@@ -49816,6 +49833,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 211005999}
 --- !u!1 &1899973266
 GameObject:
   m_ObjectHideFlags: 0
@@ -53046,6 +53064,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 211005999}
 --- !u!1 &2019719436
 GameObject:
   m_ObjectHideFlags: 0

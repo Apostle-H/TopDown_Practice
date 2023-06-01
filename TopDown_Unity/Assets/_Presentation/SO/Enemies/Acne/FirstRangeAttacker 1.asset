@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cb13f1234a11467eb92ce12d18e978c8, type: 3}
-  m_Name: FirstRangeAttacker
+  m_Name: FirstRangeAttacker 1
   m_EditorClassIdentifier: 
   <ShootDelay>k__BackingField: 0.6
   <ProjectilePrefab>k__BackingField: {fileID: 8651070909195823942, guid: fc0c5e4bb84807446a0c8befdf145f3f, type: 3}
   <RotationInBattle>k__BackingField: 0.5
-  <AmountResourceToRemoveShield>k__BackingField: 8
+  <AmountResourceToRemoveShield>k__BackingField: 1
   <CountAttackProjectile>k__BackingField: 12
   <RotationForProjectileAxisZ>k__BackingField: 30

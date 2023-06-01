@@ -1823,8 +1823,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5}
+  m_SizeDelta: {x: -30, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &67659825
 MonoBehaviour:
@@ -9974,6 +9974,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 682323038}
 --- !u!1 &338958445
 GameObject:
   m_ObjectHideFlags: 0
@@ -18463,6 +18464,11 @@ PrefabInstance:
 --- !u!82 &682323037 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 8258285326643347443, guid: 6176aaf0cb5f47e448bf77a400e50459, type: 3}
+  m_PrefabInstance: {fileID: 682323036}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &682323038 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1226935000739029699, guid: 6176aaf0cb5f47e448bf77a400e50459, type: 3}
   m_PrefabInstance: {fileID: 682323036}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &684131601
@@ -49167,6 +49173,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 682323038}
 --- !u!1001 &1987286031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49223,6 +49230,10 @@ PrefabInstance:
       value: AcneEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: firstAttackerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 54ef5ba9780abc74ba08746b87d3d76c, type: 2}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
       propertyPath: timeBeforeDeath
       value: 5
       objectReference: {fileID: 0}
@@ -49230,6 +49241,10 @@ PrefabInstance:
       propertyPath: rotationInBattle
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
+      propertyPath: secondAttackerSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f8d3c79230c6b14580c418c0ec917d7, type: 2}
     - target: {fileID: 9159477983651702047, guid: 986d95581f2c9d149b9d3384e0551bc9, type: 3}
       propertyPath: countAttackProjectile
       value: 12
@@ -51624,6 +51639,7 @@ MonoBehaviour:
   player:
     serializedVersion: 2
     m_Bits: 64
+  source: {fileID: 682323038}
 --- !u!1 &2093944368
 GameObject:
   m_ObjectHideFlags: 0

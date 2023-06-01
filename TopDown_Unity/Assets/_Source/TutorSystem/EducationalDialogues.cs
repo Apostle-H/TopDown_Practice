@@ -12,12 +12,14 @@ namespace TutorSystem
         [SerializeField] private string text;
         [SerializeField] private float timeDialog;
         [SerializeField] private LayerMask player;
+        [SerializeField] private AudioSource source;
 
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (player.Contains(other.gameObject.layer))
             {
                 dialog.SetActive(true);
+                source.Play();
                 textObject.text = text;
                 StartCoroutine(EndDialog());
             }

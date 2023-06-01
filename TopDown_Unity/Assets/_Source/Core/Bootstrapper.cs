@@ -120,7 +120,7 @@ namespace Core
         private void InitUI()
         {
             PlayerUIModel model = new PlayerUIModel(_input);
-            new PlayerUIController(model, playerUIView, playerHealth, _playerAttacker, _playerHookShooter, _playerResources, _patch, _shield);
+            new PlayerUIController(playerUIView, playerHealth, _playerAttacker, _playerHookShooter, _playerResources);
         }
 
         private void InitResource()

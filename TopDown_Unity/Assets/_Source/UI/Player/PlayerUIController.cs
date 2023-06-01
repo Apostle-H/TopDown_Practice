@@ -1,37 +1,30 @@
 ﻿using DG.Tweening;
 using EntitySystem.Shooting;
 using PlayerSystem;
-using PlayerSystem.Consumables;
 
 namespace UI.Player
 {
     public class PlayerUIController
     {
-        private readonly PlayerUIModel _model;
         private readonly PlayerUIView _view;
 
         private readonly PlayerHealth _health;
         private readonly Attacker _attacker;
         private readonly HookShooter _hookShooter;
         private readonly PlayerResources _resources;
-        private readonly Patch _patch;
-        private readonly Shield _shield;
 
         private Sequence _weaponRecharge;
 
         private float _currentRechargeTime;
 
-        public PlayerUIController(PlayerUIModel model, PlayerUIView view, PlayerHealth health, Attacker attacker,
-            HookShooter hookShooter, PlayerResources resources, Patch patch, Shield shield)
+        public PlayerUIController(PlayerUIView view, PlayerHealth health, Attacker attacker,
+            HookShooter hookShooter, PlayerResources resources)
         {
-            _model = model;
             _view = view;
             _health = health;
             _attacker = attacker;
             _hookShooter = hookShooter;
             _resources = resources;
-            _patch = patch;
-            _shield = shield;
 
             InitSequence();
 

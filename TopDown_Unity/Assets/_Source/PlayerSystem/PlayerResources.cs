@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace PlayerSystem
 {
@@ -11,7 +12,7 @@ namespace PlayerSystem
 
         public void Add(int amount)
         {
-            Amount += amount;
+            Amount = amount;
             
             OnAdded?.Invoke();
         }
